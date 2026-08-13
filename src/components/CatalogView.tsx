@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { PRODUCTS, buildPriceListRows } from '../data/products';
+import { Link } from 'react-router-dom';
+import { PRODUCTS, buildPriceListRows, slugify } from '../data/products';
 import { ProductItem } from '../types';
 import { Search, Send, Filter, CheckCircle2 } from 'lucide-react';
 
@@ -147,7 +148,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
               key={product.id}
               className="bg-[#F7F5F1] border border-black/15 rounded-sm overflow-hidden flex flex-col justify-between group hover:border-[#C8522C] transition-colors"
             >
-              <div>
+              <Link to={`/products/${slugify(product.name)}`} className="block">
                 <div className="h-48 w-full overflow-hidden relative bg-[#EAE8E4]">
                   <img
                     src={product.image}
@@ -166,7 +167,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
 
                 <div className="p-5 space-y-3">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-serif-display text-lg text-[#1b1c1a] font-semibold leading-snug">
+                    <h3 className="font-serif-display text-lg text-[#1b1c1a] font-semibold leading-snug hover:text-[#C8522C] transition-colors">
                       {product.name}
                     </h3>
                   </div>
@@ -190,7 +191,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
 
               <div className="p-5 pt-0">
                 <button

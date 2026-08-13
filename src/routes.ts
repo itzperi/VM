@@ -1,5 +1,6 @@
-import { buildOrganizationSchema, buildAllProductSchemas, buildFaqPageSchema, buildBreadcrumbSchema } from './lib/schema';
+import { buildOrganizationSchema, buildAllProductSchemas, buildFaqPageSchema, buildBreadcrumbSchema, buildProductSchema } from './lib/schema';
 import { SITE_URL, LOGO_URL } from './lib/siteConfig';
+import { PRODUCTS, slugify } from './data/products';
 
 export interface RouteMeta {
   path: string;
@@ -76,10 +77,35 @@ export interface HeadData {
   schemas: object[];
 }
 
+// One dedicated, crawlable page per real product (granular service pages),
+// each with its own Product schema and breadcrumb back to /products.
+export const PRODUCT_ROUTE_PATHS: string[] = PRODUCTS.map((p) => `/products/${slugify(p.name)}`);
+
+function computeProductHeadData(slug: string): HeadData | null {
+  const product = PRODUCTS.find((p) => slugify(p.name) === slug);
+  if (!product) return null;
+
+  const path = `/products/${slug}`;
+  const canonicalUrl = `${SITE_URL}${path}`;
+  const title = `${product.name} | ${product.startingPrice}, MOQ ${product.moq} | Visalatchi Manufactures`;
+  const description = `${product.description} Starting at ${product.startingPrice}, minimum order ${product.moq} units. Made in Chennai, dispatched pan India.`;
+  const schemas = [
+    buildOrganizationSchema(),
+    buildBreadcrumbSchema(path, product.name),
+    buildProductSchema(product),
+  ];
+  return { title, description, canonicalUrl, ogImage: product.image, noindex: false, schemas };
+}
+
 /** Single source of truth for per-route <head> content, consumed by both the
  * client-side Seo component and the build-time prerender script — this is
  * what keeps the hydrated page and the raw HTML crawlers see in sync. */
 export function computeHeadData(pathname: string): HeadData {
+  if (pathname.startsWith('/products/')) {
+    const productHead = computeProductHeadData(pathname.slice('/products/'.length));
+    if (productHead) return productHead;
+  }
+
   const route = ROUTES.find((r) => r.path === pathname);
   if (!route) {
     return {

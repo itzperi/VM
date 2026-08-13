@@ -8,6 +8,7 @@ import { WhyVisalatchi } from './components/WhyVisalatchi';
 import { ProcessMarquee } from './components/ProcessMarquee';
 import { Footer } from './components/Footer';
 import { CatalogView } from './components/CatalogView';
+import { ProductDetailView } from './components/ProductDetailView';
 import { D2CView } from './components/D2CView';
 import { FoodView } from './components/FoodView';
 import { ExportView } from './components/ExportView';
@@ -102,6 +103,16 @@ export default function App() {
             element={
               <div className="pt-24">
                 <CatalogView openContact={openContact} />
+                <ProcessMarquee />
+              </div>
+            }
+          />
+
+          <Route
+            path="/products/:slug"
+            element={
+              <div className="pt-24">
+                <ProductDetailView openContact={openContact} />
                 <ProcessMarquee />
               </div>
             }

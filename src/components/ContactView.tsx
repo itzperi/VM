@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Phone, Mail, CheckCircle2, MessageSquare, MapPin } from 'lucide-react';
 import { saveInquiry, buildWhatsAppLink } from '../lib/inquiryStore';
-import { NORTH_CHENNAI_AREAS } from '../lib/siteConfig';
+import { NORTH_CHENNAI_AREAS, PLANT_MAPS_SHARE_URL, PLANT_MAPS_EMBED_SRC } from '../lib/siteConfig';
 
 export const ContactView: React.FC = () => {
   const [name, setName] = useState('');
@@ -259,15 +259,15 @@ export const ContactView: React.FC = () => {
                 North Chennai Coverage Area
               </h2>
               <p className="font-body text-sm text-[#444748] leading-relaxed max-w-3xl">
-                Our plant is in Thiruvottiyur, North Chennai — so businesses based in North Chennai get the
-                shortest possible dispatch and pickup times, with sample runs often deliverable same-day.
+                Our plant is in Thiruvottiyur, North Chennai, so businesses based in North Chennai get the
+                shortest possible dispatch and pickup times, with sample runs often deliverable same day.
                 Everywhere else in Chennai, Tamil Nadu and the rest of India ships through our standard
-                pan-India courier network. North Chennai localities we regularly dispatch to and collect samples
+                pan India courier network. North Chennai localities we regularly dispatch to and collect samples
                 from include:
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap gap-2 max-w-4xl">
+          <div className="flex flex-wrap gap-2 max-w-4xl mb-10">
             {NORTH_CHENNAI_AREAS.map((area) => (
               <span
                 key={area}
@@ -277,6 +277,25 @@ export const ContactView: React.FC = () => {
               </span>
             ))}
           </div>
+
+          <iframe
+            title="Visalatchi Manufactures plant location on Google Maps"
+            src={PLANT_MAPS_EMBED_SRC}
+            width="100%"
+            height="320"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-sm border border-black/15 w-full"
+          />
+          <a
+            href={PLANT_MAPS_SHARE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-3 text-[#C8522C] text-xs font-semibold hover:underline"
+          >
+            View on Google Maps and get directions →
+          </a>
         </div>
       )}
 

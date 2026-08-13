@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.visalatchimanufactures.com/sitemap.xml
+Sitemap: https://visalatchimanufacturing.com/sitemap.xml
