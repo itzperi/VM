@@ -1,0 +1,6 @@
+{
+  "name": "Visalatchi Packaging",
+  "description": "Shipping-ready packaging solutions for D2C brands, food/FMCG manufacturers, and international exporters.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

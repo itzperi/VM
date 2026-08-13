@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F7F5F1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    color: #1b1c1a;
+  }
+}
+
+.font-serif-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.font-nokia {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.hairline {
+  border-bottom: 0.5px solid rgba(26, 26, 26, 0.2);
+}
+.hairline-r {
+  border-right: 0.5px solid rgba(26, 26, 26, 0.2);
+}
+.hairline-t {
+  border-top: 0.5px solid rgba(26, 26, 26, 0.2);
+}
+
+.kinetic-scroll-container {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.kinetic-scroll-content {
+  animation: scroll 25s linear infinite;
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-start infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
