@@ -17,6 +17,8 @@ import { ProcessView } from './components/ProcessView';
 import { FAQView } from './components/FAQView';
 import { AboutView } from './components/AboutView';
 import { ContactView } from './components/ContactView';
+import { BlogIndexView } from './components/BlogIndexView';
+import { BlogPostView } from './components/BlogPostView';
 import { ContactModal } from './components/ContactModal';
 import { NotFound } from './components/NotFound';
 import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
@@ -154,6 +156,26 @@ export default function App() {
             element={
               <div className="pt-24">
                 <ContactView />
+                <ProcessMarquee />
+              </div>
+            }
+          />
+
+          <Route
+            path="/blog"
+            element={
+              <div className="pt-24">
+                <BlogIndexView />
+                <ProcessMarquee />
+              </div>
+            }
+          />
+
+          <Route
+            path="/blog/:slug"
+            element={
+              <div className="pt-24">
+                <BlogPostView openContact={openContact} />
                 <ProcessMarquee />
               </div>
             }

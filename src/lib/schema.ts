@@ -1,6 +1,6 @@
 import { PRODUCTS } from '../data/products';
 import { FAQS } from '../data/faqs';
-import { ProductItem } from '../types';
+import { BlogPost, ProductItem } from '../types';
 import { SITE_URL, LOGO_URL, PLANT_ADDRESS, TAMIL_NADU_CITIES, PLANT_COORDS, PLANT_MAPS_SHARE_URL } from './siteConfig';
 
 export function buildOrganizationSchema() {
@@ -110,6 +110,34 @@ export function buildFaqPageSchema() {
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
+  };
+}
+
+// Real domain specialists per category, matching the roles already
+// established in the Organization schema's contactPoint above, not
+// fabricated bylines. 'general' posts aren't specific to either
+// specialist's stated area, so they're attributed to the org itself.
+const BLOG_AUTHOR_BY_CATEGORY: Record<BlogPost['category'], string> = {
+  d2c: 'Palaniappan',
+  food: 'Periyanan',
+  export: 'Periyanan',
+  general: 'Visalatchi Manufactures',
+};
+
+export function buildArticleSchema(post: BlogPost, canonicalUrl: string) {
+  const authorName = BLOG_AUTHOR_BY_CATEGORY[post.category];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.publishDate,
+    author:
+      authorName === 'Visalatchi Manufactures'
+        ? { '@type': 'Organization', name: authorName }
+        : { '@type': 'Person', name: authorName, worksFor: { '@type': 'Organization', name: 'Visalatchi Manufactures' } },
+    publisher: { '@type': 'Organization', name: 'Visalatchi Manufactures', logo: { '@type': 'ImageObject', url: LOGO_URL } },
+    mainEntityOfPage: canonicalUrl,
   };
 }
 

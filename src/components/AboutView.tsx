@@ -34,26 +34,30 @@ export const AboutView: React.FC<AboutViewProps> = ({ openContact }) => {
           <div className="bg-[#EAE8E4] border border-black/10 p-6 rounded-sm space-y-2">
             <Factory className="w-6 h-6 text-[#C8522C] mb-2" />
             <h3 className="font-serif-display text-lg text-[#1b1c1a] font-medium">
-              Palaniappan — D2C & Domestic Lead
+              Palaniappan, D2C & Domestic Lead
             </h3>
             <p className="text-xs text-[#444748]">
-              Direct Line / WhatsApp: <strong className="text-[#1b1c1a]">98405 01323</strong>
+              Direct Line / WhatsApp: <strong className="text-[#1b1c1a]">98405 01323</strong> · English, Tamil
             </p>
             <p className="text-xs text-[#444748] pt-2 border-t border-black/10">
               Handles D2C mailer boxes, custom inside print, fast dispatch courier bags, and brand unboxing proofs.
+              If you are testing a new SKU size or need a sample turned around fast for a launch date, Palaniappan
+              is who you talk to directly, not a general inquiry queue.
             </p>
           </div>
 
           <div className="bg-[#EAE8E4] border border-black/10 p-6 rounded-sm space-y-2">
             <ShieldCheck className="w-6 h-6 text-[#C8522C] mb-2" />
             <h3 className="font-serif-display text-lg text-[#1b1c1a] font-medium">
-              Periyanan — Food & Export Lead
+              Periyanan, Food & Export Lead
             </h3>
             <p className="text-xs text-[#444748]">
-              Direct Line / WhatsApp: <strong className="text-[#1b1c1a]">94444 20367</strong>
+              Direct Line / WhatsApp: <strong className="text-[#1b1c1a]">94444 20367</strong> · English, Tamil
             </p>
             <p className="text-xs text-[#444748] pt-2 border-t border-black/10">
-              Oversees heavy 7-ply master cartons, container pallet optimization, FSSAI compliance, and ocean freight logistics.
+              Oversees heavy 7-ply master cartons, container pallet optimization, FSSAI compliance, and ocean freight
+              logistics. For food-grade specification questions or export compliance documentation, share your
+              buyer's or retailer's specific requirement with Periyanan directly before committing to a spec.
             </p>
           </div>
         </div>

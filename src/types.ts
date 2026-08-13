@@ -1,3 +1,20 @@
+export type BlogContentBlock =
+  | { type: 'paragraph'; text: string }
+  | { type: 'heading'; text: string }
+  | { type: 'list'; items: string[] };
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  description: string;
+  publishDate: string; // ISO date, e.g. '2026-08-20'
+  category: 'd2c' | 'food' | 'export' | 'general';
+  relatedProductIds: string[];
+  content: BlogContentBlock[];
+  /** Sources cited for factual/regulatory claims. Omit for posts with none. */
+  sources?: { title: string; url: string }[];
+}
+
 export interface ProductItem {
   id: string;
   name: string;

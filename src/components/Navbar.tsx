@@ -19,6 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
     { label: 'PROCESS', to: '/process' },
     { label: 'ABOUT', to: '/about' },
     { label: 'FAQ', to: '/faq' },
+    { label: 'BLOG', to: '/blog' },
   ];
 
   const closeAndScrollTop = () => {

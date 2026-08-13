@@ -1,6 +1,7 @@
-import { buildOrganizationSchema, buildAllProductSchemas, buildFaqPageSchema, buildBreadcrumbSchema, buildProductSchema } from './lib/schema';
+import { buildOrganizationSchema, buildAllProductSchemas, buildFaqPageSchema, buildBreadcrumbSchema, buildProductSchema, buildArticleSchema } from './lib/schema';
 import { SITE_URL, LOGO_URL } from './lib/siteConfig';
 import { PRODUCTS, slugify } from './data/products';
+import { BLOG_POSTS, getBlogPostBySlug } from './data/blogPosts';
 
 export interface RouteMeta {
   path: string;
@@ -66,6 +67,12 @@ export const ROUTES: RouteMeta[] = [
     description:
       'Request a packaging quote or sample from our Chennai, Tamil Nadu factory. Speak directly with our D2C, food and export specialists.',
   },
+  {
+    path: '/blog',
+    title: 'Packaging Guides & Resources | Visalatchi Manufactures Blog',
+    description:
+      'Practical guides on packaging MOQs, corrugated board specs, FSSAI compliance and export carton requirements, from our Chennai packaging factory.',
+  },
 ];
 
 export interface HeadData {
@@ -97,6 +104,24 @@ function computeProductHeadData(slug: string): HeadData | null {
   return { title, description, canonicalUrl, ogImage: product.image, noindex: false, schemas };
 }
 
+// One dedicated page per blog post, each with its own Article schema.
+export const BLOG_ROUTE_PATHS: string[] = BLOG_POSTS.map((p) => `/blog/${p.slug}`);
+
+function computeBlogHeadData(slug: string): HeadData | null {
+  const post = getBlogPostBySlug(slug);
+  if (!post) return null;
+
+  const path = `/blog/${slug}`;
+  const canonicalUrl = `${SITE_URL}${path}`;
+  const title = `${post.title} | Visalatchi Manufactures`;
+  const schemas = [
+    buildOrganizationSchema(),
+    buildBreadcrumbSchema(path, post.title),
+    buildArticleSchema(post, canonicalUrl),
+  ];
+  return { title, description: post.description, canonicalUrl, ogImage: LOGO_URL, noindex: false, schemas };
+}
+
 /** Single source of truth for per-route <head> content, consumed by both the
  * client-side Seo component and the build-time prerender script — this is
  * what keeps the hydrated page and the raw HTML crawlers see in sync. */
@@ -104,6 +129,11 @@ export function computeHeadData(pathname: string): HeadData {
   if (pathname.startsWith('/products/')) {
     const productHead = computeProductHeadData(pathname.slice('/products/'.length));
     if (productHead) return productHead;
+  }
+
+  if (pathname.startsWith('/blog/')) {
+    const blogHead = computeBlogHeadData(pathname.slice('/blog/'.length));
+    if (blogHead) return blogHead;
   }
 
   const route = ROUTES.find((r) => r.path === pathname);
