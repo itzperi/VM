@@ -42,13 +42,14 @@ export function buildOrganizationSchema() {
         closes: '15:00',
       },
     ],
-    // Explicit named places rather than a generic "Tamil Nadu" string, and
-    // kept identical to the GBP "Service area" list for NAP consistency.
-    areaServed: [
-      { '@type': 'State', name: 'Tamil Nadu' },
-      { '@type': 'Country', name: 'India' },
-      ...TAMIL_NADU_CITIES.map((city) => ({ '@type': 'City', name: city })),
-    ],
+    // City-level only, matching GBP's "Service area" list exactly. Google's
+    // June 2025 Service Area Business guidance disallows declaring an entire
+    // state or country as a service area; SABs must name specific cities,
+    // postal codes, or neighborhoods instead. A blanket "Tamil Nadu" or
+    // "India" entry here would contradict that guidance even though this
+    // isn't a pure SAB (there's a public plant address), so it's dropped for
+    // consistency with what GBP itself allows.
+    areaServed: TAMIL_NADU_CITIES.map((city) => ({ '@type': 'City', name: city })),
     contactPoint: [
       {
         '@type': 'ContactPoint',
