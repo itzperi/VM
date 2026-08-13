@@ -12,16 +12,31 @@ export function buildOrganizationSchema() {
     url: SITE_URL,
     logo: LOGO_URL,
     image: LOGO_URL,
-    priceRange: '₹8 - ₹36',
+    priceRange: '₹8 to ₹36',
     description:
       'Chennai-based packaging manufacturer supplying D2C mailer boxes, corrugated shipping cartons, food-safe delivery packs and export cartons, dispatched pan-India from Tamil Nadu.',
     address: {
       '@type': 'PostalAddress',
       ...PLANT_ADDRESS,
     },
-    // Explicit named places rather than a generic "Tamil Nadu" string — gives
-    // AI/local-search crawlers a concrete, checkable service-area signal
-    // without implying separate physical branches in each city.
+    // Matches the hours published on the Google Business Profile listing.
+    // Keep these two in sync if the profile's hours ever change.
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Sunday'],
+        opens: '09:00',
+        closes: '15:00',
+      },
+    ],
+    // Explicit named places rather than a generic "Tamil Nadu" string, and
+    // kept identical to the GBP "Service area" list for NAP consistency.
     areaServed: [
       { '@type': 'State', name: 'Tamil Nadu' },
       { '@type': 'Country', name: 'India' },
@@ -32,7 +47,7 @@ export function buildOrganizationSchema() {
         '@type': 'ContactPoint',
         telephone: '+91-98405-01323',
         contactType: 'sales',
-        name: 'Palaniappan — D2C & Domestic Brand Specialist',
+        name: 'Palaniappan, D2C & Domestic Brand Specialist',
         areaServed: 'IN',
         availableLanguage: ['English', 'Tamil'],
       },
@@ -40,7 +55,7 @@ export function buildOrganizationSchema() {
         '@type': 'ContactPoint',
         telephone: '+91-94444-20367',
         contactType: 'sales',
-        name: 'Periyanan — Export Logistics & Food Lead',
+        name: 'Periyanan, Export Logistics & Food Lead',
         areaServed: 'IN',
         availableLanguage: ['English', 'Tamil'],
       },
