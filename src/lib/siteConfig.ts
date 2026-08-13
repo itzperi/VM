@@ -40,11 +40,34 @@ export const PLANT_MAPS_SHARE_URL = 'https://maps.app.goo.gl/F9VCUnqTkmb3cx568';
 
 export const PLANT_MAPS_EMBED_SRC = `https://www.google.com/maps?q=${PLANT_COORDS.lat},${PLANT_COORDS.lng}&z=17&output=embed`;
 
-// Kept identical to the "Service area" list declared on the Google Business
-// Profile listing. Deliberately not a longer wishlist of cities: mismatched
-// service areas across the site and GBP read as an inconsistent NAP signal,
-// which hurts local trust more than a longer list would help.
-export const TAMIL_NADU_CITIES = ['Chennai', 'Madurai', 'Coimbatore', 'Tiruchirappalli'];
+// City-level courier dispatch coverage across Tamil Nadu. Framed as "we
+// dispatch to" (true, pan-India courier network), not "we are near you" or
+// "we operate a branch in" (which would be false for a single-plant
+// business). City-level only, no neighborhoods or industrial estates as
+// separate entries, per Google's June 2025 guidance against state/country
+// level service areas and to avoid the doorway-page pattern.
+//
+// IMPORTANT: the current 4 (Chennai, Madurai, Coimbatore, Tiruchirappalli)
+// are what GBP's own "Service area" field declares as of 2026-08-13. The
+// remaining 8 below are added here because they're truthfully served by the
+// existing pan-India courier network, but GBP itself has NOT been updated
+// to match yet — update GBP's service area to include them too, so this
+// list and the live GBP listing stay in sync (mismatched NAP/service-area
+// data across platforms is a real local-SEO trust penalty).
+export const TAMIL_NADU_CITIES = [
+  'Chennai',
+  'Madurai',
+  'Coimbatore',
+  'Tiruchirappalli',
+  'Salem',
+  'Tirunelveli',
+  'Erode',
+  'Vellore',
+  'Thoothukudi',
+  'Thanjavur',
+  'Tiruppur',
+  'Karur',
+];
 
 // Neighborhoods near the Thiruvottiyur plant — real local-relevance signal,
 // not a claim of separate physical branches.
