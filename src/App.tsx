@@ -7,6 +7,7 @@ import { PathSelector } from './components/PathSelector';
 import { WhyVisalatchi } from './components/WhyVisalatchi';
 import { ProcessMarquee } from './components/ProcessMarquee';
 import { Footer } from './components/Footer';
+import { LocationMap } from './components/LocationMap';
 import { CatalogView } from './components/CatalogView';
 import { ProductDetailView } from './components/ProductDetailView';
 import { D2CView } from './components/D2CView';
@@ -161,6 +162,9 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+
+      {/* One map per page, in the same place, right before the footer */}
+      <LocationMap />
 
       {/* Global Footer */}
       <Footer openContact={openContact} />

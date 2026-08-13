@@ -1,6 +1,5 @@
 import React from 'react';
 import { Package, CheckCircle2, Truck, Recycle, ReceiptText, MapPin } from 'lucide-react';
-import { PLANT_MAPS_EMBED_SRC, PLANT_MAPS_SHARE_URL } from '../lib/siteConfig';
 
 export const WhyVisalatchi: React.FC = () => {
   const reasons = [
@@ -68,41 +67,20 @@ export const WhyVisalatchi: React.FC = () => {
         </div>
 
         {/* Made in Chennai, Pan-India Section */}
-        <div className="bg-[#F7F5F1] border border-black/15 p-8 md:p-10 rounded-sm shadow-xs">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#C8522C]/10 rounded-full shrink-0">
-                <MapPin className="w-6 h-6 text-[#C8522C]" />
-              </div>
-              <div>
-                <h3 className="font-serif-display text-2xl text-[#1b1c1a] font-medium mb-2">
-                  Made in Chennai, built for the whole country
-                </h3>
-                <p className="font-body text-sm text-[#444748] max-w-2xl leading-relaxed">
-                  Visalatchi manufactures out of Chennai and ships pan-India. Wherever your warehouse, fulfillment center, or production unit is, from Delhi NCR to Bangalore to Kolkata, we dispatch to match your courier and delivery timelines.
-                </p>
-              </div>
+        <div className="bg-[#F7F5F1] border border-black/15 p-8 md:p-10 rounded-sm flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-[#C8522C]/10 rounded-full shrink-0">
+              <MapPin className="w-6 h-6 text-[#C8522C]" />
+            </div>
+            <div>
+              <h3 className="font-serif-display text-2xl text-[#1b1c1a] font-medium mb-2">
+                Made in Chennai, built for the whole country
+              </h3>
+              <p className="font-body text-sm text-[#444748] max-w-2xl leading-relaxed">
+                Visalatchi manufactures out of Chennai and ships pan-India. Wherever your warehouse, fulfillment center, or production unit is, from Delhi NCR to Bangalore to Kolkata, we dispatch to match your courier and delivery timelines.
+              </p>
             </div>
           </div>
-
-          <iframe
-            title="Visalatchi Manufactures plant location on Google Maps"
-            src={PLANT_MAPS_EMBED_SRC}
-            width="100%"
-            height="260"
-            style={{ border: 0 }}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-sm border border-black/15 w-full"
-          />
-          <a
-            href={PLANT_MAPS_SHARE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-3 text-[#C8522C] text-xs font-semibold hover:underline"
-          >
-            View our Chennai plant on Google Maps →
-          </a>
         </div>
       </div>
     </section>

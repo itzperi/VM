@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BrandLogo } from './BrandLogo';
-import { CHENNAI_LOCALITIES, TAMIL_NADU_CITIES, PLANT_MAPS_SHARE_URL, PLANT_MAPS_EMBED_SRC } from '../lib/siteConfig';
+import { CHENNAI_LOCALITIES, TAMIL_NADU_CITIES, PLANT_MAPS_SHARE_URL } from '../lib/siteConfig';
 
 interface FooterProps {
   openContact: (recipient?: 'palaniappan' | 'periyanan') => void;
@@ -140,19 +140,6 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
             </button>
           </div>
         </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto mt-10 pt-10 border-t border-black/10">
-        <iframe
-          title="Visalatchi Manufactures plant location on Google Maps"
-          src={PLANT_MAPS_EMBED_SRC}
-          width="100%"
-          height="220"
-          style={{ border: 0 }}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="rounded-sm border border-black/15 w-full"
-        />
       </div>
     </footer>
   );
