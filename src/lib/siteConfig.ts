@@ -27,6 +27,19 @@ export const PLANT_ADDRESS = {
 // SEO trust).
 export const PLANT_ADDRESS_FULL = `${PLANT_ADDRESS.streetAddress}, ${PLANT_ADDRESS.addressLocality} ${PLANT_ADDRESS.postalCode}, ${PLANT_ADDRESS.addressRegion}, India`;
 
+// Exact coordinates of the verified Google Business Profile pin (resolved
+// from https://maps.app.goo.gl/F9VCUnqTkmb3cx568), not a geocoded guess from
+// the address text. Used for the map embeds and the LocalBusiness schema's
+// geo field, both more accurate signals than an address string lookup.
+export const PLANT_COORDS = { lat: 13.1663165, lng: 80.3008765 };
+
+// The actual GBP share link. Used for "Get directions" links instead of a
+// constructed maps search URL, since this is the literal link Google
+// generated for the verified listing.
+export const PLANT_MAPS_SHARE_URL = 'https://maps.app.goo.gl/F9VCUnqTkmb3cx568';
+
+export const PLANT_MAPS_EMBED_SRC = `https://www.google.com/maps?q=${PLANT_COORDS.lat},${PLANT_COORDS.lng}&z=17&output=embed`;
+
 // Kept identical to the "Service area" list declared on the Google Business
 // Profile listing. Deliberately not a longer wishlist of cities: mismatched
 // service areas across the site and GBP read as an inconsistent NAP signal,

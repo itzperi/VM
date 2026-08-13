@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Phone, Mail, CheckCircle2, MessageSquare, MapPin } from 'lucide-react';
 import { saveInquiry, buildWhatsAppLink } from '../lib/inquiryStore';
-import { NORTH_CHENNAI_AREAS, PLANT_ADDRESS_FULL } from '../lib/siteConfig';
-
-const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(PLANT_ADDRESS_FULL)}&output=embed`;
+import { NORTH_CHENNAI_AREAS, PLANT_MAPS_SHARE_URL, PLANT_MAPS_EMBED_SRC } from '../lib/siteConfig';
 
 export const ContactView: React.FC = () => {
   const [name, setName] = useState('');
@@ -282,7 +280,7 @@ export const ContactView: React.FC = () => {
 
           <iframe
             title="Visalatchi Manufactures plant location on Google Maps"
-            src={MAP_EMBED_SRC}
+            src={PLANT_MAPS_EMBED_SRC}
             width="100%"
             height="320"
             style={{ border: 0 }}
@@ -290,6 +288,14 @@ export const ContactView: React.FC = () => {
             referrerPolicy="no-referrer-when-downgrade"
             className="rounded-sm border border-black/15 w-full"
           />
+          <a
+            href={PLANT_MAPS_SHARE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-3 text-[#C8522C] text-xs font-semibold hover:underline"
+          >
+            View on Google Maps and get directions →
+          </a>
         </div>
       )}
 

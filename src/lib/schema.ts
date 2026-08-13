@@ -1,7 +1,7 @@
 import { PRODUCTS } from '../data/products';
 import { FAQS } from '../data/faqs';
 import { ProductItem } from '../types';
-import { SITE_URL, LOGO_URL, PLANT_ADDRESS, TAMIL_NADU_CITIES } from './siteConfig';
+import { SITE_URL, LOGO_URL, PLANT_ADDRESS, TAMIL_NADU_CITIES, PLANT_COORDS, PLANT_MAPS_SHARE_URL } from './siteConfig';
 
 export function buildOrganizationSchema() {
   return {
@@ -19,6 +19,13 @@ export function buildOrganizationSchema() {
       '@type': 'PostalAddress',
       ...PLANT_ADDRESS,
     },
+    // Exact coordinates from the verified GBP pin, not a geocoded guess.
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: PLANT_COORDS.lat,
+      longitude: PLANT_COORDS.lng,
+    },
+    hasMap: PLANT_MAPS_SHARE_URL,
     // Matches the hours published on the Google Business Profile listing.
     // Keep these two in sync if the profile's hours ever change.
     openingHoursSpecification: [

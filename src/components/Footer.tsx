@@ -1,14 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BrandLogo } from './BrandLogo';
-import { CHENNAI_LOCALITIES, TAMIL_NADU_CITIES, PLANT_ADDRESS_FULL } from '../lib/siteConfig';
+import { CHENNAI_LOCALITIES, TAMIL_NADU_CITIES, PLANT_MAPS_SHARE_URL, PLANT_MAPS_EMBED_SRC } from '../lib/siteConfig';
 
 interface FooterProps {
   openContact: (recipient?: 'palaniappan' | 'periyanan') => void;
 }
-
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(PLANT_ADDRESS_FULL)}`;
-const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(PLANT_ADDRESS_FULL)}&output=embed`;
 
 export const Footer: React.FC<FooterProps> = ({ openContact }) => {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -38,7 +35,7 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
               Thiruvottiyur, Chennai 600019, Tamil Nadu, India
             </address>
             <a
-              href={MAPS_URL}
+              href={PLANT_MAPS_SHARE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block text-[#C8522C] text-[11px] font-semibold hover:underline"
@@ -148,7 +145,7 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
       <div className="max-w-7xl mx-auto mt-10 pt-10 border-t border-black/10">
         <iframe
           title="Visalatchi Manufactures plant location on Google Maps"
-          src={MAP_EMBED_SRC}
+          src={PLANT_MAPS_EMBED_SRC}
           width="100%"
           height="220"
           style={{ border: 0 }}
