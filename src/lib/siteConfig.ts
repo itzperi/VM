@@ -20,6 +20,13 @@ export const PLANT_ADDRESS = {
   addressCountry: 'IN',
 };
 
+// One human-readable address string, built from PLANT_ADDRESS so the plant
+// address used in the Footer's map link, the Footer's map embed, and the
+// ContactView map embed can never drift apart into three slightly different
+// strings (which is exactly the kind of NAP inconsistency that hurts local
+// SEO trust).
+export const PLANT_ADDRESS_FULL = `${PLANT_ADDRESS.streetAddress}, ${PLANT_ADDRESS.addressLocality} ${PLANT_ADDRESS.postalCode}, ${PLANT_ADDRESS.addressRegion}, India`;
+
 // Kept identical to the "Service area" list declared on the Google Business
 // Profile listing. Deliberately not a longer wishlist of cities: mismatched
 // service areas across the site and GBP read as an inconsistent NAP signal,

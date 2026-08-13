@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BrandLogo } from './BrandLogo';
-import { CHENNAI_LOCALITIES, TAMIL_NADU_CITIES } from '../lib/siteConfig';
+import { CHENNAI_LOCALITIES, TAMIL_NADU_CITIES, PLANT_ADDRESS_FULL } from '../lib/siteConfig';
 
 interface FooterProps {
   openContact: (recipient?: 'palaniappan' | 'periyanan') => void;
 }
 
-const PLANT_ADDRESS = 'No 10/4B Village Street, Sadayan Kuppam Pattai, Thiruvottiyur, Chennai - 600019, Tamil Nadu, India';
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(PLANT_ADDRESS)}`;
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(PLANT_ADDRESS_FULL)}`;
+const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(PLANT_ADDRESS_FULL)}&output=embed`;
 
 export const Footer: React.FC<FooterProps> = ({ openContact }) => {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -35,7 +35,7 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
             <address className="not-italic text-[#747878] text-[11px] leading-relaxed">
               No 10/4B Village Street, Sadayan Kuppam Pattai,
               <br />
-              Thiruvottiyur, Chennai - 600019, Tamil Nadu, India
+              Thiruvottiyur, Chennai 600019, Tamil Nadu, India
             </address>
             <a
               href={MAPS_URL}
@@ -46,8 +46,8 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
               Get directions →
             </a>
             <div className="pt-2 font-mono text-[#C8522C] font-semibold space-y-0.5">
-              <div>Palaniappan — 98405 01323</div>
-              <div>Periyanan — 94444 20367</div>
+              <div>Palaniappan, 98405 01323</div>
+              <div>Periyanan, 94444 20367</div>
             </div>
           </div>
 
@@ -143,6 +143,19 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
             </button>
           </div>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto mt-10 pt-10 border-t border-black/10">
+        <iframe
+          title="Visalatchi Manufactures plant location on Google Maps"
+          src={MAP_EMBED_SRC}
+          width="100%"
+          height="220"
+          style={{ border: 0 }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="rounded-sm border border-black/15 w-full"
+        />
       </div>
     </footer>
   );

@@ -12,8 +12,10 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import App from '../src/App';
-import { ROUTES, computeHeadData } from '../src/routes';
+import { ROUTES, PRODUCT_ROUTE_PATHS, computeHeadData } from '../src/routes';
 import { SITE_URL } from '../src/lib/siteConfig';
+
+const ALL_PATHS = [...ROUTES.map((r) => r.path), ...PRODUCT_ROUTE_PATHS];
 
 const DIST_DIR = path.resolve(process.cwd(), 'dist');
 const templatePath = path.join(DIST_DIR, 'index.html');
@@ -65,21 +67,21 @@ async function main() {
   }
   const template = fs.readFileSync(templatePath, 'utf-8');
 
-  for (const route of ROUTES) {
+  for (const routePath of ALL_PATHS) {
     const appHtml = renderToString(
-      React.createElement(StaticRouter, { location: route.path }, React.createElement(App)),
+      React.createElement(StaticRouter, { location: routePath }, React.createElement(App)),
     );
-    const html = buildHtml(template, route.path, appHtml);
-    const outPath = outputPathFor(route.path);
+    const html = buildHtml(template, routePath, appHtml);
+    const outPath = outputPathFor(routePath);
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
     fs.writeFileSync(outPath, html, 'utf-8');
-    console.log(`Prerendered ${route.path} -> ${path.relative(process.cwd(), outPath)}`);
+    console.log(`Prerendered ${routePath} -> ${path.relative(process.cwd(), outPath)}`);
   }
 
   const lastmod = new Date().toISOString().slice(0, 10);
-  const urlEntries = ROUTES.map((r) => {
-    const priority = r.path === '/' ? '1.0' : '0.8';
-    return `  <url>\n    <loc>${SITE_URL}${r.path === '/' ? '' : r.path}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+  const urlEntries = ALL_PATHS.map((p) => {
+    const priority = p === '/' ? '1.0' : p.startsWith('/products/') ? '0.7' : '0.8';
+    return `  <url>\n    <loc>${SITE_URL}${p === '/' ? '' : p}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
   }).join('\n');
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>\n`;
   fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap, 'utf-8');

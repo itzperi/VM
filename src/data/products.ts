@@ -156,3 +156,21 @@ export function buildPriceListRows(ids?: string[]): PriceListRow[] {
     price: p.startingPrice.split('/')[0].trim(),
   }));
 }
+
+export function bestForById(id: string): string {
+  return PRICE_LIST_BEST_FOR[id] ?? '';
+}
+
+/** URL slug for a product's dedicated /products/:slug page. Derived from the
+ * name rather than stored on ProductItem so there is one place that can
+ * never drift from the display name. */
+export function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+export function getProductBySlug(slug: string): ProductItem | undefined {
+  return PRODUCTS.find((p) => slugify(p.name) === slug);
+}
