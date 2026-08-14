@@ -13,7 +13,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Choose the Right MOQ for Your First Packaging Order',
     description:
       'A practical guide to minimum order quantities for D2C brands testing a new box size, with real MOQ and price examples from Chennai manufacturing.',
-    publishDate: '2026-08-20',
+    publishDate: '2026-08-14',
     category: 'd2c',
     relatedProductIds: ['prod-01', 'prod-05', 'prod-07'],
     content: [
@@ -56,7 +56,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Corrugated Box Thickness Explained: 3 Ply vs 5 Ply for E-commerce Shipping',
     description:
       'What 3 ply and 5 ply corrugated actually mean, when each one is the right call for e-commerce shipping, and how to avoid over-paying for strength you do not need.',
-    publishDate: '2026-09-03',
+    publishDate: '2026-08-14',
     category: 'd2c',
     relatedProductIds: ['prod-02', 'prod-01'],
     content: [
@@ -93,7 +93,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Sample Approval Process: What to Expect Before Your First Bulk Order",
     description:
       'A walkthrough of the choose, sample, produce, ship process, so you know what to expect before placing a bulk packaging order in Chennai.',
-    publishDate: '2026-09-17',
+    publishDate: '2026-08-14',
     category: 'general',
     relatedProductIds: [],
     content: [
@@ -133,7 +133,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Bagasse vs Plastic Food Containers: Cost and Compostability Compared',
     description:
       'A practical comparison of bagasse and plastic food containers for cloud kitchens and QSR brands, covering cost, heat performance, and end of life.',
-    publishDate: '2026-10-01',
+    publishDate: '2026-08-14',
     category: 'food',
     relatedProductIds: ['prod-08', 'prod-09', 'prod-03'],
     content: [
@@ -168,7 +168,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'FSSAI Food Packaging Requirements: What Actually Matters for Cloud Kitchens',
     description:
       'A plain-language guide to FSSAI food-grade packaging requirements as of 2026, covering food contact material rules and the June 2026 metal-fastener advisory.',
-    publishDate: '2026-10-15',
+    publishDate: '2026-08-14',
     category: 'food',
     relatedProductIds: ['prod-03', 'prod-08', 'prod-09'],
     content: [
@@ -216,7 +216,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'What Export Buyers Actually Check on Master Carton Compliance',
     description:
       'A general awareness guide to export packaging compliance for master cartons, covering labeling, moisture barriers, and the ISPM 15 rule for wooden pallets.',
-    publishDate: '2026-10-29',
+    publishDate: '2026-08-14',
     category: 'export',
     relatedProductIds: ['prod-02'],
     content: [
