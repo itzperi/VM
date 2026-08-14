@@ -69,6 +69,30 @@ export const BlogPostView: React.FC<BlogPostViewProps> = ({ openContact }) => {
               </ul>
             );
           }
+          if (block.type === 'table') {
+            return (
+              <div key={idx} className="overflow-x-auto border border-black/15 bg-[#F7F5F1] rounded-sm">
+                <table className="w-full text-left border-collapse text-xs">
+                  <thead>
+                    <tr className="bg-[#EAE8E4] border-b border-black/15 font-semibold uppercase tracking-wider text-[#1b1c1a]">
+                      {block.headers.map((h, i) => (
+                        <th key={i} className="p-3">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-black/10 text-[#444748]">
+                    {block.rows.map((row, r) => (
+                      <tr key={r}>
+                        {row.map((cell, c) => (
+                          <td key={c} className="p-3">{cell}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
           return (
             <p key={idx} className="text-[#444748]">
               {block.text}
