@@ -34,8 +34,9 @@ What is not done and blocks almost everything downstream: **the domain is not ac
 - Visalatchi packaging
 
 ### Tier 2: High intent, differentiated long tail (realistic rank 1 target, 3 to 6 months)
-- packaging manufacturer low MOQ Chennai
-- mailer box manufacturer Chennai 50 units
+- bulk packaging boxes manufacturer India (MOQ 5,000)
+- corrugated box manufacturer Chennai bulk
+- wholesale corrugated boxes / bulk mailer boxes
 - FSSAI food packaging manufacturer Chennai
 - corrugated box manufacturer Thiruvottiyur
 - export carton manufacturer Chennai

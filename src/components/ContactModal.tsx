@@ -24,8 +24,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
-  const [category, setCategory] = useState<'d2c' | 'food' | 'export' | 'general'>('d2c');
-  const [estimatedUnits, setEstimatedUnits] = useState<string>('100');
+  const [category, setCategory] = useState<'d2c' | 'food' | 'export' | 'appliance' | 'general'>('d2c');
+  const [estimatedUnits, setEstimatedUnits] = useState<string>('5,000-10,000');
   const [notes, setNotes] = useState(initialNote || (initialProduct ? `Inquiry regarding ${initialProduct.name}` : ''));
   const [submitted, setSubmitted] = useState(false);
   const [waUrl, setWaUrl] = useState<string>('');
@@ -39,6 +39,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
       d2c: 'D2C Mailer Boxes & Courier Bags',
       food: 'Food-Safe Cartons & Pouches',
       export: 'Export 5-Ply / 7-Ply Master Cartons',
+      appliance: 'TV, Fan & Appliance Boxes',
       general: 'Custom Tapes & Accessories',
     };
 
@@ -56,7 +57,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
       recipient,
       estimatedUnits,
       notes,
-    });
+    }, 'quote-modal');
 
     // 2. Build WhatsApp redirect URL
     const url = buildWhatsAppLink(recipient, {
@@ -99,7 +100,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 Contact Visalatchi Manufactures
               </h2>
               <p className="font-body text-xs text-[#444748] mt-1">
-                Get custom quotes, dielines, or order sample boxes delivered to your office.
+                Large boxes from 5,000 units, small boxes from 10,000. Get a volume quote, dieline and pre-production sample.
               </p>
             </div>
 
@@ -210,6 +211,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   >
                     <option value="d2c">D2C Mailer Boxes & Courier Bags</option>
                     <option value="food">Food-Safe Cartons & Pouches</option>
+                    <option value="appliance">TV, Fan &amp; Appliance Boxes</option>
                     <option value="export">Export 5-Ply / 7-Ply Master Cartons</option>
                     <option value="general">Custom Tapes & Accessories</option>
                   </select>
@@ -217,18 +219,17 @@ export const ContactModal: React.FC<ContactModalProps> = ({
 
                 <div>
                   <label className="text-[11px] font-semibold text-[#1b1c1a] uppercase tracking-wider block mb-1">
-                    Estimated Order Quantity
+                    Order Quantity (min 5,000 large / 10,000 small)
                   </label>
                   <select
                     value={estimatedUnits}
                     onChange={(e) => setEstimatedUnits(e.target.value)}
                     className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
                   >
-                    <option value="50">50 Units (Sample / Test Launch)</option>
-                    <option value="100">100 Units</option>
-                    <option value="500">500 Units</option>
-                    <option value="1000">1,000 Units</option>
-                    <option value="5000">5,000+ Units (Mass Production)</option>
+                    <option value="5,000-10,000">5,000 to 10,000 Units (large boxes)</option>
+                    <option value="10,000-25,000">10,000 to 25,000 Units</option>
+                    <option value="25,000-50,000">25,000 to 50,000 Units</option>
+                    <option value="50,000+">50,000+ Units</option>
                   </select>
                 </div>
               </div>

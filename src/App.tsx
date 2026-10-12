@@ -23,6 +23,8 @@ import { ContactModal } from './components/ContactModal';
 import { NotFound } from './components/NotFound';
 import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
 import { Seo } from './components/Seo';
+import { BulkLandingView } from './components/BulkLandingView';
+import { LANDING_PAGES } from './data/landingPages';
 
 export default function App() {
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
@@ -180,6 +182,20 @@ export default function App() {
               </div>
             }
           />
+
+          {LANDING_PAGES.map((page) => (
+            <React.Fragment key={page.path}>
+            <Route
+              path={page.path}
+              element={
+                <div className="pt-24">
+                  <BulkLandingView page={page} openContact={openContact} />
+                  <ProcessMarquee />
+                </div>
+              }
+            />
+            </React.Fragment>
+          ))}
 
           <Route path="*" element={<NotFound />} />
         </Routes>

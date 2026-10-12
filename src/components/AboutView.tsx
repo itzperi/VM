@@ -16,17 +16,17 @@ export const AboutView: React.FC<AboutViewProps> = ({ openContact }) => {
           A New Kind of Packaging Supplier
         </h1>
         <p className="font-body text-base text-[#444748] max-w-xl mx-auto leading-relaxed">
-          Visalatchi Manufactures is a Chennai-based manufacturer built for one simple reason: growing businesses shouldn't have to choose between good packaging and reasonable order sizes.
+          Visalatchi Manufactures is a Chennai-based manufacturer built for one simple reason: businesses that buy packaging by the thousands deserve consistent quality and honest, factory-direct volume pricing.
         </p>
       </div>
 
       <div className="space-y-10 font-body text-sm text-[#444748] leading-relaxed">
         <div className="bg-[#F7F5F1] border border-black/15 p-6 md:p-8 rounded-sm space-y-4">
           <p>
-            Most packaging suppliers are built for buyers who already know exactly what they need and can commit to large volumes upfront. That leaves a real gap for D2C brands testing a new SKU, food businesses scaling into a new city, and exporters working against a shipping deadline — businesses that need to move fast, in smaller batches, with a supplier who'll actually show them a sample before asking for a bulk commitment.
+            Plenty of packaging suppliers will take a bulk order. Fewer will show you a physical sample first, itemise every rupee of the quote, and give you a named specialist who answers the phone. We built Visalatchi for D2C brands shipping at volume, food and FMCG manufacturers scaling across cities, and exporters working against a shipping deadline, ordering 5,000+ large boxes or 10,000+ small boxes at a time.
           </p>
           <p>
-            We're a new manufacturing business, and we're not going to pretend otherwise. What we can offer instead of a long track record is responsiveness: low MOQs so you're not locking up capital to test us, a sample-first process so you know exactly what you're getting, and transparent, itemised pricing with no hidden conversion or plate charges.
+            We're a new manufacturing business, and we're not going to pretend otherwise. What we can offer instead of a long track record is focus: we run bulk orders only, from 5,000 units for large boxes and 10,000 for small boxes, so every job gets dedicated production time. A sample-first process means you know exactly what you're getting before the run starts, and pricing is itemised with no hidden conversion or plate charges.
           </p>
         </div>
 
@@ -41,8 +41,8 @@ export const AboutView: React.FC<AboutViewProps> = ({ openContact }) => {
             </p>
             <p className="text-xs text-[#444748] pt-2 border-t border-black/10">
               Handles D2C mailer boxes, custom inside print, fast dispatch courier bags, and brand unboxing proofs.
-              If you are testing a new SKU size or need a sample turned around fast for a launch date, Palaniappan
-              is who you talk to directly, not a general inquiry queue.
+              If you are planning a bulk run for a new box size or need a pre-production sample turned around fast for a launch
+              date, Palaniappan is who you talk to directly, not a general inquiry queue.
             </p>
           </div>
 

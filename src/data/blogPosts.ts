@@ -10,44 +10,68 @@ import { BlogPost } from '../types';
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'how-to-choose-packaging-moq',
-    title: 'How to Choose the Right MOQ for Your First Packaging Order',
+    title: 'Packaging MOQs Explained: Why 5,000 Large or 10,000 Small Boxes Cost Less per Unit',
     description:
-      'A practical guide to minimum order quantities for D2C brands testing a new box size, with real MOQ and price examples from Chennai manufacturing.',
-    publishDate: '2026-08-14',
-    category: 'd2c',
-    relatedProductIds: ['prod-01', 'prod-05', 'prod-07'],
+      'How minimum order quantity drives the unit price of custom boxes in India, why large boxes (TV, fan, appliance cartons) start at 5,000 units and small boxes at 10,000, and how to plan a bulk order without overstocking.',
+    publishDate: '2026-10-12',
+    category: 'general',
+    relatedProductIds: ['prod-10', 'prod-02', 'prod-01'],
     content: [
       {
         type: 'paragraph',
-        text: 'Minimum order quantity, or MOQ, is the smallest batch a packaging manufacturer will produce for you. It is usually the first number a new D2C brand asks about, and often the deciding factor between testing a new box design and sticking with what already works.',
+        text: 'Minimum order quantity, or MOQ, is the smallest batch a packaging manufacturer will produce in one run. At Visalatchi Manufactures in Chennai, the MOQ is 5,000 units for large boxes such as TV, fan, appliance and export master cartons, and 10,000 units for small boxes, mailers, food packs and bags. Those minimums are what unlock true factory-direct pricing.',
       },
-      { type: 'heading', text: 'Why does MOQ matter more than price per unit?' },
+      { type: 'heading', text: 'Why are large and small boxes on different MOQs?' },
       {
         type: 'paragraph',
-        text: 'A box priced at 20 rupees a unit sounds cheap until the MOQ is 5,000 units and you only need 200 for a product launch. The real cost of a low price with a high MOQ is the working capital locked up in inventory you have not sold yet, plus warehouse space to store it. For a brand testing a new SKU size, a slightly higher per unit price at a low MOQ is almost always the better trade.',
+        text: 'A large appliance carton uses several times more board than a small mailer, so 5,000 large boxes is already a full, efficient production run. Small boxes use little board each, so it takes around 10,000 of them to spread the same setup work (dies, plates, changeover) thinly enough to reach a genuinely low unit price.',
       },
-      { type: 'heading', text: 'What does low MOQ actually look like?' },
+      {
+        type: 'table',
+        headers: ['Box type', 'Examples', 'Minimum order'],
+        rows: [
+          ['Large boxes', 'TV and monitor cartons, fan boxes, appliance cartons, export master cartons', '5,000 units'],
+          ['Small boxes', 'Mailer boxes, small e-commerce cartons, food delivery boxes, paper bags, courier mailers', '10,000 units'],
+        ],
+      },
+      { type: 'heading', text: 'Why does a higher MOQ mean a lower unit price?' },
+      {
+        type: 'paragraph',
+        text: 'Every custom packaging run carries fixed setup costs: cutting dies, printing plates, machine changeover and quality checks. On a 500-unit order those costs are divided across 500 boxes. On a 5,000-unit order they are divided across 5,000, so the setup share of each box drops by roughly 90 percent. Board is also bought and converted more efficiently at volume.',
+      },
+      { type: 'heading', text: 'Who are these MOQs right for?' },
       {
         type: 'list',
         items: [
-          'Mailer boxes: minimum order 50 units, starting at 36 rupees per unit, with custom inside and outside print and a locking front tuck tab',
-          'Paper and padded mailers: minimum order 100 units, starting at 22 rupees per unit, suited to apparel, books, jewellery, and small electronics',
-          'Custom printed paper carry bags: minimum order 50 units, starting at 22 rupees per unit, biodegradable kraft paper',
+          'Appliance and electronics manufacturers shipping TVs, fans, coolers or kitchen appliances every month',
+          'Exporters shipping container loads that need matching master cartons on every shipment',
+          'D2C and e-commerce brands dispatching 5,000 or more orders a month on a validated box size',
+          'Food, FMCG and cloud-kitchen chains with steady weekly consumption across outlets',
         ],
       },
+      { type: 'heading', text: 'How do you plan a bulk order without overstocking?' },
       {
         type: 'paragraph',
-        text: 'These are reference prices at each product’s stated MOQ, ex GST. Final pricing depends on size, finish, and print colours, confirmed on a formal quotation once you share your dimensions.',
+        text: 'Start from your monthly dispatch volume. A fan manufacturer shipping 2,500 units a month uses a 5,000-carton run in about two months. A brand shipping 5,000 orders a month uses a 10,000-mailer run in about two months. Flat-packed corrugated boxes store compactly, and repeat orders can be scheduled so each new run arrives as the last one runs down.',
       },
-      { type: 'heading', text: 'Which sample step do most low MOQ suppliers skip?' },
       {
-        type: 'paragraph',
-        text: 'A low MOQ only protects you if the first batch is right. Every order at Visalatchi goes through a physical sample approval step before bulk production begins, so you confirm size, print, and material before committing to volume, not after receiving 500 boxes that do not fit your product.',
+        type: 'table',
+        headers: ['Units shipped per month', 'Months covered by 5,000 large boxes', 'Months covered by 10,000 small boxes'],
+        rows: [
+          ['2,500', '2 months', '4 months'],
+          ['5,000', '1 month', '2 months'],
+          ['10,000+', 'Under 2 weeks', '1 month or less'],
+        ],
       },
-      { type: 'heading', text: 'When should you move past the reference MOQ?' },
+      { type: 'heading', text: 'What protects a bulk order from going wrong?' },
       {
         type: 'paragraph',
-        text: 'Once a SKU is validated and you are ordering the same box repeatedly, moving to a higher volume tier usually drops the per unit price. That is a conversation for your specialist once you have real sales data, not something to over optimise before you have sold a single unit.',
+        text: 'A large run only makes sense if the first box is right. Every Visalatchi bulk order starts with a physical pre-production sample, so you confirm size, strength, print and material before thousands of units are made, not after they are delivered.',
+      },
+      { type: 'heading', text: 'How do you get a bulk packaging quote?' },
+      {
+        type: 'paragraph',
+        text: 'Share your box dimensions, product weight, material or ply preference, print colours, order quantity (5,000+ large boxes or 10,000+ small boxes) and target delivery date. Visalatchi replies with an itemised ex-GST quotation and a sample plan.',
       },
     ],
   },
@@ -147,7 +171,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: 'heading', text: 'How much do bagasse containers cost compared to plastic?' },
       {
         type: 'paragraph',
-        text: 'Visalatchi’s bagasse food containers start at 21 rupees per unit at a 100-unit MOQ. That is a real premium over basic plastic clamshells, and the honest reason to pick bagasse is not lowest cost, it is what it does at the two other points below.',
+        text: 'Visalatchi produces bagasse food containers in bulk runs from 10,000 units, quoted on size and quantity. Bagasse still carries a real premium over basic plastic clamshells, and the honest reason to pick bagasse is not lowest cost, it is what it does at the two other points below.',
       },
       { type: 'heading', text: 'How do bagasse containers perform with heat and oil?' },
       {
@@ -256,6 +280,103 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         title: 'ISPM 15 & Export Treatment, National Wooden Pallet and Container Association',
         url: 'https://woodpackglobal.org/page/ISPM_15',
+      },
+    ],
+  },
+  {
+    slug: 'corrugated-box-price-factors-bulk',
+    title: 'What Decides the Price of Corrugated Boxes in Bulk? 7 Cost Factors Explained',
+    description:
+      'The seven factors that set the unit price of corrugated boxes on a bulk (5,000 to 10,000+ unit) order in India: size, ply, paper GSM and bursting factor, print, box style, quantity and freight.',
+    publishDate: '2026-10-11',
+    category: 'general',
+    relatedProductIds: ['prod-02', 'prod-01'],
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The price of a corrugated box in bulk is set mainly by how much paper it uses and how strong that paper is. Box size, number of plies, paper weight (GSM) and bursting factor (BF) account for most of the cost; print, box style, order quantity and freight make up the rest.',
+      },
+      { type: 'heading', text: 'What are the main cost factors for a bulk corrugated box?' },
+      {
+        type: 'table',
+        headers: ['Factor', 'What it means', 'Effect on unit price'],
+        rows: [
+          ['Box size', 'Total board area needed, worked out from length, width and height', 'Largest single driver; price scales with board area'],
+          ['Ply (3, 5 or 7)', 'Number of paper layers: liners plus fluted layers', 'More plies use more paper and add strength'],
+          ['Paper GSM', 'Weight of each paper layer in grams per square metre', 'Heavier paper costs more and resists crushing better'],
+          ['Bursting factor (BF)', 'Strength grade of the kraft paper', 'Higher BF paper costs more per kilo'],
+          ['Printing', 'Number of colours and print coverage', 'Adds plate setup plus per-unit ink cost'],
+          ['Box style', 'Regular slotted carton, die-cut mailer, tuck-in, crash-lock and so on', 'Die-cut styles need a cutting die and more waste allowance'],
+          ['Quantity', 'Units per production run', 'Setup cost is spread across more boxes, so unit price falls'],
+        ],
+      },
+      { type: 'heading', text: 'Why does a 5,000-unit order cost less per box than 500?' },
+      {
+        type: 'paragraph',
+        text: 'Plates, dies and machine changeover are fixed costs per run. Spread across 5,000 boxes instead of 500, each box carries one tenth of that setup cost. Paper is also bought and cut more efficiently at volume, which is why Visalatchi Manufactures runs large boxes from 5,000 units and small boxes from 10,000.',
+      },
+      { type: 'heading', text: 'How can you lower the price without weakening the box?' },
+      {
+        type: 'list',
+        items: [
+          'Size the box tightly to the product: a box a few centimetres too large wastes board on every unit',
+          'Match ply to the real load: 3-ply for light single products, 5-ply for heavier goods and stacked master cartons',
+          'Use a regular slotted carton for outer shippers and keep die-cut mailers for branded customer-facing boxes',
+          'Keep print to one or two colours on outer cartons that customers never see on a shelf',
+          'Consolidate SKUs: one well-sized box ordered at 10,000 units usually beats two sizes at 5,000 each',
+          'Book repeat orders so production runs back to back instead of starting from scratch each time',
+        ],
+      },
+      { type: 'heading', text: 'What should you send to get an accurate bulk quote?' },
+      {
+        type: 'paragraph',
+        text: 'Send the inner dimensions (L x W x H), product weight per box, how the boxes will be stacked and shipped, the ply or strength you use today if known, print colours and artwork, order quantity (5,000+ for large boxes, 10,000+ for small boxes) and the delivery city and date. With those details a manufacturer can quote a firm ex-GST unit price instead of a range.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-choose-bulk-packaging-supplier-india',
+    title: 'How to Choose a Bulk Packaging Supplier in India: A 10-Point Checklist',
+    description:
+      'A practical checklist for brands, FMCG manufacturers and exporters choosing a packaging manufacturer for bulk orders of 5,000 to 10,000+ units: samples, specifications, capacity, pricing terms and dispatch.',
+    publishDate: '2026-10-11',
+    category: 'general',
+    relatedProductIds: ['prod-02', 'prod-03', 'prod-01'],
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The right bulk packaging supplier is one that can make the same box correctly 5,000 or 50,000 times in a row, on schedule, at a price that is clear before you commit. Price per unit matters, but for bulk orders consistency, a written specification and on-time dispatch decide the real cost.',
+      },
+      { type: 'heading', text: 'What should you check before placing a bulk packaging order?' },
+      {
+        type: 'list',
+        items: [
+          'Manufacturer or trader: confirm they produce the boxes in their own plant rather than reselling',
+          'Physical pre-production sample: insist on approving a real sample before the full run starts',
+          'Written specification: ply, paper GSM and BF, dimensions and print locked in writing, so repeat orders match',
+          'MOQ that fits your volume: a supplier whose minimum matches your order size treats you as a core customer',
+          'Itemised quotation: unit price, plates or dies, and freight shown separately, with GST stated',
+          'Lead time from sample approval: get a committed dispatch date, not just an estimate',
+          'Capacity for repeat demand: ask how they handle festival and seasonal peaks for regular customers',
+          'Food-grade or export documentation if needed: ask what can be supplied before you commit',
+          'Dispatch reach: confirm delivery to your warehouse, outlets or port, and who arranges freight',
+          'A named contact: one person who owns your account and answers the phone',
+        ],
+      },
+      { type: 'heading', text: 'What are the warning signs of the wrong supplier?' },
+      {
+        type: 'list',
+        items: [
+          'No sample offered, or a sample from stock that is not your actual specification',
+          'A single all-in price with no breakdown, which makes it hard to compare suppliers or spot later increases',
+          'Vague lead times such as "depends" with no committed date after sample approval',
+          'No written specification, so the second order quietly arrives on lighter board',
+        ],
+      },
+      { type: 'heading', text: 'How does Visalatchi Manufactures meet this checklist?' },
+      {
+        type: 'paragraph',
+        text: 'Visalatchi Manufactures produces packaging at its own plant in Thiruvottiyur, Chennai, from 5,000 units for large boxes and 10,000 units for small boxes. Every bulk order starts with a physical sample, quotations are itemised with no hidden plate or conversion charges, and each account has a named specialist: Palaniappan for D2C and domestic brands, Periyanan for food and export.',
       },
     ],
   },

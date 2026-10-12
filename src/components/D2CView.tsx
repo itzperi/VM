@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ProductItem } from '../types';
-import { buildPriceListRows } from '../data/products';
+import { PRODUCTS, buildPriceListRows } from '../data/products';
 import { PackageCheck, ShieldAlert, Send, Sparkles, Truck, CheckCircle2 } from 'lucide-react';
 
 interface D2CViewProps {
@@ -11,7 +11,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
   const [boxLength, setBoxLength] = useState<number>(20);
   const [boxWidth, setBoxWidth] = useState<number>(15);
   const [boxHeight, setBoxHeight] = useState<number>(8);
-  const [quantity, setQuantity] = useState<number>(100);
+  const [quantity, setQuantity] = useState<number>(10000);
 
   // Approximate D2C price calculator formula based on surface area and quantity discount
   const surfaceAreaSqCm = 2 * (boxLength * boxWidth + boxLength * boxHeight + boxWidth * boxHeight);
@@ -19,7 +19,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
   const estUnitPrice = Math.max(14, Math.round((surfaceAreaSqCm * baseRate) * (quantity >= 500 ? 0.8 : quantity >= 200 ? 0.9 : 1)));
   const estTotal = estUnitPrice * quantity;
 
-  const d2cPriceList = buildPriceListRows();
+  const d2cPriceList = buildPriceListRows(PRODUCTS.filter((p) => p.category === 'd2c').map((p) => p.id));
 
   const problemsSolved = [
     {
@@ -27,8 +27,8 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
       desc: 'A torn mailer or crushed box shows up as a 1-star review with a photo — our crush-tested mailer boxes and tamper-evident courier mailers are built to reduce exactly this.',
     },
     {
-      title: 'No unboxing experience without a huge MOQ',
-      desc: 'Big custom-print suppliers demand 10,000+ unit commitments. Our custom printed formats start from 50 units, so you can build a branded unboxing experience without locking up cash.',
+      title: 'Paying small-batch rates on high-volume orders',
+      desc: 'Once you ship thousands of orders a month, buying packaging in small lots is expensive. Our custom printed formats run from 10,000 units with volume pricing, so branded unboxing costs less per order as you scale.',
     },
     {
       title: 'Cost per order eating your margin',
@@ -58,7 +58,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
           Damage-resistant · Fast dispatch · Eco options
         </p>
         <p className="font-body text-base text-[#444748] max-w-3xl leading-relaxed">
-          For a D2C brand, packaging failure shows up as a 1-star review with a photo of a torn mailer — and every extra rupee per package eats straight into an already-thin margin. Visalatchi's e-commerce range is priced and stocked for exactly this: low MOQs for brands still testing SKUs, fast dispatch for flash-sale spikes, and eco-friendly options where your customers or marketplace are asking for them. Manufactured in Chennai, Tamil Nadu, we dispatch pan-India with direct coverage across Chennai, Coimbatore, Madurai and the rest of Tamil Nadu.
+          For a D2C brand, packaging failure shows up as a 1-star review with a photo of a torn mailer — and every extra rupee per package eats straight into an already-thin margin. Visalatchi's e-commerce range is priced and stocked for exactly this: bulk runs from 10,000 units for brands shipping at volume, scheduled production for flash-sale spikes, and eco-friendly options where your customers or marketplace are asking for them. Manufactured in Chennai, Tamil Nadu, we dispatch pan-India with direct coverage across Chennai, Coimbatore, Madurai and the rest of Tamil Nadu.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -99,9 +99,9 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
       <div className="mb-16">
         <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
           <h2 className="font-serif-display text-2xl md:text-3xl text-[#1b1c1a] font-medium">
-            D2C E-commerce Price List
+            D2C E-commerce Product List
           </h2>
-          <span className="text-xs text-[#747878]">Ex-GST, starting rates at MOQ</span>
+          <span className="text-xs text-[#747878]">Minimum order 10,000 units</span>
         </div>
 
         <div className="overflow-x-auto border border-black/15 bg-[#F7F5F1] rounded-sm">
@@ -112,7 +112,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
                 <th className="p-4">Best For</th>
                 <th className="p-4">MOQ</th>
                 <th className="p-4">Lead Time</th>
-                <th className="p-4">Price / Unit</th>
+                <th className="p-4">Pricing</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-black/10 text-xs font-body text-[#1b1c1a]">
@@ -129,7 +129,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
           </table>
         </div>
         <p className="text-[11px] text-[#747878] mt-3 italic">
-          *Starting unit prices for the smallest listed size/quantity at each product's reference MOQ, ex-GST, inclusive of Visalatchi's standard ₹2/unit margin. Final price depends on size, finish, print colours and order quantity — confirmed on formal quotation.
+          *D2C formats have a 10,000-unit minimum order. Unit price depends on size, board grade, print colours and total quantity, and is confirmed on a formal ex-GST quotation.
         </p>
       </div>
 
@@ -179,7 +179,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
         <div className="border-b border-white/10 pb-4 mb-6 flex items-center justify-between flex-wrap gap-4">
           <div>
             <span className="text-[10px] uppercase font-semibold tracking-widest text-[#C8522C] block">
-              D2C Instant Pricing Calculator
+              Bulk Order Estimator · MOQ 10,000
             </span>
             <h3 className="font-serif-display text-2xl text-white font-medium">
               Estimate Custom Mailer Box Cost
@@ -221,11 +221,14 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
               />
             </div>
             <div>
-              <label className="block text-white/80 mb-1">Quantity (Units)</label>
+              <label className="block text-white/80 mb-1">Quantity (Units, minimum 10,000)</label>
               <input
                 type="number"
                 value={quantity}
+                min={10000}
+                step={500}
                 onChange={(e) => setQuantity(Number(e.target.value))}
+                onBlur={() => setQuantity((q) => Math.max(10000, q))}
                 className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#C8522C]"
               />
             </div>
@@ -242,7 +245,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
               Total estimated cost: <strong className="text-white">₹{estTotal.toLocaleString()}</strong> (ex-GST)
             </div>
             <p className="text-[10px] text-white/50 italic">
-              Includes E-flute kraft board, standard die-cutting & sample vector proof.
+              Indicative only. Includes E-flute kraft board, standard die-cutting & sample vector proof. Firm volume pricing is confirmed on quotation.
             </p>
             <button
               onClick={() => openContact('palaniappan', `Quote Request for Mailer Box ${boxLength}x${boxWidth}x${boxHeight} cm, Qty: ${quantity}`)}

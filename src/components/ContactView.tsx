@@ -8,8 +8,8 @@ export const ContactView: React.FC = () => {
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
   const [userType, setUserType] = useState('D2C/E-commerce brand');
-  const [productInterest, setProductInterest] = useState('Mailer Box');
-  const [estimatedVolume, setEstimatedVolume] = useState('100');
+  const [productInterest, setProductInterest] = useState('TV & Appliance Packaging Box');
+  const [estimatedVolume, setEstimatedVolume] = useState('5,000-10,000');
   const [targetStartDate, setTargetStartDate] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -33,7 +33,7 @@ export const ContactView: React.FC = () => {
       estimatedUnits: estimatedVolume,
       targetStartDate,
       notes: message,
-    });
+    }, 'contact-page');
 
     // 2. Build WhatsApp message URL
     const url = buildWhatsAppLink(recipient, {
@@ -62,10 +62,10 @@ export const ContactView: React.FC = () => {
           Direct Factory Quote
         </span>
         <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-4">
-          Let's Pack Your Next Shipment
+          Get a Bulk Packaging Quote
         </h1>
         <p className="font-body text-base text-[#444748] max-w-xl mx-auto leading-relaxed">
-          Share your box/mailer size, monthly order volume and target start date — we'll turn this into a firm quotation.
+          We manufacture in bulk only: from 5,000 units for large boxes (TV, fan, appliance, master cartons) and 10,000 units for small boxes, mailers and food packs. Share your box size, quantity and target start date for a firm volume quotation.
         </p>
       </div>
 
@@ -129,6 +129,7 @@ export const ContactView: React.FC = () => {
                 >
                   <option value="D2C/E-commerce brand">D2C / E-commerce Brand</option>
                   <option value="Food or FMCG manufacturer">Food or FMCG Manufacturer</option>
+                  <option value="Appliance or electronics manufacturer">Appliance / Electronics Manufacturer</option>
                   <option value="Exporter">Exporter</option>
                   <option value="Other">Other</option>
                 </select>
@@ -143,15 +144,18 @@ export const ContactView: React.FC = () => {
                   onChange={(e) => setProductInterest(e.target.value)}
                   className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
                 >
-                  <option value="Mailer Box">Mailer Box (MOQ 50)</option>
-                  <option value="Corrugated Shipping Box">Corrugated Shipping Box (MOQ 500)</option>
-                  <option value="Food Delivery Box">Food Delivery Box (MOQ 200)</option>
-                  <option value="Courier & Return Mailers">Courier & Return Mailers (MOQ 1000)</option>
-                  <option value="Paper & Padded Mailers">Paper & Padded Mailers (MOQ 100)</option>
-                  <option value="Frosted Zipper Garment Bag">Frosted Zipper Garment Bag (MOQ 100)</option>
-                  <option value="Custom Printed Paper Carry Bag (Eco)">Custom Printed Paper Carry Bag (MOQ 50)</option>
-                  <option value="Bagasse Food Container (Eco)">Bagasse Food Container (MOQ 100)</option>
-                  <option value="Paper Bowls & Food Containers (Eco)">Paper Bowls & Food Containers (MOQ 300)</option>
+                  <option value="TV & Appliance Packaging Box">TV &amp; Appliance Packaging Box</option>
+                  <option value="Ceiling Fan Packaging Box">Ceiling Fan Packaging Box</option>
+                  <option value="Export Master Carton">Export Master Carton (5/7-Ply)</option>
+                  <option value="Mailer Box">Mailer Box</option>
+                  <option value="Corrugated Shipping Box">Corrugated Shipping Box</option>
+                  <option value="Food Delivery Box">Food Delivery Box</option>
+                  <option value="Courier & Return Mailers">Courier & Return Mailers</option>
+                  <option value="Paper & Padded Mailers">Paper & Padded Mailers</option>
+                  <option value="Frosted Zipper Garment Bag">Frosted Zipper Garment Bag</option>
+                  <option value="Custom Printed Paper Carry Bag (Eco)">Custom Printed Paper Carry Bag</option>
+                  <option value="Bagasse Food Container (Eco)">Bagasse Food Container</option>
+                  <option value="Paper Bowls & Food Containers (Eco)">Paper Bowls & Food Containers</option>
                   <option value="Other Custom Format">Other Custom Format</option>
                 </select>
               </div>
@@ -161,18 +165,17 @@ export const ContactView: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-[11px] font-semibold text-[#1b1c1a] uppercase tracking-wider block mb-1">
-                  Estimated Monthly Order Volume
+                  Order Quantity (min 5,000 large / 10,000 small)
                 </label>
                 <select
                   value={estimatedVolume}
                   onChange={(e) => setEstimatedVolume(e.target.value)}
                   className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
                 >
-                  <option value="50">50 Units (Sample / Test Run)</option>
-                  <option value="100">100 Units</option>
-                  <option value="500">500 Units</option>
-                  <option value="1000">1,000 Units</option>
-                  <option value="5000">5,000+ Units (Mass Production)</option>
+                  <option value="5,000-10,000">5,000 to 10,000 Units (large boxes)</option>
+                  <option value="10,000-25,000">10,000 to 25,000 Units</option>
+                  <option value="25,000-50,000">25,000 to 50,000 Units</option>
+                  <option value="50,000+">50,000+ Units</option>
                 </select>
               </div>
 
@@ -294,7 +297,7 @@ export const ContactView: React.FC = () => {
             <div><span className="text-[#747878]">Phone:</span> <strong className="text-[#1b1c1a]">{phone}</strong></div>
             <div><span className="text-[#747878]">Company:</span> {company || 'N/A'}</div>
             <div><span className="text-[#747878]">Business Type:</span> {userType}</div>
-            <div><span className="text-[#747878]">Monthly Volume:</span> {estimatedVolume} Units</div>
+            <div><span className="text-[#747878]">Order Quantity:</span> {estimatedVolume} units</div>
             {targetStartDate && <div><span className="text-[#747878]">Target Start:</span> {targetStartDate}</div>}
             {message && <div><span className="text-[#747878]">Notes:</span> {message}</div>}
           </div>

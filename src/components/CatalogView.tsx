@@ -27,13 +27,13 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
       {/* Header */}
       <div className="border-b border-black/15 pb-8 mb-10">
         <span className="text-xs font-semibold uppercase tracking-widest text-[#C8522C] mb-2 block">
-          Transparent Factory Direct Pricing
+          Bulk Orders · MOQ 5,000 Large / 10,000 Small
         </span>
         <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-3">
-          Packaging Products & Pricing
+          Bulk Packaging Products
         </h1>
         <p className="font-body text-base text-[#444748] max-w-2xl leading-relaxed">
-          From D2C mailers to food-safe takeaway packs to export-ready cartons — one catalog, transparent pricing, no hidden charges.
+          From D2C mailers to food-safe takeaway packs to export-ready cartons. Large boxes (TV, fan, appliance, master cartons) run from 5,000 units and small boxes from 10,000, with factory-direct volume pricing quoted on your size, print and quantity.
         </p>
       </div>
 
@@ -41,9 +41,9 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
       <div className="mb-16">
         <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
           <h2 className="font-serif-display text-2xl text-[#1b1c1a] font-medium">
-            Full Price List
+            Full Product List & MOQ
           </h2>
-          <span className="text-xs text-[#747878]">Ex-GST rates at MOQ, pan-India dispatch</span>
+          <span className="text-xs text-[#747878]">MOQ per product · pan-India dispatch</span>
         </div>
 
         <div className="overflow-x-auto border border-black/15 bg-[#F7F5F1] rounded-sm shadow-xs">
@@ -54,7 +54,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
                 <th className="p-4">Best For</th>
                 <th className="p-4">MOQ</th>
                 <th className="p-4">Lead Time</th>
-                <th className="p-4">Price / Unit</th>
+                <th className="p-4">Pricing</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-black/10 text-xs font-body text-[#1b1c1a]">
@@ -71,7 +71,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
           </table>
         </div>
         <p className="text-[11px] text-[#747878] mt-3 italic">
-          *Starting unit prices for the smallest listed size/quantity at each product's reference MOQ, ex-GST, inclusive of Visalatchi's standard ₹2/unit margin. Final price depends on size, finish, print colours and order quantity — confirmed on formal quotation.
+          *Minimum order: 5,000 units for large boxes (TV, fan, appliance, master and export cartons), 10,000 units for small boxes, mailers, food packs and bags. Unit price depends on size, board grade, print colours and total quantity, and is confirmed on a formal ex-GST quotation. Larger and repeat volumes get lower unit rates.
         </p>
       </div>
 
@@ -82,7 +82,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
             Shipping & Mailer Boxes
           </h3>
           <p className="text-xs text-[#444748] leading-relaxed">
-            Mailer boxes and corrugated shipping cartons are crush-tested for courier handling, with brandable interior or exterior print so your unboxing stays on-brand without needing a separate insert. Mailer boxes start from 50 units, making them practical for brands still testing a new SKU size. Corrugated shipping boxes suit higher-volume, general e-commerce or B2B warehouse dispatch at 500-unit MOQ.
+            Mailer boxes and corrugated shipping cartons are crush-tested for courier handling, with brandable interior or exterior print so your unboxing stays on-brand without needing a separate insert. Both run from a 10,000-unit minimum, for brands and warehouses dispatching at volume: printed mailer boxes for branded D2C shipping and 3-ply or 5-ply corrugated cartons for e-commerce and B2B use. Large TV, fan, appliance and master cartons run from 5,000 units.
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
             Courier & Padded Mailers
           </h3>
           <p className="text-xs text-[#444748] leading-relaxed">
-            Courier and return mailers, along with paper and padded mailers, are built with tamper-evident seals and padded options where needed — reducing transit damage on apparel, books, jewellery and small electronics. Courier mailers are priced for high-volume dispatch at ₹10/unit from 1,000 units; padded formats suit lower-volume, higher-value items from 100 units.
+            Courier and return mailers, along with paper and padded mailers, are built with tamper-evident seals and padded options where needed — reducing transit damage on apparel, books, jewellery and small electronics. Both are produced in runs from 10,000 units, priced for high-volume e-commerce dispatch.
           </p>
         </div>
 
@@ -113,6 +113,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
               { id: 'all', label: 'All Products' },
               { id: 'd2c', label: 'D2C & E-Commerce' },
               { id: 'food', label: 'Food Safe & FMCG' },
+              { id: 'appliance', label: 'Appliance & Electronics' },
               { id: 'export', label: 'Export Masters' },
             ].map((cat) => (
               <button
@@ -156,7 +157,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 right-3 bg-[#1b1c1a] text-white text-[10px] font-mono px-2 py-1 rounded-sm uppercase tracking-wider">
-                    MOQ: {product.moq}
+                    MOQ: {product.moq.toLocaleString('en-IN')}
                   </div>
                   {product.ecoFriendly && (
                     <div className="absolute top-3 left-3 bg-[#C8522C] text-white text-[10px] font-semibold px-2 py-1 rounded-sm uppercase tracking-wider">
@@ -186,7 +187,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
                       <span className="font-semibold text-[#1b1c1a]">{product.leadTime}</span>
                     </div>
                     <div className="flex justify-between text-[#C8522C]">
-                      <span>Starting Price:</span>
+                      <span>Pricing:</span>
                       <span className="font-mono font-bold text-sm">{product.startingPrice}</span>
                     </div>
                   </div>
@@ -213,7 +214,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
           Not sure which format fits your product?
         </h3>
         <p className="font-body text-xs text-[#444748] max-w-md mx-auto">
-          Share your item size, monthly volume and target start date — we'll recommend the right pack and turn it into a firm quote.
+          Share your item size, order volume (5,000+ large boxes or 10,000+ small boxes) and target start date. We'll recommend the right pack and turn it into a firm quote.
         </p>
         <button
           onClick={() => openContact('general', 'Custom format recommendation request')}

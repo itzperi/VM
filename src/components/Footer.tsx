@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
               <BrandLogo variant="footer" />
             </Link>
             <p className="font-body text-xs md:text-sm text-[#444748] max-w-sm mt-3 leading-relaxed">
-              Shipping-ready packaging made in Chennai, Tamil Nadu and shipped pan-India. Low MOQs from 50 units, physical pre-production sample approval, and transparent itemised pricing.
+              Bulk packaging manufacturer in Chennai, Tamil Nadu, shipping pan-India. Minimum order 5,000 units for large boxes and 10,000 for small boxes, physical pre-production sample approval, and itemised factory-direct volume pricing.
             </p>
           </div>
 
@@ -94,7 +94,28 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
             onClick={scrollTop}
             className="text-left font-body text-xs text-[#444748] hover:text-[#C8522C] transition-colors py-1"
           >
-            Products & Full Price List
+            Products & MOQ
+          </Link>
+          <Link
+            to="/bulk-packaging-boxes"
+            onClick={scrollTop}
+            className="text-left font-body text-xs text-[#444748] hover:text-[#C8522C] transition-colors py-1"
+          >
+            Bulk Packaging Boxes
+          </Link>
+          <Link
+            to="/appliance-packaging-boxes"
+            onClick={scrollTop}
+            className="text-left font-body text-xs text-[#444748] hover:text-[#C8522C] transition-colors py-1"
+          >
+            TV, Fan &amp; Appliance Boxes
+          </Link>
+          <Link
+            to="/corrugated-box-manufacturer-chennai"
+            onClick={scrollTop}
+            className="text-left font-body text-xs text-[#444748] hover:text-[#C8522C] transition-colors py-1"
+          >
+            Corrugated Box Manufacturer, Chennai
           </Link>
           <Link
             to="/process"
@@ -140,10 +161,10 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
 
           <div className="pt-4 mt-2 border-t border-black/10">
             <button
-              onClick={() => openContact('palaniappan')}
+              onClick={() => openContact('palaniappan', 'Bulk quote request from footer')}
               className="bg-[#C8522C] text-white text-[11px] font-semibold uppercase tracking-widest px-4 py-2 rounded-sm hover:bg-black transition-colors cursor-pointer w-full text-center block"
             >
-              Request Sample Box
+              Get a Bulk Quote
             </button>
           </div>
         </div>

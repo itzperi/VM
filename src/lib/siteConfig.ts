@@ -7,10 +7,31 @@ export const SITE_URL = 'https://visalatchimanufacturing.com';
 
 export const SITE_NAME = 'Visalatchi Manufactures';
 
-// Shared logo/OG-image source. Single source of truth so Seo.tsx (runtime),
-// prerender.ts (build-time head tags) and schema.ts (JSON-LD) can't drift.
-export const LOGO_URL =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuC9R9jkHfIHpp-rHGWas-XTdRDmh736cpbPfz2aYBNi3y0OGwLt4nC7943ZKj_5jabLeXo_u72kooxrDZEDFzdlnFnsEAzpN-kRrzFtaKw-Y-dp_ouTJ1_xWqMLl_qlnT3i3b9lDIZK-m2nnK-cPKFfYF89wMqc6R5F8uA3gqa35SgL-OdtFSvSLWPHUI61FNgVB_MOSttS_ktB7jy1_nxPoHa2rNxHxvcZrWOsKRPiFxTAhXTxaLUY';
+// Minimum order quantities, by box size. Large boxes (TV, fan, appliance,
+// master and export cartons) run from 5,000 units; small boxes, mailers, food
+// packs and bags from 10,000 units. Every product's moq in data/products.ts
+// must be one of these two values, and copy should reference them, never a
+// hard-coded third number.
+export const MOQ_LARGE = 5000;
+export const MOQ_SMALL = 10000;
+export const MOQ_RULE =
+  'Minimum order 5,000 units for large boxes (TV, fan, appliance, master and export cartons) and 10,000 units for small boxes, mailers, food packs and bags.';
+
+// Self-hosted brand assets (public/logo.jpg, public/og-image.png). Previously
+// hot-linked from a googleusercontent "aida-public" generated-asset URL, which
+// can expire and silently break the logo in schema, OG cards and the navbar.
+// Single source of truth for Seo.tsx, prerender.ts and schema.ts.
+export const LOGO_PATH = '/logo.jpg';
+export const LOGO_URL = `${SITE_URL}${LOGO_PATH}`;
+export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
+
+// Official third-party profiles for the Organization schema's sameAs (entity
+// signal for Google's Knowledge Graph and AI engines). Add each profile URL
+// here as it goes live: IndiaMART, TradeIndia, LinkedIn, JustDial, Facebook.
+// Only list profiles that exist and use the exact same name/address/phone.
+export const SAME_AS: string[] = [
+  'https://maps.app.goo.gl/F9VCUnqTkmb3cx568',
+];
 
 export const PLANT_ADDRESS = {
   streetAddress: 'No 10/4B Village Street, Sadayan Kuppam Pattai, Thiruvottiyur',

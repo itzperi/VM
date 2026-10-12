@@ -1,4 +1,5 @@
 import React from 'react';
+import { LOGO_PATH } from '../lib/siteConfig';
 
 interface BrandLogoProps {
   variant?: 'nav' | 'footer' | 'hero' | 'small' | 'large' | 'icon';
@@ -12,7 +13,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   showText = true 
 }) => {
   // Visalatchi "V" stylized ribbon packaging mark
-  const logoImageSrc = "https://lh3.googleusercontent.com/aida-public/AB6AXuC9R9jkHfIHpp-rHGWas-XTdRDmh736cpbPfz2aYBNi3y0OGwLt4nC7943ZKj_5jabLeXo_u72kooxrDZEDFzdlnFnsEAzpN-kRrzFtaKw-Y-dp_ouTJ1_xWqMLl_qlnT3i3b9lDIZK-m2nnK-cPKFfYF89wMqc6R5F8uA3gqa35SgL-OdtFSvSLWPHUI61FNgVB_MOSttS_ktB7jy1_nxPoHa2rNxHxvcZrWOsKRPiFxTAhXTxaLUY";
+  const logoImageSrc = LOGO_PATH;
 
   if (variant === 'icon') {
     return (

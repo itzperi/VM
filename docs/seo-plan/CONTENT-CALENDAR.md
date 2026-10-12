@@ -6,7 +6,7 @@ No blog exists yet (deliberately, see SITE-STRUCTURE.md). This is the proposed l
 
 | # | Working title | Target keyword | Notes |
 |---|---|---|---|
-| 1 | How to choose the right MOQ for your first packaging order | packaging manufacturer low MOQ Chennai | Directly supports the core differentiator; link to /d2c-packaging and /products |
+| 1 | Why a 5,000-unit MOQ lowers your packaging cost per order (rewritten 2026-10-11) | bulk packaging boxes / packaging MOQ India | Supports the bulk-only positioning; links to /bulk-packaging-boxes |
 | 2 | FSSAI packaging requirements for cloud kitchens in Chennai: what actually matters | FSSAI food packaging manufacturer Chennai | Real regulatory content, cite FSSAI's own guidance, link to /food-packaging |
 | 3 | Corrugated box thickness explained: 3 ply vs 5 ply for e-commerce shipping | corrugated box manufacturer Tamil Nadu | Answer engine friendly: direct 40 to 60 word answer block near the top |
 | 4 | What export buyers actually check on master carton compliance | export carton manufacturer Chennai | Link to /export-packaging; talk to Periyanan for real compliance detail before publishing, do not invent regulatory claims |

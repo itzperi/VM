@@ -19,7 +19,7 @@ export interface BlogPost {
 export interface ProductItem {
   id: string;
   name: string;
-  category: 'd2c' | 'food' | 'export' | 'tapes';
+  category: 'd2c' | 'food' | 'export' | 'appliance' | 'tapes';
   description: string;
   moq: number;
   startingPrice: string;

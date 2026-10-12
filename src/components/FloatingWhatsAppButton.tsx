@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, ChevronUp, X, Send } from 'lucide-react';
 import { buildWhatsAppLink } from '../lib/inquiryStore';
+import { trackEvent } from '../lib/analytics';
 
 const WhatsAppIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg 
@@ -54,6 +55,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
           <div className="space-y-2 pt-1">
             <a
               href={urlPalaniappan}
+              onClick={() => trackEvent('whatsapp_click', { rep: 'palaniappan' })}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] hover:bg-[#1ebd5a] text-white p-2.5 rounded-sm flex items-center justify-between font-semibold transition-colors group cursor-pointer"
@@ -67,6 +69,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
 
             <a
               href={urlPeriyanan}
+              onClick={() => trackEvent('whatsapp_click', { rep: 'periyanan' })}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] hover:bg-[#1ebd5a] text-white p-2.5 rounded-sm flex items-center justify-between font-semibold transition-colors group cursor-pointer"

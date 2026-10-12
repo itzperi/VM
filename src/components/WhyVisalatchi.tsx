@@ -5,8 +5,8 @@ export const WhyVisalatchi: React.FC = () => {
   const reasons = [
     {
       icon: Package,
-      title: 'Low minimum order quantities',
-      desc: 'Start from 50 units on several formats, so you\'re not locking up working capital before you\'ve tested a size.',
+      title: 'Bulk only: 5,000 large, 10,000 small',
+      desc: 'Large boxes (TV, fan, appliance, master cartons) run from 5,000 units and small boxes from 10,000, so every order gets dedicated production time and true factory-direct volume pricing.',
     },
     {
       icon: CheckCircle2,
@@ -15,8 +15,8 @@ export const WhyVisalatchi: React.FC = () => {
     },
     {
       icon: Truck,
-      title: 'Fast-dispatch formats',
-      desc: 'Stocked and engineered to cover festival and flash-sale demand spikes without delays.',
+      title: 'Capacity for repeat bulk demand',
+      desc: 'Planned production slots and repeat-order scheduling to cover festival, flash-sale and seasonal volume without delays.',
     },
     {
       icon: Recycle,
@@ -42,7 +42,7 @@ export const WhyVisalatchi: React.FC = () => {
               Why businesses choose Visalatchi
             </h2>
             <p className="font-body text-base text-[#444748] max-w-md leading-relaxed">
-              We eliminate traditional factory barriers so growing businesses get reliable, high-grade packaging built for how they actually ship.
+              A focused bulk manufacturer for brands, FMCG producers and exporters who order packaging by the thousands and need consistent quality on every run.
             </p>
           </div>
 

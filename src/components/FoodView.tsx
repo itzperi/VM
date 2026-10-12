@@ -28,8 +28,8 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
       desc: 'If you\'ve used the same packaging vendor for years without a recent competitive quote, there\'s a good chance you\'re overpaying. Our itemised pricing gives you a clean benchmark to compare against.',
     },
     {
-      title: 'MOQs that lock up working capital',
-      desc: 'Committing ₹10L in packaging inventory when your monthly need is ₹2L ties up cash you could use elsewhere. Several of our formats start from 100-300 units.',
+      title: 'Inconsistent quality across bulk batches',
+      desc: 'When you order 10,000+ units at a time, a bad batch is expensive. Every bulk run starts from an approved physical sample, so the 10,000th box matches the first.',
     },
   ];
 
@@ -44,7 +44,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
           Packaging That Protects Shelf Life, Not Just Your Margin
         </h1>
         <p className="font-body text-base text-[#444748] max-w-3xl leading-relaxed">
-          For a food or FMCG manufacturer, a packaging failure isn't a bad review — it's a spoiled batch, a retailer return, or a compliance flag. Visalatchi builds food-safe, moisture and grease-resistant packaging for regional food brands that need reliability more than they need the cheapest quote. Manufactured in Chennai, Tamil Nadu and dispatched pan-India, we supply cloud kitchens and FMCG brands across Chennai, Coimbatore, Madurai and the rest of Tamil Nadu.
+          For a food or FMCG manufacturer, a packaging failure isn't a bad review — it's a spoiled batch, a retailer return, or a compliance flag. Visalatchi builds food-safe, moisture and grease-resistant packaging for food brands, cloud-kitchen chains and FMCG manufacturers ordering 10,000 units or more, who need reliability more than the cheapest quote. Manufactured in Chennai, Tamil Nadu and dispatched pan-India, we supply cloud kitchens and FMCG brands across Chennai, Coimbatore, Madurai and the rest of Tamil Nadu.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -87,7 +87,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
           <h2 className="font-serif-display text-2xl md:text-3xl text-[#1b1c1a] font-medium">
             Relevant formats for food businesses
           </h2>
-          <span className="text-xs text-[#747878]">Pricing: starting unit rates at MOQ, ex-GST</span>
+          <span className="text-xs text-[#747878]">Minimum order 10,000 units</span>
         </div>
 
         <div className="overflow-x-auto border border-black/15 bg-[#F7F5F1] rounded-sm">
@@ -98,7 +98,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
                 <th className="p-4">Best For</th>
                 <th className="p-4">MOQ</th>
                 <th className="p-4">Lead Time</th>
-                <th className="p-4">Price / Unit</th>
+                <th className="p-4">Pricing</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-black/10 text-xs font-body text-[#1b1c1a]">
@@ -115,7 +115,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
           </table>
         </div>
         <p className="text-[11px] text-[#747878] mt-3 italic">
-          *Pricing note: starting unit prices at reference MOQ, ex-GST. Final price confirmed on formal quotation based on size, finish, and quantity.
+          *All food formats have a 10,000-unit minimum order. Unit price is confirmed on a formal ex-GST quotation based on size, finish and quantity.
         </p>
       </div>
 

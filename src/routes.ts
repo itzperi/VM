@@ -1,7 +1,8 @@
-import { buildOrganizationSchema, buildAllProductSchemas, buildFaqPageSchema, buildBreadcrumbSchema, buildProductSchema, buildArticleSchema } from './lib/schema';
-import { SITE_URL, LOGO_URL } from './lib/siteConfig';
+import { buildOrganizationSchema, buildAllProductSchemas, buildFaqPageSchema, buildBreadcrumbSchema, buildProductSchema, buildArticleSchema, buildWebSiteSchema } from './lib/schema';
+import { SITE_URL, OG_IMAGE_URL } from './lib/siteConfig';
 import { PRODUCTS, slugify } from './data/products';
 import { BLOG_POSTS, getBlogPostBySlug } from './data/blogPosts';
+import { LANDING_PAGES } from './data/landingPages';
 
 export interface RouteMeta {
   path: string;
@@ -13,66 +14,75 @@ export interface RouteMeta {
 export const ROUTES: RouteMeta[] = [
   {
     path: '/',
-    title: 'Packaging Manufacturer in Chennai, Tamil Nadu | Visalatchi Manufactures',
+    title: 'Bulk Packaging Box Manufacturer Chennai | TV, Fan & Mailer Boxes',
     description:
-      'Chennai-based packaging manufacturer for D2C, food & FMCG and export brands. Low MOQs from 50 units, sample-first, pan-India dispatch across Tamil Nadu and India.',
+      'Bulk TV, fan and appliance cartons, export master cartons, mailer and food boxes from a Chennai factory. MOQ 5,000 large / 10,000 small boxes. Get a volume quote.',
+    buildJsonLd: () => [buildWebSiteSchema()],
   },
   {
     path: '/d2c-packaging',
-    title: 'D2C & E-Commerce Packaging Boxes | Chennai Manufacturer',
+    title: 'Bulk E-Commerce Mailer & Shipping Boxes | MOQ 10,000 | Chennai',
     description:
-      'Custom mailer boxes, corrugated shipping cartons and courier mailers for D2C brands. Low MOQs from 50 units, made in Chennai, dispatched pan-India.',
+      'Custom printed mailer boxes, corrugated shipping cartons and courier mailers for D2C brands shipping at volume. Bulk runs from 10,000 units, made in Chennai.',
   },
   {
     path: '/food-packaging',
-    title: 'Food-Safe Packaging & FMCG Boxes | Chennai, Tamil Nadu',
+    title: 'Bulk Food Packaging & FMCG Boxes | MOQ 10,000 | Chennai',
     description:
-      'FSSAI-ready food delivery boxes, bagasse containers and paper bowls for cloud kitchens and FMCG brands across Chennai and Tamil Nadu.',
+      'Food-safe delivery boxes, bagasse containers and paper bowls in bulk for cloud-kitchen chains and FMCG brands. Minimum order 10,000 units, pan-India dispatch.',
   },
   {
     path: '/export-packaging',
-    title: 'Export Packaging & Master Cartons | Visalatchi Manufactures',
+    title: 'Export Master Cartons in Bulk | MOQ 5,000 | Visalatchi Chennai',
     description:
-      "Export-compliant master cartons and CBM-optimised packaging from our Chennai plant, built to your buyer's specification and shipping timeline.",
+      "Export master cartons and CBM-optimised packaging from our Chennai plant, built to your buyer's specification. Bulk orders from 5,000 units.",
   },
   {
     path: '/products',
-    title: 'Packaging Products & Pricing | Visalatchi Manufactures, Chennai',
+    title: 'Bulk Packaging Products & MOQ | Visalatchi Manufactures, Chennai',
     description:
-      'Full price list for mailer boxes, corrugated cartons, food delivery packs and eco packaging. Transparent ex-GST pricing from our Chennai factory.',
+      'TV, fan and appliance cartons and export master cartons from 5,000 units; mailers, small cartons, food packs and bags from 10,000. Itemised ex-GST quotes from Chennai.',
     buildJsonLd: () => buildAllProductSchemas(),
   },
   {
     path: '/process',
     title: 'Our Packaging Process | Visalatchi Manufactures',
     description:
-      'How Visalatchi takes your packaging order from sample approval to pan-India dispatch — choose, sample, produce, ship.',
+      'How Visalatchi takes a bulk packaging order (5,000+ large or 10,000+ small boxes) from sample approval to production and pan-India dispatch.',
   },
   {
     path: '/about',
     title: 'About Visalatchi Manufactures | Chennai Packaging Factory',
     description:
-      'Visalatchi Manufactures is a Chennai, Tamil Nadu based packaging manufacturer built for low MOQs, sample-first orders and transparent pricing.',
+      'Visalatchi Manufactures is a bulk packaging manufacturer in Thiruvottiyur, Chennai, running large boxes from 5,000 units and small boxes from 10,000, sample-first.',
   },
   {
     path: '/faq',
-    title: 'Packaging FAQs — MOQs, Pricing & Delivery | Visalatchi',
+    title: 'Packaging MOQ FAQs: 5,000 Large, 10,000 Small Boxes | Visalatchi',
     description:
-      'Answers on minimum order quantities, sample approval, pricing and delivery timelines for packaging ordered from our Chennai factory.',
+      'Why our MOQ is 5,000 for large boxes and 10,000 for small boxes, how bulk pricing works, sample approval and lead times for packaging ordered from our Chennai factory.',
     buildJsonLd: () => [buildFaqPageSchema()],
   },
   {
     path: '/contact',
-    title: 'Contact & Get a Quote | Visalatchi Manufactures, Chennai',
+    title: 'Get a Bulk Packaging Quote | Visalatchi Manufactures, Chennai',
     description:
-      'Request a packaging quote or sample from our Chennai, Tamil Nadu factory. Speak directly with our D2C, food and export specialists.',
+      'Request a volume quote for 5,000+ large or 10,000+ small boxes from our Chennai factory. Speak directly with our D2C, food and export specialists.',
   },
   {
     path: '/blog',
     title: 'Packaging Guides & Resources | Visalatchi Manufactures Blog',
     description:
-      'Practical guides on packaging MOQs, corrugated board specs, FSSAI compliance and export carton requirements, from our Chennai packaging factory.',
+      'Guides on bulk packaging MOQs, corrugated board specs, FSSAI compliance and export carton requirements, from our Chennai packaging factory.',
   },
+  // Bulk-buyer landing pages, each with its own on-page FAQ mirrored as
+  // FAQPage JSON-LD.
+  ...LANDING_PAGES.map((page) => ({
+    path: page.path,
+    title: page.title,
+    description: page.description,
+    buildJsonLd: () => [buildFaqPageSchema(page.faqs)],
+  })),
 ];
 
 export interface HeadData {
@@ -94,8 +104,8 @@ function computeProductHeadData(slug: string): HeadData | null {
 
   const path = `/products/${slug}`;
   const canonicalUrl = `${SITE_URL}${path}`;
-  const title = `${product.name} | ${product.startingPrice}, MOQ ${product.moq} | Visalatchi Manufactures`;
-  const description = `${product.description} Starting at ${product.startingPrice}, minimum order ${product.moq} units. Made in Chennai, dispatched pan India.`;
+  const title = `Bulk ${product.name} | MOQ ${product.moq.toLocaleString('en-IN')} Units | Visalatchi Chennai`;
+  const description = `${product.description} Minimum order ${product.moq.toLocaleString('en-IN')} units, volume pricing on quotation. Made in Chennai, dispatched pan-India.`;
   const schemas = [
     buildOrganizationSchema(),
     buildBreadcrumbSchema(path, product.name),
@@ -119,7 +129,7 @@ function computeBlogHeadData(slug: string): HeadData | null {
     buildBreadcrumbSchema(path, post.title),
     buildArticleSchema(post, canonicalUrl),
   ];
-  return { title, description: post.description, canonicalUrl, ogImage: LOGO_URL, noindex: false, schemas };
+  return { title, description: post.description, canonicalUrl, ogImage: OG_IMAGE_URL, noindex: false, schemas };
 }
 
 /** Single source of truth for per-route <head> content, consumed by both the
@@ -142,7 +152,7 @@ export function computeHeadData(pathname: string): HeadData {
       title: 'Page Not Found | Visalatchi Manufactures',
       description: '',
       canonicalUrl: '',
-      ogImage: LOGO_URL,
+      ogImage: OG_IMAGE_URL,
       noindex: true,
       schemas: [],
     };
@@ -154,5 +164,5 @@ export function computeHeadData(pathname: string): HeadData {
     buildBreadcrumbSchema(route.path, shortTitle),
     ...(route.buildJsonLd ? route.buildJsonLd() : []),
   ];
-  return { title: route.title, description: route.description, canonicalUrl, ogImage: LOGO_URL, noindex: false, schemas };
+  return { title: route.title, description: route.description, canonicalUrl, ogImage: OG_IMAGE_URL, noindex: false, schemas };
 }

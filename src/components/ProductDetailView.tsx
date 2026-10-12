@@ -41,7 +41,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
 
         <div>
           <span className="text-xs font-semibold uppercase tracking-widest text-[#C8522C] mb-2 block">
-            {product.category === 'd2c' ? 'D2C & E-Commerce Packaging' : product.category === 'food' ? 'Food Safe & FMCG Packaging' : 'Export Packaging'}
+            {product.category === 'd2c' ? 'D2C & E-Commerce Packaging' : product.category === 'food' ? 'Food Safe & FMCG Packaging' : product.category === 'appliance' ? 'Appliance & Electronics Packaging' : 'Export Packaging'}
           </span>
           <h1 className="font-serif-display text-3xl md:text-4xl text-[#1b1c1a] font-medium mb-4">
             {product.name}
@@ -52,7 +52,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
 
           <div className="bg-[#F7F5F1] border border-black/15 rounded-sm p-5 space-y-2.5 text-sm mb-6">
             <div className="flex justify-between border-b border-black/10 pb-2">
-              <span className="text-[#747878]">Starting Price</span>
+              <span className="text-[#747878]">Pricing</span>
               <span className="font-mono font-bold text-[#C8522C]">{product.startingPrice}</span>
             </div>
             <div className="flex justify-between border-b border-black/10 pb-2">
@@ -81,7 +81,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
             className="w-full bg-[#C8522C] text-white py-3.5 px-4 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer flex items-center justify-center gap-2"
           >
             <Send className="w-4 h-4" />
-            <span>Request a Sample and Quote</span>
+            <span>Request a Bulk Quote ({product.moq.toLocaleString('en-IN')}+ units)</span>
           </button>
         </div>
       </div>

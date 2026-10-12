@@ -1,4 +1,6 @@
 import { InquiryRecord } from '../types';
+import { deliverLead } from './leadDelivery';
+import { trackLead } from './analytics';
 
 const STORAGE_KEY = 'visalatchi_inquiries_v2';
 
@@ -12,7 +14,7 @@ const INITIAL_INQUIRIES: InquiryRecord[] = [
     userType: 'Food or FMCG manufacturer',
     requirement: 'Paper Bowls & Food Containers (Eco)',
     recipient: 'periyanan',
-    estimatedUnits: '1,000',
+    estimatedUnits: '10,000-25,000',
     targetStartDate: '2026-08-15',
     notes: 'Need grease-proof 500ml paper bowls for hot filter coffee & snacks packaging.',
     createdAt: new Date(Date.now() - 3600000 * 3).toISOString(),
@@ -25,9 +27,9 @@ const INITIAL_INQUIRIES: InquiryRecord[] = [
     email: 'ananya@auraloom.com',
     companyName: 'Aura Loom Apparel',
     userType: 'D2C/E-commerce brand',
-    requirement: 'Mailer Box (MOQ 50)',
+    requirement: 'Mailer Box',
     recipient: 'palaniappan',
-    estimatedUnits: '500',
+    estimatedUnits: '10,000-25,000',
     targetStartDate: '2026-08-20',
     notes: 'Looking for 12x9x3 inch mailer boxes with white inside logo print for ethnic wear dispatch.',
     createdAt: new Date(Date.now() - 3600000 * 22).toISOString(),
@@ -64,7 +66,7 @@ export function getInquiries(): InquiryRecord[] {
   }
 }
 
-export function saveInquiry(inquiryData: Omit<InquiryRecord, 'id' | 'createdAt' | 'status'>): InquiryRecord {
+export function saveInquiry(inquiryData: Omit<InquiryRecord, 'id' | 'createdAt' | 'status'>, source = 'form'): InquiryRecord {
   const current = getInquiries();
   const newInquiry: InquiryRecord = {
     ...inquiryData,
@@ -78,6 +80,10 @@ export function saveInquiry(inquiryData: Omit<InquiryRecord, 'id' | 'createdAt' 
   } catch (e) {
     console.error('Error saving inquiry to localStorage', e);
   }
+  // Fire-and-forget: email the lead to the team and count the conversion.
+  // Neither blocks the WhatsApp hand-off the visitor sees next.
+  void deliverLead(newInquiry, source);
+  trackLead({ units: newInquiry.estimatedUnits, requirement: newInquiry.requirement, source });
   return newInquiry;
 }
 

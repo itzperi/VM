@@ -9,8 +9,8 @@ interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({ openContact }) => {
   const messages = [
     "Shipping-ready in Chennai, dispatched Pan-India",
-    "Low MOQs starting from 50 units",
-    "Physical sample-approval before bulk production",
+    "MOQ 5,000 for large boxes · 10,000 for small boxes",
+    "Physical sample approval before every bulk run",
     "Itemised pricing with zero hidden plate fees",
     "Contact Palaniappan: 98405 01323 · Periyanan: 94444 20367"
   ];
@@ -67,31 +67,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ openContact }) => {
         <div className="mb-6 flex flex-col items-center gap-3 fade-in-up">
           <BrandLogo variant="hero" />
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C8522C] bg-[#F7F5F1]/90 backdrop-blur-xs px-4 py-1 rounded-full border border-black/10 shadow-xs">
-            Chennai-Based Manufacturer · Pan-India Dispatch
+            Bulk Packaging Manufacturer · MOQ from 5,000 Units
           </span>
         </div>
 
         <h1 className="font-serif-display text-4xl sm:text-5xl md:text-6xl lg:text-[76px] text-[#1b1c1a] font-semibold leading-[1.08] tracking-[-0.02em] mb-6 fade-in-up">
-          Shipping-Ready Packaging, <br className="hidden sm:inline" /> Made in Chennai, Tamil Nadu. <br className="hidden sm:inline" /> Shipped Pan-India.
+          Bulk Packaging Boxes, <br className="hidden sm:inline" /> Made in Chennai, Tamil Nadu. <br className="hidden sm:inline" /> From TV &amp; Fan Cartons to Mailers.
         </h1>
 
         <p className="font-body text-base md:text-xl text-[#444748] max-w-2xl mx-auto leading-relaxed mb-8 fade-in-up">
-          Mailer boxes, cartons, courier bags and food-safe packs — priced and stocked for how you actually ship, not how a catalog assumes you ship.
+          TV, fan and appliance cartons, export master cartons, printed mailer boxes and food-safe packs for manufacturers, brands and exporters. Large boxes from 5,000 units, small boxes from 10,000. Factory-direct volume pricing, sample-first, dispatched pan-India.
         </p>
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-10 fade-in-up">
           <button
-            onClick={() => openContact('palaniappan', 'Sample Request from Homepage')}
+            onClick={() => openContact('palaniappan', 'Bulk quote request from homepage')}
             className="bg-[#C8522C] text-white px-8 py-3.5 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer shadow-sm"
           >
-            Get a Sample
+            Get a Bulk Quote
           </button>
           <Link
             to="/products"
             className="bg-[#F7F5F1] text-[#1b1c1a] border border-black/25 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest hover:border-black transition-colors rounded-sm cursor-pointer shadow-xs inline-block"
           >
-            See Pricing & Products
+            See Products & MOQ
           </Link>
         </div>
 

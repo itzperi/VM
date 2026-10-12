@@ -44,6 +44,8 @@ function buildHtml(template: string, pathname: string, appHtml: string): string 
     head.canonicalUrl ? `<meta property="og:locale" content="en_IN" />` : '',
     `<meta property="og:image" content="${escapeAttr(head.ogImage)}" />`,
     head.canonicalUrl ? `<meta name="twitter:card" content="summary_large_image" />` : '',
+    head.canonicalUrl ? `<meta name="twitter:title" content="${escapeAttr(head.title)}" />` : '',
+    head.description ? `<meta name="twitter:description" content="${escapeAttr(head.description)}" />` : '',
     `<meta name="twitter:image" content="${escapeAttr(head.ogImage)}" />`,
     head.schemas.length ? `<script type="application/ld+json">${JSON.stringify(head.schemas)}</script>` : '',
   ]

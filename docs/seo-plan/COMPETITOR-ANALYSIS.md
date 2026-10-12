@@ -22,7 +22,7 @@ This is the single most important competitive fact: for broad head terms, Visala
 ## What this means for Visalatchi's positioning
 
 Visalatchi cannot win on "years in business" against Avon Containers (46+ years) or general product breadth against M.M. Cartons. The defensible, honest differentiators already reflected in the current site content are:
-- **Low MOQ (50 units) with sample first process** — most competitors above are B2B bulk focused; none of their listed pages emphasize low MOQ for testing a new SKU the way Visalatchi's homepage and About page do
+- **Bulk-only focus (MOQ 5,000) with sample-first process and itemised quotes** — repositioned 2026-10-11 from the earlier low-MOQ angle. Competitors are also bulk-focused, so the differentiators are now the physical sample on every run, transparent itemised pricing, named specialists, and fast response
 - **Named specialists per channel** (Palaniappan for D2C/domestic, Periyanan for export/food) rather than a generic contact form — a real trust/E-E-A-T signal competitors are not visibly using
 - **Transparent itemised pricing published on site** (most competitors require a quote request before any price is visible; Visalatchi already publishes a full price list)
 - **FSSAI-oriented food packaging line** (bagasse containers, paper bowls) as a distinct category from general corrugated boxes

@@ -8,7 +8,7 @@ export const PathSelector: React.FC = () => {
       id: 'd2c',
       num: '01',
       title: 'I ship D2C orders',
-      desc: 'Damage-resistant mailers and cartons, low MOQs from 50 units, fast dispatch for sale-day spikes.',
+      desc: 'Damage-resistant mailers and cartons in bulk runs from 10,000 units, scheduled for sale-day and festival spikes.',
       buttonText: 'See D2C Packaging',
       to: '/d2c-packaging',
     },
@@ -21,8 +21,16 @@ export const PathSelector: React.FC = () => {
       to: '/food-packaging',
     },
     {
-      id: 'export',
+      id: 'appliance',
       num: '03',
+      title: 'I make appliances or electronics',
+      desc: 'Heavy-duty 5-ply and 7-ply cartons for TVs, fans, coolers and appliances, built to your product weight. From 5,000 units.',
+      buttonText: 'See Appliance Boxes',
+      to: '/appliance-packaging-boxes',
+    },
+    {
+      id: 'export',
+      num: '04',
       title: 'I export internationally',
       desc: 'Packaging specced to your buyer\'s compliance requirements and shipping timelines.',
       buttonText: 'See Export Packaging',
@@ -39,9 +47,15 @@ export const PathSelector: React.FC = () => {
         <h2 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium">
           What kind of business are you running?
         </h2>
+        <p className="font-body text-sm text-[#444748] mt-4">
+          Large boxes from 5,000 units, small boxes from 10,000.{' '}
+          <Link to="/bulk-packaging-boxes" className="text-[#C8522C] font-semibold hover:underline">
+            How bulk ordering works →
+          </Link>
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-black/15">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-black/15">
         {paths.map((path) => (
           <Link
             key={path.id}
