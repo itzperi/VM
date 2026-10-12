@@ -1,16 +1,73 @@
 @import "tailwindcss";
 
+/* Self-hosted variable fonts (Inter and Fraunces, SIL OFL; licences in
+   public/fonts). font-display: optional plus <link rel=preload> in the
+   prerendered HTML: the web font is used when it arrives within the first
+   ~100 ms (almost always, since it is preloaded and cached), otherwise the
+   metric-matched fallback stays for that page view, so the font never causes
+   a layout shift. */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: optional;
+  src: url('/fonts/inter-latin.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: optional;
+  src: url('/fonts/inter-latin-ext.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: optional;
+  src: url('/fonts/fraunces-latin.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: optional;
+  src: url('/fonts/fraunces-latin-ext.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* Metric-matched fallbacks (size-adjust measured against the real fonts in
+   headless Chrome) so the swap from fallback to web font doesn't re-wrap the
+   hero heading and push content down (CLS). */
+@font-face {
+  font-family: 'Fraunces Fallback';
+  src: local('Georgia');
+  size-adjust: 93.08%;
+}
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  size-adjust: 106.65%;
+}
+
+@theme {
+  --font-sans: 'Inter Variable', 'Inter Fallback', system-ui, sans-serif;
+}
+
 @layer base {
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter Fallback', system-ui, sans-serif;
     background-color: #F7F5F1;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    background-image: url("/media/noise.png");
     color: #1b1c1a;
   }
 }
 
 .font-serif-display {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: 'Fraunces Variable', 'Fraunces Fallback', Georgia, serif;
 }
 
 .font-nokia {
@@ -46,15 +103,23 @@
 }
 @keyframes blink { 50% { opacity: 0; } }
 
+/* Slide-only entrance: content stays fully opaque from first paint so the
+   hero heading counts as painted immediately (an opacity-0 start delayed LCP
+   by ~2.4 s on mobile). */
 .fade-in-up {
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-  transform: translateY(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 @keyframes fadeInUp {
+  from {
+    transform: translateY(12px);
+  }
   to {
-    opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up {
+    animation: none;
   }
 }
 

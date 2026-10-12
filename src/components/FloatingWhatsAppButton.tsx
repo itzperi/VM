@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, ChevronUp, X, Send } from 'lucide-react';
 import { buildWhatsAppLink } from '../lib/inquiryStore';
-import { trackEvent } from '../lib/analytics';
 
 const WhatsAppIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg 
@@ -31,7 +30,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
   });
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-2">
+    <div className="hidden md:flex fixed bottom-6 left-6 z-50 flex-col items-start gap-2">
       {/* Popover Options */}
       {showOptions && (
         <div className="bg-[#1b1c1a] text-white p-4 rounded-lg shadow-2xl border border-[#25D366]/40 text-xs w-64 space-y-3 animate-in fade-in slide-in-from-bottom-2 duration-150">
@@ -55,10 +54,9 @@ export const FloatingWhatsAppButton: React.FC = () => {
           <div className="space-y-2 pt-1">
             <a
               href={urlPalaniappan}
-              onClick={() => trackEvent('whatsapp_click', { rep: 'palaniappan' })}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#1ebd5a] text-white p-2.5 rounded-sm flex items-center justify-between font-semibold transition-colors group cursor-pointer"
+              className="bg-[#15803D] hover:bg-[#166534] text-white p-2.5 rounded-sm flex items-center justify-between font-semibold transition-colors group cursor-pointer"
             >
               <div>
                 <div className="text-xs">Palaniappan</div>
@@ -69,10 +67,9 @@ export const FloatingWhatsAppButton: React.FC = () => {
 
             <a
               href={urlPeriyanan}
-              onClick={() => trackEvent('whatsapp_click', { rep: 'periyanan' })}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#1ebd5a] text-white p-2.5 rounded-sm flex items-center justify-between font-semibold transition-colors group cursor-pointer"
+              className="bg-[#15803D] hover:bg-[#166534] text-white p-2.5 rounded-sm flex items-center justify-between font-semibold transition-colors group cursor-pointer"
             >
               <div>
                 <div className="text-xs">Periyanan</div>
@@ -87,12 +84,12 @@ export const FloatingWhatsAppButton: React.FC = () => {
       {/* Main WhatsApp Badge Button (Small Circle on Left Side) */}
       <button
         onClick={() => setShowOptions(!showOptions)}
-        className="bg-[#25D366] text-white w-12 h-12 rounded-full shadow-2xl hover:bg-[#1ebd5a] transition-all transform hover:scale-110 cursor-pointer flex items-center justify-center border-2 border-white/40 group relative"
+        className="bg-[#15803D] text-white w-12 h-12 rounded-full shadow-2xl hover:bg-[#166534] transition-all transform hover:scale-110 cursor-pointer flex items-center justify-center border-2 border-white/40 group relative"
         title="Chat on WhatsApp"
       >
         <WhatsAppIcon className="w-6 h-6 fill-white" />
         <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-white rounded-full flex items-center justify-center shadow-xs">
-          <span className="w-2 h-2 bg-[#25D366] rounded-full animate-pulse" />
+          <span className="w-2 h-2 bg-[#15803D] rounded-full animate-pulse" />
         </span>
       </button>
     </div>

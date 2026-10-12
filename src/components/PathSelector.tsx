@@ -41,7 +41,7 @@ export const PathSelector: React.FC = () => {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 md:px-12 py-16 md:py-24">
       <div className="text-center mb-12">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C8522C] mb-2 block">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
           Tailored Manufacturing Routes
         </span>
         <h2 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium">
@@ -49,7 +49,7 @@ export const PathSelector: React.FC = () => {
         </h2>
         <p className="font-body text-sm text-[#444748] mt-4">
           Large boxes from 5,000 units, small boxes from 10,000.{' '}
-          <Link to="/bulk-packaging-boxes" className="text-[#C8522C] font-semibold hover:underline">
+          <Link to="/bulk-packaging-boxes" className="text-[#B04724] font-semibold hover:underline">
             How bulk ordering works →
           </Link>
         </p>
@@ -64,7 +64,7 @@ export const PathSelector: React.FC = () => {
             className="group relative p-8 md:p-10 border-b border-r border-black/15 bg-transparent hover:bg-[#EAE8E4]/70 transition-colors duration-500 min-h-[380px] flex flex-col justify-between cursor-pointer"
           >
             <div>
-              <div className="font-serif-display text-4xl md:text-5xl text-black/20 group-hover:text-[#C8522C] transition-colors duration-300 mb-6">
+              <div aria-hidden="true" className="font-serif-display text-4xl md:text-5xl text-black/50 group-hover:text-[#B04724] transition-colors duration-300 mb-6">
                 {path.num}
               </div>
 
@@ -77,7 +77,7 @@ export const PathSelector: React.FC = () => {
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#1b1c1a] border-b border-black/30 pb-1 group-hover:border-[#C8522C] group-hover:text-[#C8522C] transition-all">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#1b1c1a] border-b border-black/30 pb-1 group-hover:border-[#B04724] group-hover:text-[#B04724] transition-all">
               <span>{path.buttonText}</span>
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
             </div>

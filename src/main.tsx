@@ -3,9 +3,10 @@ import {createRoot, hydrateRoot} from 'react-dom/client';
 import {BrowserRouter} from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
-import { initAnalytics } from './lib/analytics';
+import { initAnalytics, installClickTracking } from './lib/analytics';
 
 initAnalytics();
+installClickTracking();
 
 const rootEl = document.getElementById('root')!;
 const app = (

@@ -12,7 +12,7 @@ export const NotFound: React.FC = () => (
     <div className="flex flex-wrap items-center justify-center gap-4">
       <Link
         to="/"
-        className="bg-[#C8522C] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm"
+        className="bg-[#B04724] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm"
       >
         Back to Home
       </Link>

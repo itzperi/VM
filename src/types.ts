@@ -14,6 +14,14 @@ export interface BlogPost {
   content: BlogContentBlock[];
   /** Sources cited for factual/regulatory claims. Omit for posts with none. */
   sources?: { title: string; url: string }[];
+  /** <title> tag, 50-60 characters, primary keyword first. */
+  seoTitle: string;
+  /** Meta description, 140-158 characters, ends with a call to action. */
+  seoDescription: string;
+  /** ISO date of the last substantive edit; drives dateModified and sitemap lastmod. */
+  updatedDate?: string;
+  /** Commercial pages this post links to, with descriptive anchor text. */
+  relatedPages: { path: string; anchor: string }[];
 }
 
 export interface ProductItem {

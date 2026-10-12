@@ -37,7 +37,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
     <div className="w-full max-w-7xl mx-auto px-4 md:px-12 py-8 animate-in fade-in duration-300">
       {/* Header */}
       <div className="border-b border-black/15 pb-8 mb-12">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C8522C] mb-2 block">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
           Food & FMCG Division
         </span>
         <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-4">
@@ -50,11 +50,11 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <button
             onClick={() => openContact('periyanan', 'Food Packaging Inquiry')}
-            className="bg-[#C8522C] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer shadow-sm"
+            className="bg-[#B04724] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer shadow-sm"
           >
             Request Food Packaging Quote
           </button>
-          <span className="text-xs text-[#747878] italic">Lead Specialist: Periyanan — 94444 20367</span>
+          <span className="text-xs text-[#616565] italic">Lead Specialist: Periyanan — 94444 20367</span>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {problemsSolved.map((p, idx) => (
             <div key={idx} className="bg-[#F7F5F1] border border-black/15 p-6 rounded-sm space-y-2">
-              <div className="flex items-center gap-2 text-[#C8522C] font-semibold text-xs uppercase tracking-wider">
+              <div className="flex items-center gap-2 text-[#B04724] font-semibold text-xs uppercase tracking-wider">
                 <AlertTriangle className="w-4 h-4" />
                 <span>Issue #{idx + 1}</span>
               </div>
@@ -87,7 +87,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
           <h2 className="font-serif-display text-2xl md:text-3xl text-[#1b1c1a] font-medium">
             Relevant formats for food businesses
           </h2>
-          <span className="text-xs text-[#747878]">Minimum order 10,000 units</span>
+          <span className="text-xs text-[#616565]">Minimum order 10,000 units</span>
         </div>
 
         <div className="overflow-x-auto border border-black/15 bg-[#F7F5F1] rounded-sm">
@@ -106,7 +106,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
                 <tr key={idx} className="hover:bg-[#EAE8E4]/50 transition-colors">
                   <td className="p-4 font-semibold text-[#1b1c1a] font-serif-display text-sm">{row.name}</td>
                   <td className="p-4 text-[#444748] max-w-xs">{row.bestFor}</td>
-                  <td className="p-4 font-mono font-medium text-[#C8522C]">{row.moq}</td>
+                  <td className="p-4 font-mono font-medium text-[#B04724]">{row.moq}</td>
                   <td className="p-4 text-[#444748]">{row.leadTime}</td>
                   <td className="p-4 font-mono font-bold text-base text-[#1b1c1a]">{row.price}</td>
                 </tr>
@@ -114,7 +114,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
             </tbody>
           </table>
         </div>
-        <p className="text-[11px] text-[#747878] mt-3 italic">
+        <p className="text-[11px] text-[#616565] mt-3 italic">
           *All food formats have a 10,000-unit minimum order. Unit price is confirmed on a formal ex-GST quotation based on size, finish and quantity.
         </p>
       </div>
@@ -122,7 +122,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
       {/* Food Compliance Callout Box */}
       <div className="bg-[#EAE8E4] border border-black/15 p-8 rounded-sm mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 text-[#C8522C] font-semibold text-xs uppercase tracking-widest">
+          <div className="flex items-center gap-2 text-[#B04724] font-semibold text-xs uppercase tracking-widest">
             <ShieldCheck className="w-5 h-5" />
             <span>FSSAI & Modern Trade Compliance Ready</span>
           </div>
@@ -135,7 +135,7 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
         </div>
         <button
           onClick={() => openContact('periyanan', 'Food compliance & certificate request')}
-          className="bg-[#1b1c1a] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-[#C8522C] transition-colors rounded-sm cursor-pointer shrink-0 flex items-center gap-2"
+          className="bg-[#1b1c1a] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-[#B04724] transition-colors rounded-sm cursor-pointer shrink-0 flex items-center gap-2"
         >
           <Send className="w-4 h-4" />
           <span>Consult Periyanan</span>

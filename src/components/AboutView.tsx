@@ -1,15 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Factory, ShieldCheck, HeartHandshake, PhoneCall } from 'lucide-react';
+import { OWNER_FACTS } from '../data/ownerFacts';
+import { PLANT_ADDRESS_FULL } from '../lib/siteConfig';
 
 interface AboutViewProps {
   openContact?: (recipient?: 'palaniappan' | 'periyanan', note?: string) => void;
 }
 
 export const AboutView: React.FC<AboutViewProps> = ({ openContact }) => {
+  const facts: [string, string][] = [
+    ['Plant', PLANT_ADDRESS_FULL],
+    ['Minimum order', '5,000 units (large boxes) · 10,000 units (small boxes)'],
+    ['Products', 'TV, fan and appliance cartons, export master cartons, corrugated boxes, mailers, food packaging'],
+    ['Specialists', 'Palaniappan (D2C & domestic) · Periyanan (food & export)'],
+    ...(OWNER_FACTS.foundingYear ? [['Founded', OWNER_FACTS.foundingYear] as [string, string]] : []),
+    ...(OWNER_FACTS.capacity ? [['Production capacity', OWNER_FACTS.capacity] as [string, string]] : []),
+    ...(OWNER_FACTS.boardRange ? [['Board range', OWNER_FACTS.boardRange] as [string, string]] : []),
+    ...(OWNER_FACTS.machinery.length ? [['Machinery', OWNER_FACTS.machinery.join(', ')] as [string, string]] : []),
+  ];
   return (
     <div className="w-full max-w-4xl mx-auto px-4 md:px-8 py-12 md:py-20 animate-in fade-in duration-300">
       <div className="border-b border-black/15 pb-8 mb-10 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C8522C] mb-2 block">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
           About Visalatchi Manufactures
         </span>
         <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-4">
@@ -30,29 +43,52 @@ export const AboutView: React.FC<AboutViewProps> = ({ openContact }) => {
           </p>
         </div>
 
+        {/* Company facts: fixed facts always; owner-supplied facts appear once filled in data/ownerFacts.ts. */}
+        <section className="bg-[#F7F5F1] border border-black/15 p-6 md:p-8 rounded-sm">
+          <h2 className="font-serif-display text-2xl text-[#1b1c1a] font-medium mb-4">Company facts</h2>
+          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+            {facts.map(([k, v]) => (
+              <div key={k} className="border-b border-black/10 pb-2">
+                <dt className="text-[#616565] text-xs uppercase tracking-wider">{k}</dt>
+                <dd className="text-[#1b1c1a] font-semibold">{v}</dd>
+              </div>
+            ))}
+          </dl>
+          {OWNER_FACTS.certifications.length > 0 && (
+            <ul className="mt-4 text-sm space-y-1">
+              {OWNER_FACTS.certifications.map((c) => (
+                <li key={c.name}>
+                  {c.url ? <a href={c.url} target="_blank" rel="noopener noreferrer" className="text-[#B04724] hover:underline">{c.name}</a> : c.name}
+                  {c.issuer ? ` (${c.issuer})` : ''}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="bg-[#EAE8E4] border border-black/10 p-6 rounded-sm space-y-2">
-            <Factory className="w-6 h-6 text-[#C8522C] mb-2" />
+            <Factory className="w-6 h-6 text-[#B04724] mb-2" />
             <h3 className="font-serif-display text-lg text-[#1b1c1a] font-medium">
-              Palaniappan, D2C & Domestic Lead
+              <Link to="/team/palaniappan" className="hover:text-[#B04724]">Palaniappan, D2C &amp; Domestic Lead</Link>
             </h3>
             <p className="text-xs text-[#444748]">
-              Direct Line / WhatsApp: <strong className="text-[#1b1c1a]">98405 01323</strong> · English, Tamil
+              Direct Line / WhatsApp: <a href="tel:+919840501323" className="font-semibold text-[#1b1c1a] hover:underline">98405 01323</a> · English, Tamil
             </p>
             <p className="text-xs text-[#444748] pt-2 border-t border-black/10">
-              Handles D2C mailer boxes, custom inside print, fast dispatch courier bags, and brand unboxing proofs.
+              Handles D2C mailer boxes, custom printed cartons, courier mailers and brand unboxing proofs.
               If you are planning a bulk run for a new box size or need a pre-production sample turned around fast for a launch
               date, Palaniappan is who you talk to directly, not a general inquiry queue.
             </p>
           </div>
 
           <div className="bg-[#EAE8E4] border border-black/10 p-6 rounded-sm space-y-2">
-            <ShieldCheck className="w-6 h-6 text-[#C8522C] mb-2" />
+            <ShieldCheck className="w-6 h-6 text-[#B04724] mb-2" />
             <h3 className="font-serif-display text-lg text-[#1b1c1a] font-medium">
-              Periyanan, Food & Export Lead
+              <Link to="/team/periyanan" className="hover:text-[#B04724]">Periyanan, Food &amp; Export Lead</Link>
             </h3>
             <p className="text-xs text-[#444748]">
-              Direct Line / WhatsApp: <strong className="text-[#1b1c1a]">94444 20367</strong> · English, Tamil
+              Direct Line / WhatsApp: <a href="tel:+919444420367" className="font-semibold text-[#1b1c1a] hover:underline">94444 20367</a> · English, Tamil
             </p>
             <p className="text-xs text-[#444748] pt-2 border-t border-black/10">
               Oversees heavy 7-ply master cartons, container pallet optimization, FSSAI compliance, and ocean freight
@@ -73,7 +109,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ openContact }) => {
           {openContact && (
             <button
               onClick={() => openContact('general', 'Inquiry from About page')}
-              className="bg-[#C8522C] text-white px-8 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-sm cursor-pointer"
+              className="bg-[#B04724] text-white px-8 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-sm cursor-pointer"
             >
               Contact Us Today
             </button>

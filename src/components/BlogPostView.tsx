@@ -5,13 +5,10 @@ import { getBlogPostBySlug } from '../data/blogPosts';
 import { PRODUCTS, slugify } from '../data/products';
 import { ProductItem } from '../types';
 import { NotFound } from './NotFound';
+import { authorForCategory } from '../data/team';
 
-const AUTHOR_BY_CATEGORY: Record<string, string> = {
-  d2c: 'Palaniappan, D2C & Domestic Brand Specialist',
-  food: 'Periyanan, Export Logistics & Food Lead',
-  export: 'Periyanan, Export Logistics & Food Lead',
-  general: 'Visalatchi Manufactures',
-};
+const fmtDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 
 interface BlogPostViewProps {
   openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
@@ -25,34 +22,45 @@ export const BlogPostView: React.FC<BlogPostViewProps> = ({ openContact }) => {
     return <NotFound />;
   }
 
+  const author = authorForCategory(post.category);
   const relatedProducts = PRODUCTS.filter((p) => post.relatedProductIds.includes(p.id));
   const recipient = post.category === 'd2c' ? 'palaniappan' : post.category === 'food' || post.category === 'export' ? 'periyanan' : 'general';
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 md:px-8 py-12 md:py-20 animate-in fade-in duration-300">
-      <nav className="text-[11px] font-body text-[#747878] mb-8 uppercase tracking-wider">
-        <Link to="/" className="hover:text-[#C8522C]">Home</Link>
-        <span className="mx-2">/</span>
-        <Link to="/blog" className="hover:text-[#C8522C]">Blog</Link>
-        <span className="mx-2">/</span>
-        <span className="text-[#1b1c1a]">{post.title}</span>
-      </nav>
-
+    <div className="w-full max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-14 animate-in fade-in duration-300">
       <div className="border-b border-black/15 pb-8 mb-10">
         <h1 className="font-serif-display text-3xl md:text-4xl text-[#1b1c1a] font-medium mb-4">
           {post.title}
         </h1>
-        <div className="flex items-center gap-3 text-xs text-[#747878]">
-          <span>By {AUTHOR_BY_CATEGORY[post.category]}</span>
+        <div className="flex items-center gap-3 text-xs text-[#616565]">
+          <span>
+            By{' '}
+            {author ? (
+              <Link to={`/team/${author.slug}`} rel="author" className="text-[#B04724] hover:underline">
+                {author.name}, {author.jobTitle}
+              </Link>
+            ) : (
+              'Visalatchi Manufactures'
+            )}
+          </span>
           <span>·</span>
           <span>
-            {new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+            Published <time dateTime={post.publishDate}>{fmtDate(post.publishDate)}</time>
           </span>
+          {post.updatedDate && post.updatedDate !== post.publishDate && (
+            <>
+              <span>·</span>
+              <span>
+                Updated <time dateTime={post.updatedDate}>{fmtDate(post.updatedDate)}</time>
+              </span>
+            </>
+          )}
         </div>
       </div>
 
       <div className="space-y-5 font-body text-sm text-[#1b1c1a] leading-relaxed">
         {post.content.map((block, idx) => {
+          const isLead = idx === 0 && block.type === 'paragraph';
           if (block.type === 'heading') {
             return (
               <h2 key={idx} className="font-serif-display text-xl md:text-2xl text-[#1b1c1a] font-medium pt-3">
@@ -94,7 +102,7 @@ export const BlogPostView: React.FC<BlogPostViewProps> = ({ openContact }) => {
             );
           }
           return (
-            <p key={idx} className="text-[#444748]">
+            <p key={idx} className={isLead ? 'speakable text-base text-[#1b1c1a]' : 'text-[#444748]'}>
               {block.text}
             </p>
           );
@@ -102,12 +110,12 @@ export const BlogPostView: React.FC<BlogPostViewProps> = ({ openContact }) => {
       </div>
 
       {post.sources && post.sources.length > 0 && (
-        <div className="mt-10 pt-6 border-t border-black/10 text-xs text-[#747878]">
-          <div className="font-semibold text-[#1b1c1a] mb-2 uppercase tracking-wider text-[10px]">Sources</div>
+        <div className="mt-10 pt-6 border-t border-black/10 text-xs text-[#616565]">
+          <h2 className="font-semibold text-[#1b1c1a] mb-2 uppercase tracking-wider text-[10px]">Sources</h2>
           <ul className="space-y-1">
             {post.sources.map((s) => (
               <li key={s.url}>
-                <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-[#C8522C] hover:underline">
+                <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-[#B04724] hover:underline">
                   {s.title}
                 </a>
               </li>
@@ -116,15 +124,28 @@ export const BlogPostView: React.FC<BlogPostViewProps> = ({ openContact }) => {
         </div>
       )}
 
+      {post.relatedPages.length > 0 && (
+        <div className="mt-12 bg-[#EAE8E4] border border-black/10 rounded-sm p-6">
+          <h2 className="font-serif-display text-lg text-[#1b1c1a] font-medium mb-3">Where to go next</h2>
+          <ul className="space-y-2 text-sm">
+            {post.relatedPages.map((rp) => (
+              <li key={rp.path}>
+                <Link to={rp.path} className="font-semibold text-[#B04724] hover:underline">{rp.anchor} →</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {relatedProducts.length > 0 && (
         <div className="mt-12">
-          <h3 className="font-serif-display text-lg text-[#1b1c1a] font-medium mb-4">Related products</h3>
+          <h2 className="font-serif-display text-lg text-[#1b1c1a] font-medium mb-4">Related products</h2>
           <div className="flex flex-wrap gap-3">
             {relatedProducts.map((p) => (
               <Link
                 key={p.id}
                 to={`/products/${slugify(p.name)}`}
-                className="text-xs font-semibold text-[#C8522C] bg-[#C8522C]/10 px-3 py-1.5 rounded-full hover:bg-[#C8522C]/20 transition-colors"
+                className="text-xs font-semibold text-[#B04724] bg-[#B04724]/10 px-3 py-1.5 rounded-full hover:bg-[#B04724]/20 transition-colors"
               >
                 {p.name}
               </Link>
@@ -137,7 +158,7 @@ export const BlogPostView: React.FC<BlogPostViewProps> = ({ openContact }) => {
         <h3 className="font-serif-display text-xl font-medium">Have a question about your specific order?</h3>
         <button
           onClick={() => openContact(recipient === 'general' ? 'palaniappan' : recipient, `Question from blog post: ${post.title}`)}
-          className="bg-[#C8522C] text-white px-8 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-sm cursor-pointer inline-flex items-center gap-2"
+          className="bg-[#B04724] text-white px-8 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-sm cursor-pointer inline-flex items-center gap-2"
         >
           <Send className="w-4 h-4" />
           <span>Ask Our Team</span>

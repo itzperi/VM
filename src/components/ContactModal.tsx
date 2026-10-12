@@ -85,7 +85,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
       <div className="bg-[#F7F5F1] max-w-2xl w-full border border-black/20 shadow-2xl p-6 md:p-8 rounded-sm animate-in zoom-in-95 duration-200 relative max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 text-[#747878] hover:text-black font-semibold text-xl"
+          className="absolute top-6 right-6 text-[#616565] hover:text-black font-semibold text-xl"
         >
           <X className="w-6 h-6" />
         </button>
@@ -149,7 +149,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Rahul Sharma"
-                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
+                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
                   />
                 </div>
 
@@ -163,7 +163,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 98765 43210"
-                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
+                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
                   />
                 </div>
               </div>
@@ -180,7 +180,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="name@brand.com"
-                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
+                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
                   />
                 </div>
 
@@ -193,7 +193,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     placeholder="e.g. Artisan Roasters"
-                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
+                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
                   />
                 </div>
               </div>
@@ -207,7 +207,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value as any)}
-                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
+                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
                   >
                     <option value="d2c">D2C Mailer Boxes & Courier Bags</option>
                     <option value="food">Food-Safe Cartons & Pouches</option>
@@ -224,7 +224,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   <select
                     value={estimatedUnits}
                     onChange={(e) => setEstimatedUnits(e.target.value)}
-                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
+                    className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
                   >
                     <option value="5,000-10,000">5,000 to 10,000 Units (large boxes)</option>
                     <option value="10,000-25,000">10,000 to 25,000 Units</option>
@@ -244,13 +244,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="Provide box dimensions (L×W×H), artwork requirements, or delivery location..."
-                  className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
+                  className="w-full bg-[#EAE8E4] border border-black/15 p-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#C8522C] text-white py-3.5 px-4 text-xs font-semibold uppercase tracking-widest text-center hover:bg-black transition-colors rounded-sm cursor-pointer shadow-sm flex items-center justify-center gap-2"
+                className="w-full bg-[#B04724] text-white py-3.5 px-4 text-xs font-semibold uppercase tracking-widest text-center hover:bg-black transition-colors rounded-sm cursor-pointer shadow-sm flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
                 <span>Submit Inquiry to {recipient === 'palaniappan' ? 'Palaniappan' : recipient === 'periyanan' ? 'Periyanan' : 'Visalatchi Team'}</span>
@@ -259,22 +259,22 @@ export const ContactModal: React.FC<ContactModalProps> = ({
           </div>
         ) : (
           <div className="py-8 text-center space-y-4">
-            <CheckCircle2 className="w-16 h-16 text-[#C8522C] mx-auto animate-bounce" />
+            <CheckCircle2 className="w-16 h-16 text-[#B04724] mx-auto animate-bounce" />
             <h3 className="font-serif-display text-2xl text-[#1b1c1a] font-medium">
               Inquiry Submitted Successfully!
             </h3>
             <p className="font-body text-sm text-[#444748] max-w-md mx-auto leading-relaxed">
-              Thank you, <strong className="text-[#1b1c1a]">{name}</strong>. Your request has been assigned directly to <strong className="text-[#C8522C]">{recipient === 'periyanan' ? 'Periyanan' : 'Palaniappan'}</strong>.
+              Thank you, <strong className="text-[#1b1c1a]">{name}</strong>. Your request has been assigned directly to <strong className="text-[#B04724]">{recipient === 'periyanan' ? 'Periyanan' : 'Palaniappan'}</strong>.
             </p>
 
             <div className="bg-[#EAE8E4] p-4 rounded-sm max-w-md mx-auto text-left text-xs space-y-1.5 border border-black/10">
-              <div><span className="text-[#747878]">Phone:</span> <span className="font-semibold">{phone}</span></div>
-              <div><span className="text-[#747878]">Email:</span> <span className="font-semibold">{email}</span></div>
-              <div><span className="text-[#747878]">Quantity:</span> <span className="font-semibold">{estimatedUnits} Units</span></div>
-              {notes && <div><span className="text-[#747878]">Note:</span> <span className="italic">{notes}</span></div>}
+              <div><span className="text-[#616565]">Phone:</span> <span className="font-semibold">{phone}</span></div>
+              <div><span className="text-[#616565]">Email:</span> <span className="font-semibold">{email}</span></div>
+              <div><span className="text-[#616565]">Quantity:</span> <span className="font-semibold">{estimatedUnits} Units</span></div>
+              {notes && <div><span className="text-[#616565]">Note:</span> <span className="italic">{notes}</span></div>}
             </div>
 
-            <p className="text-xs text-[#747878]">
+            <p className="text-xs text-[#616565]">
               We have saved your details and opened WhatsApp to connect you directly with {recipient === 'periyanan' ? 'Periyanan (94444 20367)' : 'Palaniappan (98405 01323)'}.
             </p>
 
@@ -283,7 +283,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#25D366] text-white px-6 py-3.5 text-xs font-semibold uppercase tracking-widest hover:bg-[#1ebd5a] transition-colors rounded-sm shadow-md inline-flex items-center justify-center gap-2 cursor-pointer w-full max-w-xs mx-auto"
+                className="bg-[#15803D] text-white px-6 py-3.5 text-xs font-semibold uppercase tracking-widest hover:bg-[#166534] transition-colors rounded-sm shadow-md inline-flex items-center justify-center gap-2 cursor-pointer w-full max-w-xs mx-auto"
               >
                 <MessageSquare className="w-4 h-4 fill-white text-[#25D366]" />
                 <span>Send Message on WhatsApp</span>
@@ -296,7 +296,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   setSubmitted(false);
                   onClose();
                 }}
-                className="mt-2 bg-[#1b1c1a] text-white px-6 py-2 text-xs font-semibold uppercase tracking-widest hover:bg-[#C8522C] transition-colors rounded-sm cursor-pointer"
+                className="mt-2 bg-[#1b1c1a] text-white px-6 py-2 text-xs font-semibold uppercase tracking-widest hover:bg-[#B04724] transition-colors rounded-sm cursor-pointer"
               >
                 Back to App
               </button>

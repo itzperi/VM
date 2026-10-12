@@ -1,5 +1,5 @@
 import React from 'react';
-import { LOGO_PATH } from '../lib/siteConfig';
+import { LOGO_SRCSET } from '../lib/siteConfig';
 
 interface BrandLogoProps {
   variant?: 'nav' | 'footer' | 'hero' | 'small' | 'large' | 'icon';
@@ -13,14 +13,19 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   showText = true 
 }) => {
   // Visalatchi "V" stylized ribbon packaging mark
-  const logoImageSrc = LOGO_PATH;
+  const logoImageSrc = '/logo-96.webp';
 
   if (variant === 'icon') {
     return (
       <div className={`relative flex items-center justify-center shrink-0 ${className}`}>
         <img 
-          src={logoImageSrc} 
-          alt="Visalatchi Logo" 
+          src={logoImageSrc}
+          srcSet={LOGO_SRCSET}
+          sizes="48px"
+          alt="Visalatchi Manufactures logo"
+          width={512}
+          height={512}
+          decoding="async" 
           className="h-7 w-auto object-contain rounded-xs"
         />
       </div>
@@ -32,8 +37,14 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       {/* Brand Icon */}
       <div className="relative flex items-center justify-center shrink-0">
         <img 
-          src={logoImageSrc} 
-          alt="Visalatchi Packaging Logo" 
+          src={logoImageSrc}
+          srcSet={LOGO_SRCSET}
+          sizes="48px"
+          alt="Visalatchi Manufactures logo"
+          width={512}
+          height={512}
+          decoding="async"
+          loading={variant === 'footer' ? 'lazy' : undefined} 
           className={`object-contain transition-transform group-hover:scale-105 ${
             variant === 'large' || variant === 'hero' 
               ? 'h-10 md:h-12 w-auto' 
@@ -56,7 +67,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           }`}>
             Visalatchi
           </span>
-          <span className={`font-sans uppercase font-semibold tracking-widest text-[#C8522C] leading-none mt-0.5 ${
+          <span className={`font-sans uppercase font-semibold tracking-widest text-[#B04724] leading-none mt-0.5 ${
             variant === 'large' || variant === 'hero'
               ? 'text-[10px] md:text-[11px]'
               : 'text-[8px] md:text-[9px]'

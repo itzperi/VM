@@ -49,3 +49,16 @@ export function trackLead(params: { units?: string; requirement: string; source:
   trackEvent('generate_lead', { quantity_tier: params.units, requirement: params.requirement, form: params.source });
   if (ADS_CONVERSION) trackEvent('conversion', { send_to: ADS_CONVERSION });
 }
+
+/** One delegated listener counts every phone and WhatsApp click on the site
+ * (tel: and wa.me links), so new links are tracked without extra wiring. */
+export function installClickTracking(): void {
+  if (typeof document === 'undefined') return;
+  document.addEventListener('click', (e) => {
+    const link = (e.target as HTMLElement | null)?.closest?.('a[href]') as HTMLAnchorElement | null;
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    if (href.startsWith('tel:')) trackEvent('phone_click', { number: href.slice(4), page: location.pathname });
+    else if (href.includes('wa.me/')) trackEvent('whatsapp_click', { page: location.pathname });
+  });
+}

@@ -15,7 +15,7 @@ export const BlogIndexView: React.FC = () => {
   return (
     <div className="w-full max-w-5xl mx-auto px-4 md:px-8 py-12 md:py-20 animate-in fade-in duration-300">
       <div className="border-b border-black/15 pb-8 mb-10 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C8522C] mb-2 block">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
           Packaging Guides & Resources
         </span>
         <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-4">
@@ -32,13 +32,13 @@ export const BlogIndexView: React.FC = () => {
           <Link
             key={post.slug}
             to={`/blog/${post.slug}`}
-            className="block bg-[#F7F5F1] border border-black/15 p-6 md:p-8 rounded-sm hover:border-[#C8522C] transition-colors"
+            className="block bg-[#F7F5F1] border border-black/15 p-6 md:p-8 rounded-sm hover:border-[#B04724] transition-colors"
           >
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-[#C8522C] bg-[#C8522C]/10 px-2.5 py-1 rounded-full">
+              <span className="text-[10px] font-semibold uppercase tracking-widest text-[#B04724] bg-[#B04724]/10 px-2.5 py-1 rounded-full">
                 {CATEGORY_LABEL[post.category]}
               </span>
-              <span className="text-[11px] text-[#747878]">
+              <span className="text-[11px] text-[#616565]">
                 {new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
               </span>
             </div>

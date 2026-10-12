@@ -6,6 +6,23 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    build: {
+      rollupOptions: {
+        output: {
+          // Long-lived vendor chunks: React/router change rarely, so returning
+          // visitors only re-download the (small) app chunk after a content
+          // deploy. Route-level React.lazy isn't used because the build-time
+          // prerender (renderToString) can't resolve suspended routes.
+          manualChunks(id) {
+            if (/node_modules[\/](react|react-dom|scheduler)[\/]/.test(id)) return 'react';
+            if (/node_modules[\/](react-router|react-router-dom)[\/]/.test(id)) return 'router';
+            if (id.includes('lucide-react')) return 'icons';
+            // Long-form copy changes most often; keep it out of the app shell chunk.
+            if (/src[\/]data[\/](blogPosts|productDetails|landingPages)\.ts$/.test(id)) return 'content';
+          },
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

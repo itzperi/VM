@@ -22,6 +22,8 @@ export const MOQ_RULE =
 // can expire and silently break the logo in schema, OG cards and the navbar.
 // Single source of truth for Seo.tsx, prerender.ts and schema.ts.
 export const LOGO_PATH = '/logo.jpg';
+/** Small WebP versions for on-page display (logo renders at 24-48 px). */
+export const LOGO_SRCSET = '/logo-96.webp 96w, /logo-192.webp 192w';
 export const LOGO_URL = `${SITE_URL}${LOGO_PATH}`;
 export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 

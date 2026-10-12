@@ -26,7 +26,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
     <div className="w-full max-w-7xl mx-auto px-4 md:px-12 py-8 animate-in fade-in duration-300">
       {/* Header */}
       <div className="border-b border-black/15 pb-8 mb-10">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C8522C] mb-2 block">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
           Bulk Orders · MOQ 5,000 Large / 10,000 Small
         </span>
         <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-3">
@@ -43,7 +43,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
           <h2 className="font-serif-display text-2xl text-[#1b1c1a] font-medium">
             Full Product List & MOQ
           </h2>
-          <span className="text-xs text-[#747878]">MOQ per product · pan-India dispatch</span>
+          <span className="text-xs text-[#616565]">MOQ per product · pan-India dispatch</span>
         </div>
 
         <div className="overflow-x-auto border border-black/15 bg-[#F7F5F1] rounded-sm shadow-xs">
@@ -62,7 +62,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
                 <tr key={idx} className="hover:bg-[#EAE8E4]/50 transition-colors">
                   <td className="p-4 font-semibold text-[#1b1c1a] font-serif-display text-sm">{row.name}</td>
                   <td className="p-4 text-[#444748] max-w-xs">{row.bestFor}</td>
-                  <td className="p-4 font-mono font-semibold text-[#C8522C]">{row.moq}</td>
+                  <td className="p-4 font-mono font-semibold text-[#B04724]">{row.moq}</td>
                   <td className="p-4 text-[#444748]">{row.leadTime}</td>
                   <td className="p-4 font-mono font-bold text-base text-[#1b1c1a]">{row.price}</td>
                 </tr>
@@ -70,7 +70,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
             </tbody>
           </table>
         </div>
-        <p className="text-[11px] text-[#747878] mt-3 italic">
+        <p className="text-[11px] text-[#616565] mt-3 italic">
           *Minimum order: 5,000 units for large boxes (TV, fan, appliance, master and export cartons), 10,000 units for small boxes, mailers, food packs and bags. Unit price depends on size, board grade, print colours and total quantity, and is confirmed on a formal ex-GST quotation. Larger and repeat volumes get lower unit rates.
         </p>
       </div>
@@ -131,13 +131,13 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
           </div>
 
           <div className="relative w-full md:w-64">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#747878]" />
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#616565]" />
             <input
               type="text"
               placeholder="Search catalog..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#EAE8E4] border border-black/15 pl-9 pr-3 py-2 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#C8522C]"
+              className="w-full bg-[#EAE8E4] border border-black/15 pl-9 pr-3 py-2 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
             />
           </div>
         </div>
@@ -147,20 +147,24 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-[#F7F5F1] border border-black/15 rounded-sm overflow-hidden flex flex-col justify-between group hover:border-[#C8522C] transition-colors"
+              className="bg-[#F7F5F1] border border-black/15 rounded-sm overflow-hidden flex flex-col justify-between group hover:border-[#B04724] transition-colors"
             >
               <Link to={`/products/${slugify(product.name)}`} className="block">
                 <div className="h-48 w-full overflow-hidden relative bg-[#EAE8E4]">
                   <img
                     src={product.image}
-                    alt={product.name}
+                    alt={`${product.name}, ${product.material}`}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 right-3 bg-[#1b1c1a] text-white text-[10px] font-mono px-2 py-1 rounded-sm uppercase tracking-wider">
                     MOQ: {product.moq.toLocaleString('en-IN')}
                   </div>
                   {product.ecoFriendly && (
-                    <div className="absolute top-3 left-3 bg-[#C8522C] text-white text-[10px] font-semibold px-2 py-1 rounded-sm uppercase tracking-wider">
+                    <div className="absolute top-3 left-3 bg-[#B04724] text-white text-[10px] font-semibold px-2 py-1 rounded-sm uppercase tracking-wider">
                       Eco Option
                     </div>
                   )}
@@ -168,7 +172,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
 
                 <div className="p-5 space-y-3">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-serif-display text-lg text-[#1b1c1a] font-semibold leading-snug hover:text-[#C8522C] transition-colors">
+                    <h3 className="font-serif-display text-lg text-[#1b1c1a] font-semibold leading-snug hover:text-[#B04724] transition-colors">
                       {product.name}
                     </h3>
                   </div>
@@ -179,14 +183,14 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
 
                   <div className="pt-2 border-t border-black/10 space-y-1.5 text-xs">
                     <div className="flex justify-between">
-                      <span className="text-[#747878]">Material Spec:</span>
+                      <span className="text-[#616565]">Material Spec:</span>
                       <span className="font-semibold text-[#1b1c1a] text-right max-w-[180px] truncate">{product.material}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#747878]">Lead Time:</span>
+                      <span className="text-[#616565]">Lead Time:</span>
                       <span className="font-semibold text-[#1b1c1a]">{product.leadTime}</span>
                     </div>
-                    <div className="flex justify-between text-[#C8522C]">
+                    <div className="flex justify-between text-[#B04724]">
                       <span>Pricing:</span>
                       <span className="font-mono font-bold text-sm">{product.startingPrice}</span>
                     </div>
@@ -197,7 +201,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
               <div className="p-5 pt-0">
                 <button
                   onClick={() => openContact('palaniappan', product)}
-                  className="w-full bg-[#1b1c1a] text-white py-2.5 px-3 text-xs font-semibold uppercase tracking-widest hover:bg-[#C8522C] transition-colors rounded-sm cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full bg-[#1b1c1a] text-white py-2.5 px-3 text-xs font-semibold uppercase tracking-widest hover:bg-[#B04724] transition-colors rounded-sm cursor-pointer flex items-center justify-center gap-2"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Request Product Quote</span>
@@ -218,7 +222,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
         </p>
         <button
           onClick={() => openContact('general', 'Custom format recommendation request')}
-          className="bg-[#C8522C] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer inline-flex items-center gap-2"
+          className="bg-[#B04724] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer inline-flex items-center gap-2"
         >
           <Send className="w-4 h-4" />
           <span>Ask Our Engineers</span>

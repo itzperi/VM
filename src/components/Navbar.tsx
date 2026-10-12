@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `text-[11px] font-semibold tracking-[0.12em] uppercase transition-colors cursor-pointer ${
       isActive
-        ? 'text-[#C8522C] font-bold border-b-2 border-[#C8522C] pb-0.5'
+        ? 'text-[#B04724] font-bold border-b-2 border-[#B04724] pb-0.5'
         : 'text-[#444748] hover:text-black'
     }`;
 
@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
             navigate('/contact');
             closeAndScrollTop();
           }}
-          className="hidden sm:block bg-[#C8522C] text-[#F7F5F1] px-5 py-1.5 text-[11px] font-semibold uppercase tracking-widest hover:bg-black transition-colors duration-300 rounded-sm cursor-pointer shrink-0"
+          className="hidden sm:block bg-[#B04724] text-[#F7F5F1] px-5 py-1.5 text-[11px] font-semibold uppercase tracking-widest hover:bg-black transition-colors duration-300 rounded-sm cursor-pointer shrink-0"
         >
           Get Quote
         </button>
@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
               key={item.to}
               to={item.to}
               onClick={closeAndScrollTop}
-              className="text-left text-xs font-semibold tracking-widest uppercase py-2 border-b border-black/5 text-[#1b1c1a] hover:text-[#C8522C]"
+              className="text-left text-xs font-semibold tracking-widest uppercase py-2 border-b border-black/5 text-[#1b1c1a] hover:text-[#B04724]"
             >
               {item.label}
             </NavLink>
@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
               navigate('/contact');
               closeAndScrollTop();
             }}
-            className="w-full bg-[#C8522C] text-white py-3 font-semibold text-xs uppercase tracking-widest rounded-sm text-center mt-2"
+            className="w-full bg-[#B04724] text-white py-3 font-semibold text-xs uppercase tracking-widest rounded-sm text-center mt-2"
           >
             Get a Quote
           </button>

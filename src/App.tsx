@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { ProductItem } from './types';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
@@ -24,9 +24,18 @@ import { NotFound } from './components/NotFound';
 import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
 import { Seo } from './components/Seo';
 import { BulkLandingView } from './components/BulkLandingView';
-import { LANDING_PAGES } from './data/landingPages';
+import { PUBLISHED_LANDING_PAGES } from './data/landingPages';
+import { Breadcrumbs } from './components/Breadcrumbs';
+import { TeamMemberView } from './components/TeamMemberView';
+import { PageAnswers } from './components/PageAnswers';
+import { CaseStudiesView } from './components/CaseStudiesView';
+import { SpecReferenceView } from './components/SpecReferenceView';
+import { MobileActionBar } from './components/MobileActionBar';
+import { CASE_STUDIES } from './data/caseStudies';
+import { SPEC_ROWS } from './data/specReference';
 
 export default function App() {
+  const isHome = useLocation().pathname === '/';
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
   const [contactRecipient, setContactRecipient] = useState<'palaniappan' | 'periyanan' | 'general'>('general');
   const [contactNote, setContactNote] = useState<string>('');
@@ -51,7 +60,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#F7F5F1] text-[#1b1c1a] font-sans min-h-screen flex flex-col relative selection:bg-[#C8522C] selection:text-white">
+    <div className="bg-[#F7F5F1] text-[#1b1c1a] font-sans min-h-screen flex flex-col relative pb-14 md:pb-0 selection:bg-[#B04724] selection:text-white">
       {/* Per-route title / meta / canonical / JSON-LD */}
       <Seo />
 
@@ -60,6 +69,11 @@ export default function App() {
 
       {/* Main View Router */}
       <main className="flex-grow">
+        {!isHome && (
+          <div className="pt-24">
+            <Breadcrumbs />
+          </div>
+        )}
         <Routes>
           <Route
             path="/"
@@ -76,7 +90,7 @@ export default function App() {
           <Route
             path="/d2c-packaging"
             element={
-              <div className="pt-24">
+              <div>
                 <D2CView openContact={openContact} />
                 <ProcessMarquee />
               </div>
@@ -86,7 +100,7 @@ export default function App() {
           <Route
             path="/food-packaging"
             element={
-              <div className="pt-24">
+              <div>
                 <FoodView openContact={openContact} />
                 <ProcessMarquee />
               </div>
@@ -96,7 +110,7 @@ export default function App() {
           <Route
             path="/export-packaging"
             element={
-              <div className="pt-24">
+              <div>
                 <ExportView openContact={openContact} />
                 <ProcessMarquee />
               </div>
@@ -106,7 +120,7 @@ export default function App() {
           <Route
             path="/products"
             element={
-              <div className="pt-24">
+              <div>
                 <CatalogView openContact={openContact} />
                 <ProcessMarquee />
               </div>
@@ -116,7 +130,7 @@ export default function App() {
           <Route
             path="/products/:slug"
             element={
-              <div className="pt-24">
+              <div>
                 <ProductDetailView openContact={openContact} />
                 <ProcessMarquee />
               </div>
@@ -126,7 +140,7 @@ export default function App() {
           <Route
             path="/process"
             element={
-              <div className="pt-24">
+              <div>
                 <ProcessView openContact={openContact} />
                 <ProcessMarquee />
               </div>
@@ -136,7 +150,7 @@ export default function App() {
           <Route
             path="/faq"
             element={
-              <div className="pt-24">
+              <div>
                 <FAQView />
                 <ProcessMarquee />
               </div>
@@ -146,7 +160,7 @@ export default function App() {
           <Route
             path="/about"
             element={
-              <div className="pt-24">
+              <div>
                 <AboutView openContact={openContact} />
                 <ProcessMarquee />
               </div>
@@ -156,7 +170,7 @@ export default function App() {
           <Route
             path="/contact"
             element={
-              <div className="pt-24">
+              <div>
                 <ContactView />
                 <ProcessMarquee />
               </div>
@@ -166,7 +180,7 @@ export default function App() {
           <Route
             path="/blog"
             element={
-              <div className="pt-24">
+              <div>
                 <BlogIndexView />
                 <ProcessMarquee />
               </div>
@@ -176,19 +190,37 @@ export default function App() {
           <Route
             path="/blog/:slug"
             element={
-              <div className="pt-24">
+              <div>
                 <BlogPostView openContact={openContact} />
                 <ProcessMarquee />
               </div>
             }
           />
 
-          {LANDING_PAGES.map((page) => (
+          <Route
+            path="/team/:slug"
+            element={
+              <div>
+                <TeamMemberView />
+                <ProcessMarquee />
+              </div>
+            }
+          />
+
+          {/* Registered only once the owner has supplied real content. */}
+          {CASE_STUDIES.length > 0 && (
+            <Route path="/case-studies" element={<CaseStudiesView openContact={openContact} />} />
+          )}
+          {SPEC_ROWS.length > 0 && (
+            <Route path="/carton-specification-reference" element={<SpecReferenceView openContact={openContact} />} />
+          )}
+
+          {PUBLISHED_LANDING_PAGES.map((page) => (
             <React.Fragment key={page.path}>
             <Route
               path={page.path}
               element={
-                <div className="pt-24">
+                <div>
                   <BulkLandingView page={page} openContact={openContact} />
                   <ProcessMarquee />
                 </div>
@@ -199,6 +231,7 @@ export default function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <PageAnswers />
       </main>
 
       {/* One map per page, in the same place, right before the footer */}
@@ -206,6 +239,9 @@ export default function App() {
 
       {/* Global Footer */}
       <Footer openContact={openContact} />
+
+      {/* Sticky Call / WhatsApp / Quote bar on mobile */}
+      <MobileActionBar openContact={openContact} />
 
       {/* Global Contact & Sample Request Modal */}
       <ContactModal

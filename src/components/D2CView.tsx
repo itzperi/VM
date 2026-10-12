@@ -48,13 +48,13 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
     <div className="w-full max-w-7xl mx-auto px-4 md:px-12 py-8 animate-in fade-in duration-300">
       {/* Header Banner */}
       <div className="border-b border-black/15 pb-8 mb-12">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C8522C] mb-2 block">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
           D2C & E-Commerce Division
         </span>
         <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-4">
           Built for How D2C Brands Actually Ship
         </h1>
-        <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-[#C8522C] mb-4">
+        <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-[#B04724] mb-4">
           Damage-resistant · Fast dispatch · Eco options
         </p>
         <p className="font-body text-base text-[#444748] max-w-3xl leading-relaxed">
@@ -64,11 +64,11 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <button
             onClick={() => openContact('palaniappan', 'D2C Packaging Quote Request')}
-            className="bg-[#C8522C] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer shadow-sm"
+            className="bg-[#B04724] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer shadow-sm"
           >
             Get a D2C Quote
           </button>
-          <span className="text-xs text-[#747878] italic">Direct Specialist: Palaniappan — 98405 01323</span>
+          <span className="text-xs text-[#616565] italic">Direct Specialist: Palaniappan — 98405 01323</span>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {problemsSolved.map((p, idx) => (
             <div key={idx} className="bg-[#F7F5F1] border border-black/15 p-6 rounded-sm space-y-2">
-              <div className="flex items-center gap-2 text-[#C8522C] font-semibold text-xs uppercase tracking-wider">
+              <div className="flex items-center gap-2 text-[#B04724] font-semibold text-xs uppercase tracking-wider">
                 <ShieldAlert className="w-4 h-4" />
                 <span>Problem #{idx + 1}</span>
               </div>
@@ -101,7 +101,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
           <h2 className="font-serif-display text-2xl md:text-3xl text-[#1b1c1a] font-medium">
             D2C E-commerce Product List
           </h2>
-          <span className="text-xs text-[#747878]">Minimum order 10,000 units</span>
+          <span className="text-xs text-[#616565]">Minimum order 10,000 units</span>
         </div>
 
         <div className="overflow-x-auto border border-black/15 bg-[#F7F5F1] rounded-sm">
@@ -120,7 +120,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
                 <tr key={idx} className="hover:bg-[#EAE8E4]/50 transition-colors">
                   <td className="p-4 font-semibold text-[#1b1c1a] font-serif-display text-sm">{row.name}</td>
                   <td className="p-4 text-[#444748] max-w-xs">{row.bestFor}</td>
-                  <td className="p-4 font-mono font-medium text-[#C8522C]">{row.moq}</td>
+                  <td className="p-4 font-mono font-medium text-[#B04724]">{row.moq}</td>
                   <td className="p-4 text-[#444748]">{row.leadTime}</td>
                   <td className="p-4 font-mono font-bold text-base text-[#1b1c1a]">{row.price}</td>
                 </tr>
@@ -128,7 +128,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
             </tbody>
           </table>
         </div>
-        <p className="text-[11px] text-[#747878] mt-3 italic">
+        <p className="text-[11px] text-[#616565] mt-3 italic">
           *D2C formats have a 10,000-unit minimum order. Unit price depends on size, board grade, print colours and total quantity, and is confirmed on a formal ex-GST quotation.
         </p>
       </div>
@@ -178,7 +178,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
       <div className="bg-[#1b1c1a] text-[#F7F5F1] p-6 md:p-10 rounded-sm mb-12 shadow-xl">
         <div className="border-b border-white/10 pb-4 mb-6 flex items-center justify-between flex-wrap gap-4">
           <div>
-            <span className="text-[10px] uppercase font-semibold tracking-widest text-[#C8522C] block">
+            <span className="text-[10px] uppercase font-semibold tracking-widest text-[#B04724] block">
               Bulk Order Estimator · MOQ 10,000
             </span>
             <h3 className="font-serif-display text-2xl text-white font-medium">
@@ -187,7 +187,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
           </div>
           <div className="text-right">
             <div className="text-xs text-white/60">Lead Specialist</div>
-            <div className="text-sm font-semibold text-[#C8522C]">Palaniappan · D2C Direct</div>
+            <div className="text-sm font-semibold text-[#B04724]">Palaniappan · D2C Direct</div>
           </div>
         </div>
 
@@ -199,7 +199,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
                 type="number"
                 value={boxLength}
                 onChange={(e) => setBoxLength(Number(e.target.value))}
-                className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#C8522C]"
+                className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#B04724]"
               />
             </div>
             <div>
@@ -208,7 +208,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
                 type="number"
                 value={boxWidth}
                 onChange={(e) => setBoxWidth(Number(e.target.value))}
-                className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#C8522C]"
+                className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#B04724]"
               />
             </div>
             <div>
@@ -217,7 +217,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
                 type="number"
                 value={boxHeight}
                 onChange={(e) => setBoxHeight(Number(e.target.value))}
-                className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#C8522C]"
+                className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#B04724]"
               />
             </div>
             <div>
@@ -229,13 +229,13 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
                 step={500}
                 onChange={(e) => setQuantity(Number(e.target.value))}
                 onBlur={() => setQuantity((q) => Math.max(10000, q))}
-                className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#C8522C]"
+                className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#B04724]"
               />
             </div>
           </div>
 
           <div className="bg-[#2a2b29] p-6 rounded-sm border border-white/10 space-y-4 text-center">
-            <div className="text-xs uppercase tracking-widest text-[#C8522C] font-semibold">
+            <div className="text-xs uppercase tracking-widest text-[#B04724] font-semibold">
               Estimated Custom Unit Rate
             </div>
             <div className="font-serif-display text-4xl md:text-5xl text-white font-medium">
@@ -249,7 +249,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
             </p>
             <button
               onClick={() => openContact('palaniappan', `Quote Request for Mailer Box ${boxLength}x${boxWidth}x${boxHeight} cm, Qty: ${quantity}`)}
-              className="w-full bg-[#C8522C] text-white py-3 px-4 text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-sm cursor-pointer shadow-sm flex items-center justify-center gap-2"
+              className="w-full bg-[#B04724] text-white py-3 px-4 text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-sm cursor-pointer shadow-sm flex items-center justify-center gap-2"
             >
               <Send className="w-4 h-4" />
               <span>Confirm Quote with Palaniappan</span>
