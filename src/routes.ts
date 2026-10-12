@@ -85,6 +85,14 @@ export const ROUTES: RouteMeta[] = [
   })),
 ];
 
+/** Trims a meta description to Google's ~158-char display width at a word
+ * boundary, so generated descriptions don't get cut mid-word in results. */
+function fitDescription(text: string, max = 158): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  return `${cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:.\s]+$/, '')}…`;
+}
+
 export interface HeadData {
   title: string;
   description: string;
@@ -104,8 +112,8 @@ function computeProductHeadData(slug: string): HeadData | null {
 
   const path = `/products/${slug}`;
   const canonicalUrl = `${SITE_URL}${path}`;
-  const title = `Bulk ${product.name} | MOQ ${product.moq.toLocaleString('en-IN')} Units | Visalatchi Chennai`;
-  const description = `${product.description} Minimum order ${product.moq.toLocaleString('en-IN')} units, volume pricing on quotation. Made in Chennai, dispatched pan-India.`;
+  const title = `${product.name} | MOQ ${product.moq.toLocaleString('en-IN')} | Visalatchi`;
+  const description = fitDescription(`Bulk ${product.name.toLowerCase()} from Chennai, MOQ ${product.moq.toLocaleString('en-IN')} units. ${product.description}`);
   const schemas = [
     buildOrganizationSchema(),
     buildBreadcrumbSchema(path, product.name),
@@ -123,13 +131,13 @@ function computeBlogHeadData(slug: string): HeadData | null {
 
   const path = `/blog/${slug}`;
   const canonicalUrl = `${SITE_URL}${path}`;
-  const title = `${post.title} | Visalatchi Manufactures`;
+  const title = post.title.length > 62 ? post.title : `${post.title} | Visalatchi`;
   const schemas = [
     buildOrganizationSchema(),
     buildBreadcrumbSchema(path, post.title),
     buildArticleSchema(post, canonicalUrl),
   ];
-  return { title, description: post.description, canonicalUrl, ogImage: OG_IMAGE_URL, noindex: false, schemas };
+  return { title, description: fitDescription(post.description), canonicalUrl, ogImage: OG_IMAGE_URL, noindex: false, schemas };
 }
 
 /** Single source of truth for per-route <head> content, consumed by both the
@@ -164,5 +172,5 @@ export function computeHeadData(pathname: string): HeadData {
     buildBreadcrumbSchema(route.path, shortTitle),
     ...(route.buildJsonLd ? route.buildJsonLd() : []),
   ];
-  return { title: route.title, description: route.description, canonicalUrl, ogImage: OG_IMAGE_URL, noindex: false, schemas };
+  return { title: route.title, description: fitDescription(route.description), canonicalUrl, ogImage: OG_IMAGE_URL, noindex: false, schemas };
 }

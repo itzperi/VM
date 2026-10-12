@@ -57,11 +57,14 @@ export const FAQView: React.FC = () => {
                 <ChevronDown className={`w-5 h-5 text-[#C8522C] shrink-0 transform transition-transform ${isOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              {isOpen && (
-                <div className="px-5 pb-5 font-body text-xs md:text-sm text-[#444748] leading-relaxed border-t border-black/5 pt-3 animate-in fade-in">
-                  {faq.a}
-                </div>
-              )}
+              {/* Always rendered (hidden when collapsed) so every answer is in the
+                  prerendered HTML that search and AI crawlers read. */}
+              <div
+                hidden={!isOpen}
+                className="px-5 pb-5 font-body text-xs md:text-sm text-[#444748] leading-relaxed border-t border-black/5 pt-3 animate-in fade-in"
+              >
+                {faq.a}
+              </div>
             </div>
           );
         })}

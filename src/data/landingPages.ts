@@ -26,9 +26,9 @@ export interface LandingPage {
 export const LANDING_PAGES: LandingPage[] = [
   {
     path: '/appliance-packaging-boxes',
-    title: 'TV, Fan & Appliance Packaging Box Manufacturer | MOQ 5,000 | Chennai',
+    title: 'TV, Fan & Appliance Box Manufacturer Chennai | MOQ 5,000',
     description:
-      'Heavy-duty 5-ply and 7-ply corrugated boxes for TVs, ceiling fans, air coolers and appliances, made in Chennai to your product size and weight. Bulk orders from 5,000 units.',
+      'Heavy-duty 5-ply and 7-ply cartons for TVs, fans, air coolers and appliances, made in Chennai to your product size and weight. Bulk orders from 5,000 units.',
     eyebrow: 'Appliance & Electronics Packaging · MOQ 5,000 Units',
     h1: 'TV, Fan & Appliance Packaging Boxes, Made in Chennai',
     answer:
@@ -85,9 +85,9 @@ export const LANDING_PAGES: LandingPage[] = [
   },
   {
     path: '/bulk-packaging-boxes',
-    title: 'Bulk Packaging Boxes Manufacturer India | MOQ 5,000 / 10,000 | Visalatchi',
+    title: 'Bulk Packaging Boxes Manufacturer India | Visalatchi',
     description:
-      'Wholesale corrugated boxes, appliance cartons, mailer boxes, food and export packaging in bulk: 5,000 units for large boxes, 10,000 for small. Factory-direct from Chennai.',
+      'Wholesale corrugated, appliance, mailer, food and export boxes from a Chennai factory. MOQ 5,000 large boxes, 10,000 small boxes. Get a volume quote.',
     eyebrow: 'Bulk & Wholesale · MOQ 5,000 Large / 10,000 Small',
     h1: 'Bulk Packaging Boxes, Manufactured from 5,000 Units',
     answer:
@@ -143,7 +143,7 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/corrugated-box-manufacturer-chennai',
     title: 'Corrugated Box Manufacturer in Chennai | Bulk Orders | Visalatchi',
     description:
-      '3-ply, 5-ply and 7-ply corrugated boxes made in Thiruvottiyur, Chennai. Large cartons from 5,000 units, small boxes from 10,000, for manufacturers and exporters across Tamil Nadu.',
+      '3, 5 and 7-ply corrugated boxes made in Thiruvottiyur, North Chennai. Large cartons from 5,000 units, small boxes from 10,000. Plant visits welcome.',
     eyebrow: 'Thiruvottiyur, North Chennai · Bulk Corrugated Boxes',
     h1: 'Corrugated Box Manufacturer in Chennai for Bulk Orders',
     answer:
