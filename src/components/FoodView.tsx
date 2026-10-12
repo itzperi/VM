@@ -36,44 +36,44 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 md:px-12 py-8 animate-in fade-in duration-300">
       {/* Header */}
-      <div className="border-b border-black/15 pb-8 mb-12">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
+      <div className="border-b border-black/10 pb-8 mb-12">
+        <span className="text-sm font-medium text-[#0068c9] mb-3 block">
           Food & FMCG Division
         </span>
-        <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-4">
+        <h1 className="font-serif-display text-3xl md:text-5xl text-[#111111] font-medium mb-4">
           Packaging That Protects Shelf Life, Not Just Your Margin
         </h1>
-        <p className="font-body text-base text-[#444748] max-w-3xl leading-relaxed">
+        <p className="font-body text-base text-[#615d59] max-w-3xl leading-relaxed">
           For a food or FMCG manufacturer, a packaging failure isn't a bad review — it's a spoiled batch, a retailer return, or a compliance flag. Visalatchi builds food-safe, moisture and grease-resistant packaging for food brands, cloud-kitchen chains and FMCG manufacturers ordering 10,000 units or more, who need reliability more than the cheapest quote. Manufactured in Chennai, Tamil Nadu and dispatched pan-India, we supply cloud kitchens and FMCG brands across Chennai, Coimbatore, Madurai and the rest of Tamil Nadu.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <button
             onClick={() => openContact('periyanan', 'Food Packaging Inquiry')}
-            className="bg-[#B04724] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer shadow-sm"
+            className="bg-[#0075de] text-white px-6 py-3 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer"
           >
             Request Food Packaging Quote
           </button>
-          <span className="text-xs text-[#616565] italic">Lead Specialist: Periyanan — 94444 20367</span>
+          <span className="text-xs text-[#696969] italic">Lead Specialist: Periyanan — 94444 20367</span>
         </div>
       </div>
 
       {/* Problems Solved */}
       <div className="mb-16">
-        <h2 className="font-serif-display text-2xl md:text-3xl text-[#1b1c1a] font-medium mb-6">
+        <h2 className="font-serif-display text-2xl md:text-3xl text-[#111111] font-medium mb-6">
           The problems this solves
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {problemsSolved.map((p, idx) => (
-            <div key={idx} className="bg-[#F7F5F1] border border-black/15 p-6 rounded-sm space-y-2">
-              <div className="flex items-center gap-2 text-[#B04724] font-semibold text-xs uppercase tracking-wider">
+            <div key={idx} className="bg-white border border-black/10 p-6 rounded-xl space-y-2">
+              <div className="flex items-center gap-2 text-[#0068c9] font-semibold text-xs">
                 <AlertTriangle className="w-4 h-4" />
                 <span>Issue #{idx + 1}</span>
               </div>
-              <h3 className="font-serif-display text-lg text-[#1b1c1a] font-medium">
+              <h3 className="font-serif-display text-lg text-[#111111] font-medium">
                 {p.title}
               </h3>
-              <p className="font-body text-xs text-[#444748] leading-relaxed">
+              <p className="font-body text-xs text-[#615d59] leading-relaxed">
                 {p.desc}
               </p>
             </div>
@@ -84,16 +84,16 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
       {/* Relevant Formats Table */}
       <div className="mb-16">
         <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-          <h2 className="font-serif-display text-2xl md:text-3xl text-[#1b1c1a] font-medium">
+          <h2 className="font-serif-display text-2xl md:text-3xl text-[#111111] font-medium">
             Relevant formats for food businesses
           </h2>
-          <span className="text-xs text-[#616565]">Minimum order 10,000 units</span>
+          <span className="text-xs text-[#696969]">Minimum order 10,000 units</span>
         </div>
 
-        <div className="overflow-x-auto border border-black/15 bg-[#F7F5F1] rounded-sm">
+        <div className="overflow-x-auto border border-black/10 bg-white rounded-xl">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-[#EAE8E4] border-b border-black/15 text-xs font-semibold uppercase tracking-wider text-[#1b1c1a]">
+              <tr className="bg-[#f6f5f4] border-b border-black/10 text-xs font-semibold text-[#111111]">
                 <th className="p-4">Product</th>
                 <th className="p-4">Best For</th>
                 <th className="p-4">MOQ</th>
@@ -101,41 +101,41 @@ export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {
                 <th className="p-4">Pricing</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-black/10 text-xs font-body text-[#1b1c1a]">
+            <tbody className="divide-y divide-black/10 text-xs font-body text-[#111111]">
               {foodFormats.map((row, idx) => (
-                <tr key={idx} className="hover:bg-[#EAE8E4]/50 transition-colors">
-                  <td className="p-4 font-semibold text-[#1b1c1a] font-serif-display text-sm">{row.name}</td>
-                  <td className="p-4 text-[#444748] max-w-xs">{row.bestFor}</td>
-                  <td className="p-4 font-mono font-medium text-[#B04724]">{row.moq}</td>
-                  <td className="p-4 text-[#444748]">{row.leadTime}</td>
-                  <td className="p-4 font-mono font-bold text-base text-[#1b1c1a]">{row.price}</td>
+                <tr key={idx} className="hover:bg-[#f6f5f4] transition-colors">
+                  <td className="p-4 font-semibold text-[#111111] font-serif-display text-sm">{row.name}</td>
+                  <td className="p-4 text-[#615d59] max-w-xs">{row.bestFor}</td>
+                  <td className="p-4 tabular-nums font-medium text-[#0068c9]">{row.moq}</td>
+                  <td className="p-4 text-[#615d59]">{row.leadTime}</td>
+                  <td className="p-4 tabular-nums font-bold text-base text-[#111111]">{row.price}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="text-[11px] text-[#616565] mt-3 italic">
+        <p className="text-[11px] text-[#696969] mt-3 italic">
           *All food formats have a 10,000-unit minimum order. Unit price is confirmed on a formal ex-GST quotation based on size, finish and quantity.
         </p>
       </div>
 
       {/* Food Compliance Callout Box */}
-      <div className="bg-[#EAE8E4] border border-black/15 p-8 rounded-sm mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-white border border-black/10 p-8 rounded-xl mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 text-[#B04724] font-semibold text-xs uppercase tracking-widest">
+          <div className="flex items-center gap-2 text-[#0068c9] font-semibold text-sm">
             <ShieldCheck className="w-5 h-5" />
             <span>FSSAI & Modern Trade Compliance Ready</span>
           </div>
-          <h3 className="font-serif-display text-2xl text-[#1b1c1a] font-medium">
+          <h3 className="font-serif-display text-2xl text-[#111111] font-medium">
             Need migration certificates or specification datasheets?
           </h3>
-          <p className="font-body text-xs text-[#444748] max-w-2xl leading-relaxed">
+          <p className="font-body text-xs text-[#615d59] max-w-2xl leading-relaxed">
             All our food-grade board, bagasse containers, and food delivery packs use virgin contact surfaces and food-approved bio-coatings. Share your retail chain requirements with Periyanan.
           </p>
         </div>
         <button
           onClick={() => openContact('periyanan', 'Food compliance & certificate request')}
-          className="bg-[#1b1c1a] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-[#B04724] transition-colors rounded-sm cursor-pointer shrink-0 flex items-center gap-2"
+          className="bg-[#e6f3fe] text-[#005bab] px-6 py-3 text-sm font-medium hover:bg-[#d3e9fd] transition-colors rounded-lg cursor-pointer shrink-0 flex items-center gap-2"
         >
           <Send className="w-4 h-4" />
           <span>Consult Periyanan</span>

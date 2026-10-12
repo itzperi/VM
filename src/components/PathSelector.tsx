@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 export const PathSelector: React.FC = () => {
+  // Each route card is a single-hue accent panel (warm-paper system: colour
+  // lives in card backgrounds, not in buttons). Text colour is set per card
+  // for WCAG AA contrast on that hue.
+  const tones = [
+    { bg: 'bg-[#ffb110]', text: 'text-[#111111]', soft: 'text-black/75', line: 'border-black/40' },
+    { bg: 'bg-[#f64932]', text: 'text-[#111111]', soft: 'text-black/80', line: 'border-black/40' },
+    { bg: 'bg-[#62aef0]', text: 'text-[#111111]', soft: 'text-black/75', line: 'border-black/40' },
+    { bg: 'bg-[#02093a]', text: 'text-white', soft: 'text-white/80', line: 'border-white/50' },
+  ];
   const paths: { id: string; num: string; title: string; desc: string; buttonText: string; to: string }[] = [
     {
       id: 'd2c',
@@ -41,48 +50,48 @@ export const PathSelector: React.FC = () => {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 md:px-12 py-16 md:py-24">
       <div className="text-center mb-12">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
+        <span className="text-sm font-medium text-[#0068c9] mb-3 block">
           Tailored Manufacturing Routes
         </span>
-        <h2 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium">
+        <h2 className="font-serif-display text-3xl md:text-5xl text-[#111111] font-medium">
           What kind of business are you running?
         </h2>
-        <p className="font-body text-sm text-[#444748] mt-4">
+        <p className="font-body text-sm text-[#615d59] mt-4">
           Large boxes from 5,000 units, small boxes from 10,000.{' '}
-          <Link to="/bulk-packaging-boxes" className="text-[#B04724] font-semibold hover:underline">
+          <Link to="/bulk-packaging-boxes" className="text-[#0068c9] font-semibold hover:underline">
             How bulk ordering works →
           </Link>
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-black/15">
-        {paths.map((path) => (
-          <Link
-            key={path.id}
-            to={path.to}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="group relative p-8 md:p-10 border-b border-r border-black/15 bg-transparent hover:bg-[#EAE8E4]/70 transition-colors duration-500 min-h-[380px] flex flex-col justify-between cursor-pointer"
-          >
-            <div>
-              <div aria-hidden="true" className="font-serif-display text-4xl md:text-5xl text-black/50 group-hover:text-[#B04724] transition-colors duration-300 mb-6">
-                {path.num}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {paths.map((path, i) => {
+          const tone = tones[i % tones.length];
+          return (
+            <Link
+              key={path.id}
+              to={path.to}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className={`group relative p-6 md:p-8 rounded-xl ${tone.bg} min-h-[340px] flex flex-col justify-between cursor-pointer transition-transform duration-200 hover:-translate-y-1`}
+            >
+              <div>
+                <div aria-hidden="true" className={`font-serif-display text-4xl md:text-5xl ${tone.soft} mb-6`}>
+                  {path.num}
+                </div>
+                <h3 className={`font-serif-display text-2xl ${tone.text} mb-3 leading-snug`}>
+                  {path.title}
+                </h3>
+                <p className={`font-body text-sm ${tone.soft} mb-8 leading-relaxed`}>
+                  {path.desc}
+                </p>
               </div>
-
-              <h3 className="font-serif-display text-2xl text-[#1b1c1a] font-medium mb-3 leading-snug">
-                {path.title}
-              </h3>
-
-              <p className="font-body text-sm text-[#444748] mb-8 leading-relaxed">
-                {path.desc}
-              </p>
-            </div>
-
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#1b1c1a] border-b border-black/30 pb-1 group-hover:border-[#B04724] group-hover:text-[#B04724] transition-all">
-              <span>{path.buttonText}</span>
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
-        ))}
+              <div className={`inline-flex items-center gap-2 text-sm font-medium ${tone.text} border-b ${tone.line} pb-1 self-start`}>
+                <span>{path.buttonText}</span>
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

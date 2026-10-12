@@ -39,48 +39,48 @@ export const ExportView: React.FC<ExportViewProps> = ({ openContact }) => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 md:px-12 py-8 animate-in fade-in duration-300">
       {/* Header */}
-      <div className="border-b border-black/15 pb-8 mb-12">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
+      <div className="border-b border-black/10 pb-8 mb-12">
+        <span className="text-sm font-medium text-[#0068c9] mb-3 block">
           Export Logistics & Heavy Industrial Division
         </span>
-        <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-4">
+        <h1 className="font-serif-display text-3xl md:text-5xl text-[#111111] font-medium mb-4">
           Packaging That Doesn't Miss Your Shipping Slot
         </h1>
-        <p className="font-body text-base text-[#444748] max-w-3xl leading-relaxed mb-6">
+        <p className="font-body text-base text-[#615d59] max-w-3xl leading-relaxed mb-6">
           For an exporter, a late or non-compliant packaging delivery doesn't just cost you the packaging — it costs you the shipping slot. Visalatchi builds packaging to your specification and timeline, so your container booking isn't the thing that fails. Our plant in Chennai, Tamil Nadu dispatches to ports and freight forwarders across South India for exporters shipping from Chennai and the rest of Tamil Nadu.
         </p>
 
-        <div className="bg-[#EAE8E4] p-4 rounded-sm border-l-4 border-[#B04724] max-w-2xl text-xs text-[#1b1c1a] italic mb-6">
+        <div className="bg-white p-4 rounded-xl border-l-4 border-[#0075de] max-w-2xl text-xs text-[#111111] italic mb-6">
           *Note: we build packaging to your buyer's specific compliance requirement — share your destination market's requirements upfront and we'll confirm what we can meet before you commit.
         </div>
 
         <div className="flex flex-wrap items-center gap-4">
           <button
             onClick={() => openContact('periyanan', 'Export Packaging Inquiry')}
-            className="bg-[#B04724] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer shadow-sm"
+            className="bg-[#0075de] text-white px-6 py-3 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer"
           >
             Request Export Specification Quote
           </button>
-          <span className="text-xs text-[#616565] italic">Lead Export Engineer: Periyanan — 94444 20367</span>
+          <span className="text-xs text-[#696969] italic">Lead Export Engineer: Periyanan — 94444 20367</span>
         </div>
       </div>
 
       {/* Problems Solved */}
       <div className="mb-16">
-        <h2 className="font-serif-display text-2xl md:text-3xl text-[#1b1c1a] font-medium mb-6">
+        <h2 className="font-serif-display text-2xl md:text-3xl text-[#111111] font-medium mb-6">
           The problems this solves
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {problemsSolved.map((p, idx) => (
-            <div key={idx} className="bg-[#F7F5F1] border border-black/15 p-6 rounded-sm space-y-2">
-              <div className="flex items-center gap-2 text-[#B04724] font-semibold text-xs uppercase tracking-wider">
+            <div key={idx} className="bg-white border border-black/10 p-6 rounded-xl space-y-2">
+              <div className="flex items-center gap-2 text-[#0068c9] font-semibold text-xs">
                 <AlertOctagon className="w-4 h-4" />
                 <span>Export Challenge #{idx + 1}</span>
               </div>
-              <h3 className="font-serif-display text-lg text-[#1b1c1a] font-medium">
+              <h3 className="font-serif-display text-lg text-[#111111] font-medium">
                 {p.title}
               </h3>
-              <p className="font-body text-xs text-[#444748] leading-relaxed">
+              <p className="font-body text-xs text-[#615d59] leading-relaxed">
                 {p.desc}
               </p>
             </div>
@@ -89,18 +89,18 @@ export const ExportView: React.FC<ExportViewProps> = ({ openContact }) => {
       </div>
 
       {/* Interactive Freight Container CBM Calculator */}
-      <div className="bg-[#1b1c1a] text-[#F7F5F1] p-6 md:p-10 rounded-sm mb-16 shadow-xl">
+      <div className="bg-[#02093a] text-white p-6 md:p-10 rounded-xl mb-16 shadow-xl">
         <div className="border-b border-white/10 pb-4 mb-6 flex items-center justify-between flex-wrap gap-4">
           <div>
-            <span className="text-[10px] uppercase font-semibold tracking-widest text-[#B04724] block">
+            <span className="text-xs font-semibold text-[#0068c9] block">
               Container Optimization Tool
             </span>
             <h2 className="font-serif-display text-2xl md:text-3xl text-white font-medium">
               Export Master Carton & CBM Estimator
             </h2>
           </div>
-          <div className="flex items-center gap-2 text-xs font-mono bg-[#2a2b29] px-3 py-1.5 rounded-sm border border-white/10">
-            <Ship className="w-4 h-4 text-[#B04724]" />
+          <div className="flex items-center gap-2 text-xs tabular-nums bg-[#111a4d] px-3 py-1.5 rounded-xl border border-white/10">
+            <Ship className="w-4 h-4 text-[#0068c9]" />
             <span>ISO Pallet Optimization</span>
           </div>
         </div>
@@ -112,7 +112,7 @@ export const ExportView: React.FC<ExportViewProps> = ({ openContact }) => {
               <select
                 value={containerType}
                 onChange={(e) => setContainerType(e.target.value as any)}
-                className="w-full bg-[#2a2b29] border border-white/20 p-2.5 text-white rounded-sm focus:outline-none focus:border-[#B04724]"
+                className="w-full bg-[#111a4d] border border-white/20 p-2.5 text-white rounded-lg focus:outline-none focus:border-[#0075de]"
               >
                 <option value="20ft">20ft Standard Dry Container (33.2 CBM)</option>
                 <option value="40ft">40ft High-Cube Container (67.7 CBM)</option>
@@ -126,7 +126,7 @@ export const ExportView: React.FC<ExportViewProps> = ({ openContact }) => {
                   type="number"
                   value={cartonLength}
                   onChange={(e) => setCartonLength(Number(e.target.value))}
-                  className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#B04724]"
+                  className="w-full bg-[#111a4d] border border-white/20 p-2 text-white rounded-lg focus:outline-none focus:border-[#0075de]"
                 />
               </div>
               <div>
@@ -135,7 +135,7 @@ export const ExportView: React.FC<ExportViewProps> = ({ openContact }) => {
                   type="number"
                   value={cartonWidth}
                   onChange={(e) => setCartonWidth(Number(e.target.value))}
-                  className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#B04724]"
+                  className="w-full bg-[#111a4d] border border-white/20 p-2 text-white rounded-lg focus:outline-none focus:border-[#0075de]"
                 />
               </div>
               <div>
@@ -144,35 +144,35 @@ export const ExportView: React.FC<ExportViewProps> = ({ openContact }) => {
                   type="number"
                   value={cartonHeight}
                   onChange={(e) => setCartonHeight(Number(e.target.value))}
-                  className="w-full bg-[#2a2b29] border border-white/20 p-2 text-white rounded-sm focus:outline-none focus:border-[#B04724]"
+                  className="w-full bg-[#111a4d] border border-white/20 p-2 text-white rounded-lg focus:outline-none focus:border-[#0075de]"
                 />
               </div>
             </div>
           </div>
 
-          <div className="bg-[#2a2b29] p-6 rounded-sm border border-white/10 space-y-4">
-            <div className="text-xs uppercase tracking-widest text-[#B04724] font-semibold text-center">
+          <div className="bg-[#111a4d] p-6 rounded-xl border border-white/10 space-y-4">
+            <div className="text-sm text-[#0068c9] font-semibold text-center">
               Container Fill Optimization Result
             </div>
 
-            <div className="bg-[#1b1c1a] p-4 rounded-sm border border-black/10 space-y-3 text-xs">
-              <div className="flex justify-between text-[#444748]">
+            <div className="bg-[#02093a] p-4 rounded-xl border border-black/10 space-y-3 text-xs">
+              <div className="flex justify-between text-[#615d59]">
                 <span className="text-white/70">Single Carton Volume:</span>
-                <span className="font-mono font-semibold text-white">{cartonCbm.toFixed(3)} CBM</span>
+                <span className="tabular-nums font-semibold text-white">{cartonCbm.toFixed(3)} CBM</span>
               </div>
-              <div className="flex justify-between text-[#444748]">
+              <div className="flex justify-between text-[#615d59]">
                 <span className="text-white/70">Est. Master Cartons per {containerType}:</span>
-                <span className="font-mono font-bold text-lg text-[#B04724]">{maxCartons} Cartons</span>
+                <span className="tabular-nums font-bold text-lg text-[#0068c9]">{maxCartons} Cartons</span>
               </div>
-              <div className="flex justify-between text-[#444748]">
+              <div className="flex justify-between text-[#615d59]">
                 <span className="text-white/70">Usable Container Fill:</span>
-                <span className="font-mono text-white">~85% (ISO Stacking Space)</span>
+                <span className="tabular-nums text-white">~85% (ISO Stacking Space)</span>
               </div>
             </div>
 
             <button
               onClick={() => openContact('periyanan', `Export Container Inquiry (${containerType}, Carton Size: ${cartonLength}x${cartonWidth}x${cartonHeight}cm, Est. ${maxCartons} cartons)`)}
-              className="w-full bg-[#B04724] text-white py-3 px-4 text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-sm cursor-pointer shadow-sm flex items-center justify-center gap-2"
+              className="w-full bg-[#0075de] text-white py-3 px-4 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer flex items-center justify-center gap-2"
             >
               <Send className="w-4 h-4" />
               <span>Submit Spec to Periyanan</span>

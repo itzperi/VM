@@ -31,32 +31,32 @@ export const WhyVisalatchi: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#EAE8E4]/60 border-y border-black/15 py-16 md:py-24">
+    <section className="w-full py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start mb-16">
           <div className="md:col-span-5">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
+            <span className="text-sm font-medium text-[#0068c9] mb-3 block">
               The Visalatchi Difference
             </span>
-            <h2 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium leading-tight mb-6">
+            <h2 className="font-serif-display text-3xl md:text-5xl text-[#111111] font-medium leading-tight mb-6">
               Why businesses choose Visalatchi
             </h2>
-            <p className="font-body text-base text-[#444748] max-w-md leading-relaxed">
+            <p className="font-body text-base text-[#615d59] max-w-md leading-relaxed">
               A focused bulk manufacturer for brands, FMCG producers and exporters who order packaging by the thousands and need consistent quality on every run.
             </p>
           </div>
 
           <div className="md:col-span-7">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {reasons.map((item, index) => {
                 const IconComponent = item.icon;
                 return (
-                  <div key={index} className="border-t border-black/15 pt-5">
-                    <IconComponent className="w-6 h-6 text-[#B04724] mb-3" />
-                    <h3 className="font-sans text-xs font-semibold uppercase tracking-wider text-[#1b1c1a] mb-2">
+                  <div key={index} className="bg-white border border-black/[0.08] rounded-xl p-6">
+                    <IconComponent className="w-6 h-6 text-[#0068c9] mb-3" />
+                    <h3 className="font-sans text-base font-semibold tracking-[-0.01em] text-[#111111] mb-2">
                       {item.title}
                     </h3>
-                    <p className="font-body text-xs text-[#444748] leading-relaxed">
+                    <p className="font-body text-sm text-[#615d59] leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -67,16 +67,16 @@ export const WhyVisalatchi: React.FC = () => {
         </div>
 
         {/* Made in Chennai, Pan-India Section */}
-        <div className="bg-[#F7F5F1] border border-black/15 p-8 md:p-10 rounded-sm flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+        <div className="bg-white border border-black/10 p-8 md:p-10 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-[#B04724]/10 rounded-full shrink-0">
-              <MapPin className="w-6 h-6 text-[#B04724]" />
+            <div className="p-3 bg-[#e6f3fe] rounded-full shrink-0">
+              <MapPin className="w-6 h-6 text-[#0068c9]" />
             </div>
             <div>
-              <h3 className="font-serif-display text-2xl text-[#1b1c1a] font-medium mb-2">
+              <h3 className="font-serif-display text-2xl text-[#111111] font-medium mb-2">
                 Made in Chennai, built for the whole country
               </h3>
-              <p className="font-body text-sm text-[#444748] max-w-2xl leading-relaxed">
+              <p className="font-body text-sm text-[#615d59] max-w-2xl leading-relaxed">
                 Visalatchi manufactures out of Chennai and ships pan-India. Wherever your warehouse, fulfillment center, or production unit is, from Delhi NCR to Bangalore to Kolkata, we dispatch to match your courier and delivery timelines.
               </p>
             </div>

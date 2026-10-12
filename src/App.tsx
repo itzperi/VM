@@ -60,7 +60,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#F7F5F1] text-[#1b1c1a] font-sans min-h-screen flex flex-col relative pb-14 md:pb-0 selection:bg-[#B04724] selection:text-white">
+    <div className="bg-white text-[#111111] font-sans min-h-screen flex flex-col relative pb-14 md:pb-0 selection:bg-[#0075de] selection:text-white">
       {/* Per-route title / meta / canonical / JSON-LD */}
       <Seo />
 

@@ -33,7 +33,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
     <div className="hidden md:flex fixed bottom-6 left-6 z-50 flex-col items-start gap-2">
       {/* Popover Options */}
       {showOptions && (
-        <div className="bg-[#1b1c1a] text-white p-4 rounded-lg shadow-2xl border border-[#25D366]/40 text-xs w-64 space-y-3 animate-in fade-in slide-in-from-bottom-2 duration-150">
+        <div className="bg-[#02093a] text-white p-4 rounded-lg shadow-2xl border border-[#25D366]/40 text-xs w-64 space-y-3 animate-in fade-in slide-in-from-bottom-2 duration-150">
           <div className="flex items-center justify-between border-b border-white/10 pb-2">
             <div className="flex items-center gap-1.5 font-semibold text-[#25D366]">
               <WhatsAppIcon className="w-4 h-4 fill-[#25D366]" />
@@ -56,7 +56,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
               href={urlPalaniappan}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#15803D] hover:bg-[#166534] text-white p-2.5 rounded-sm flex items-center justify-between font-semibold transition-colors group cursor-pointer"
+              className="bg-[#15803D] hover:bg-[#166534] text-white p-2.5 rounded-xl flex items-center justify-between font-semibold transition-colors group cursor-pointer"
             >
               <div>
                 <div className="text-xs">Palaniappan</div>
@@ -69,7 +69,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
               href={urlPeriyanan}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#15803D] hover:bg-[#166534] text-white p-2.5 rounded-sm flex items-center justify-between font-semibold transition-colors group cursor-pointer"
+              className="bg-[#15803D] hover:bg-[#166534] text-white p-2.5 rounded-xl flex items-center justify-between font-semibold transition-colors group cursor-pointer"
             >
               <div>
                 <div className="text-xs">Periyanan</div>

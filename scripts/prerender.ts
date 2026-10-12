@@ -36,7 +36,7 @@ function escapeAttr(s: string): string {
 
 /** Preload the two Latin font files used above the fold (public/fonts). */
 function fontPreloadTags(): string[] {
-  return ['inter-latin', 'fraunces-latin']
+  return ['inter-latin']
     .filter((f) => fs.existsSync(path.join(DIST_DIR, 'fonts', `${f}.woff2`)))
     .map((f) => `<link rel="preload" href="/fonts/${f}.woff2" as="font" type="font/woff2" crossorigin />`);
 }

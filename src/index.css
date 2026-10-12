@@ -60,18 +60,46 @@
 @layer base {
   body {
     font-family: 'Inter Variable', 'Inter Fallback', system-ui, sans-serif;
-    background-color: #F7F5F1;
-    background-image: url("/media/noise.png");
-    color: #1b1c1a;
+    background-color: #f6f5f4;
+    color: #111111;
+    font-feature-settings: "lnum";
+    -webkit-font-smoothing: antialiased;
   }
 }
 
+/* Display headings: Inter, semibold, tightened tracking (warm-paper system:
+   -0.03em at display sizes, tighter as size grows). Unlayered so it wins over
+   the weight utilities left on older markup. */
 .font-serif-display {
+  font-family: 'Inter Variable', 'Inter Fallback', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+h1.font-serif-display {
+  letter-spacing: -0.035em;
+}
+
+/* Editorial serif accent, used sparingly for intro copy (Fraunces stands in
+   for a Lyon-style text serif). */
+.font-editorial {
   font-family: 'Fraunces Variable', 'Fraunces Fallback', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Hero highlight pill: wraps one phrase in a headline. */
+.highlight-pill {
+  display: inline-block;
+  background: #f6d5b8;
+  border-radius: 9999px;
+  padding: 0 0.35em 0.04em;
+  line-height: 1.15;
 }
 
 .font-nokia {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Inter Variable', 'Inter Fallback', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
 }
 
 .hairline {

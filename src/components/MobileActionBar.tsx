@@ -9,7 +9,7 @@ interface Props {
 /** Sticky Call / WhatsApp / Quote bar on small screens. Phone and WhatsApp
  * clicks are counted by the delegated listener in lib/analytics.ts. */
 export const MobileActionBar: React.FC<Props> = ({ openContact }) => (
-  <div className="md:hidden fixed bottom-0 inset-x-0 z-40 grid grid-cols-3 bg-[#1b1c1a] text-white text-[11px] font-semibold uppercase tracking-wider shadow-[0_-4px_12px_rgba(0,0,0,0.15)]">
+  <div className="md:hidden fixed bottom-0 inset-x-0 z-40 grid grid-cols-3 bg-[#02093a] text-white text-[11px] font-semibold shadow-[0_-4px_12px_rgba(0,0,0,0.15)]">
     <a href="tel:+919840501323" className="flex flex-col items-center justify-center gap-1 py-2.5 hover:bg-black">
       <Phone className="w-4 h-4" /> Call
     </a>
@@ -23,7 +23,7 @@ export const MobileActionBar: React.FC<Props> = ({ openContact }) => (
     </a>
     <button
       onClick={() => openContact('general', 'Bulk quote request from mobile bar')}
-      className="flex flex-col items-center justify-center gap-1 py-2.5 bg-[#B04724] hover:bg-[#a8431f]"
+      className="flex flex-col items-center justify-center gap-1 py-2.5 bg-[#0075de] hover:bg-[#005bab]"
     >
       <Send className="w-4 h-4" /> Get Quote
     </button>

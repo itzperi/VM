@@ -35,7 +35,7 @@ export const LocationMap: React.FC = () => {
 
   return (
     <section ref={ref} className="w-full max-w-7xl mx-auto px-6 md:px-16 py-10" aria-label="Plant location">
-      <div className="relative h-[280px] rounded-sm border border-black/15 overflow-hidden bg-[#EAE8E4]">
+      <div className="relative h-[280px] rounded-xl border border-black/10 overflow-hidden bg-white">
         {visible ? (
           <iframe
             title="Visalatchi Manufactures plant location on Google Maps"
@@ -49,9 +49,9 @@ export const LocationMap: React.FC = () => {
           />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 gap-2">
-            <MapPin className="w-7 h-7 text-[#B04724]" />
-            <p className="font-serif-display text-lg text-[#1b1c1a]">Visalatchi Manufactures plant</p>
-            <p className="text-xs text-[#444748] max-w-md">{PLANT_ADDRESS_FULL}</p>
+            <MapPin className="w-7 h-7 text-[#0068c9]" />
+            <p className="font-serif-display text-lg text-[#111111]">Visalatchi Manufactures plant</p>
+            <p className="text-xs text-[#615d59] max-w-md">{PLANT_ADDRESS_FULL}</p>
           </div>
         )}
       </div>
@@ -59,7 +59,7 @@ export const LocationMap: React.FC = () => {
         href={PLANT_MAPS_SHARE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block mt-3 text-[#B04724] text-xs font-semibold hover:underline"
+        className="inline-block mt-3 text-[#0068c9] text-xs font-semibold hover:underline"
       >
         View our Chennai plant on Google Maps and get directions →
       </a>

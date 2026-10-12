@@ -12,15 +12,15 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
   const navigate = useNavigate();
 
   const navItems: { label: string; to: string }[] = [
-    { label: 'D2C PACKAGING', to: '/d2c-packaging' },
-    { label: 'FOOD BUSINESS', to: '/food-packaging' },
-    { label: 'EXPORT', to: '/export-packaging' },
-    { label: 'PRODUCTS', to: '/products' },
-    { label: 'APPLIANCE BOXES', to: '/appliance-packaging-boxes' },
-    { label: 'PROCESS', to: '/process' },
-    { label: 'ABOUT', to: '/about' },
+    { label: 'D2C packaging', to: '/d2c-packaging' },
+    { label: 'Food business', to: '/food-packaging' },
+    { label: 'Export', to: '/export-packaging' },
+    { label: 'Products', to: '/products' },
+    { label: 'Appliance boxes', to: '/appliance-packaging-boxes' },
+    { label: 'Process', to: '/process' },
+    { label: 'About', to: '/about' },
     { label: 'FAQ', to: '/faq' },
-    { label: 'BLOG', to: '/blog' },
+    { label: 'Blog', to: '/blog' },
   ];
 
   const closeAndScrollTop = () => {
@@ -29,15 +29,13 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
   };
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `text-[11px] font-semibold tracking-[0.12em] uppercase transition-colors cursor-pointer ${
-      isActive
-        ? 'text-[#B04724] font-bold border-b-2 border-[#B04724] pb-0.5'
-        : 'text-[#444748] hover:text-black'
+    `text-sm font-medium px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer ${
+      isActive ? 'text-[#0068c9] bg-[#e6f3fe]' : 'text-black/60 hover:text-black hover:bg-black/[0.04]'
     }`;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full mt-3 mx-auto px-4">
-      <div className="bg-[#F7F5F1]/90 backdrop-blur-md rounded-full mx-auto max-w-fit px-5 md:px-7 py-2.5 border border-black/15 flex items-center gap-4 md:gap-7 shadow-sm transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-[0_0.7px_1.5px_rgba(0,0,0,0.015),0_3px_9px_rgba(0,0,0,0.03)]">
+      <div className="max-w-7xl mx-auto h-16 px-4 md:px-8 flex items-center justify-between gap-4">
         <NavLink
           to="/"
           onClick={closeAndScrollTop}
@@ -47,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
           <BrandLogo variant="nav" />
         </NavLink>
 
-        <div className="hidden lg:flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-0.5">
           {navItems.map((item) => (
             <NavLink key={item.to} to={item.to} onClick={closeAndScrollTop} className={linkClass}>
               {item.label}
@@ -60,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
             navigate('/contact');
             closeAndScrollTop();
           }}
-          className="hidden sm:block bg-[#B04724] text-[#F7F5F1] px-5 py-1.5 text-[11px] font-semibold uppercase tracking-widest hover:bg-black transition-colors duration-300 rounded-sm cursor-pointer shrink-0"
+          className="hidden sm:block bg-[#0075de] text-white px-4 py-1.5 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer shrink-0"
         >
           Get Quote
         </button>
@@ -76,13 +74,13 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
 
       {/* Mobile Dropdown */}
       {mobileMenuOpen && (
-        <div className="absolute top-16 left-4 right-4 bg-[#F7F5F1] border border-black/15 rounded-2xl p-6 shadow-xl flex flex-col gap-3 lg:hidden z-50">
+        <div className="absolute top-16 left-4 right-4 bg-white border border-black/10 rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.1)] flex flex-col gap-3 lg:hidden z-50">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               onClick={closeAndScrollTop}
-              className="text-left text-xs font-semibold tracking-widest uppercase py-2 border-b border-black/5 text-[#1b1c1a] hover:text-[#B04724]"
+              className="text-left text-sm font-semibold py-2 border-b border-black/5 text-[#111111] hover:text-[#0068c9]"
             >
               {item.label}
             </NavLink>
@@ -92,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {
               navigate('/contact');
               closeAndScrollTop();
             }}
-            className="w-full bg-[#B04724] text-white py-3 font-semibold text-xs uppercase tracking-widest rounded-sm text-center mt-2"
+            className="w-full bg-[#0075de] text-white py-3 font-medium text-sm rounded-lg text-center mt-2"
           >
             Get a Quote
           </button>

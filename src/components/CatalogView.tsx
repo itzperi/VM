@@ -25,14 +25,14 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 md:px-12 py-8 animate-in fade-in duration-300">
       {/* Header */}
-      <div className="border-b border-black/15 pb-8 mb-10">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
+      <div className="border-b border-black/10 pb-8 mb-10">
+        <span className="text-sm font-medium text-[#0068c9] mb-3 block">
           Bulk Orders · MOQ 5,000 Large / 10,000 Small
         </span>
-        <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-3">
+        <h1 className="font-serif-display text-3xl md:text-5xl text-[#111111] font-medium mb-3">
           Bulk Packaging Products
         </h1>
-        <p className="font-body text-base text-[#444748] max-w-2xl leading-relaxed">
+        <p className="font-body text-base text-[#615d59] max-w-2xl leading-relaxed">
           From D2C mailers to food-safe takeaway packs to export-ready cartons. Large boxes (TV, fan, appliance, master cartons) run from 5,000 units and small boxes from 10,000, with factory-direct volume pricing quoted on your size, print and quantity.
         </p>
       </div>
@@ -40,16 +40,16 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
       {/* Full Master Price Table */}
       <div className="mb-16">
         <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-          <h2 className="font-serif-display text-2xl text-[#1b1c1a] font-medium">
+          <h2 className="font-serif-display text-2xl text-[#111111] font-medium">
             Full Product List & MOQ
           </h2>
-          <span className="text-xs text-[#616565]">MOQ per product · pan-India dispatch</span>
+          <span className="text-xs text-[#696969]">MOQ per product · pan-India dispatch</span>
         </div>
 
-        <div className="overflow-x-auto border border-black/15 bg-[#F7F5F1] rounded-sm shadow-xs">
+        <div className="overflow-x-auto border border-black/10 bg-white rounded-xl">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-[#EAE8E4] border-b border-black/15 text-xs font-semibold uppercase tracking-wider text-[#1b1c1a]">
+              <tr className="bg-[#f6f5f4] border-b border-black/10 text-xs font-semibold text-[#111111]">
                 <th className="p-4">Product</th>
                 <th className="p-4">Best For</th>
                 <th className="p-4">MOQ</th>
@@ -57,49 +57,49 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
                 <th className="p-4">Pricing</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-black/10 text-xs font-body text-[#1b1c1a]">
+            <tbody className="divide-y divide-black/10 text-xs font-body text-[#111111]">
               {fullPriceList.map((row, idx) => (
-                <tr key={idx} className="hover:bg-[#EAE8E4]/50 transition-colors">
-                  <td className="p-4 font-semibold text-[#1b1c1a] font-serif-display text-sm">{row.name}</td>
-                  <td className="p-4 text-[#444748] max-w-xs">{row.bestFor}</td>
-                  <td className="p-4 font-mono font-semibold text-[#B04724]">{row.moq}</td>
-                  <td className="p-4 text-[#444748]">{row.leadTime}</td>
-                  <td className="p-4 font-mono font-bold text-base text-[#1b1c1a]">{row.price}</td>
+                <tr key={idx} className="hover:bg-[#f6f5f4] transition-colors">
+                  <td className="p-4 font-semibold text-[#111111] font-serif-display text-sm">{row.name}</td>
+                  <td className="p-4 text-[#615d59] max-w-xs">{row.bestFor}</td>
+                  <td className="p-4 tabular-nums font-semibold text-[#0068c9]">{row.moq}</td>
+                  <td className="p-4 text-[#615d59]">{row.leadTime}</td>
+                  <td className="p-4 tabular-nums font-bold text-base text-[#111111]">{row.price}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="text-[11px] text-[#616565] mt-3 italic">
+        <p className="text-[11px] text-[#696969] mt-3 italic">
           *Minimum order: 5,000 units for large boxes (TV, fan, appliance, master and export cartons), 10,000 units for small boxes, mailers, food packs and bags. Unit price depends on size, board grade, print colours and total quantity, and is confirmed on a formal ex-GST quotation. Larger and repeat volumes get lower unit rates.
         </p>
       </div>
 
       {/* Format Category Breakdowns */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        <div className="bg-[#EAE8E4] p-6 rounded-sm border border-black/10">
-          <h3 className="font-serif-display text-lg text-[#1b1c1a] font-semibold mb-2">
+        <div className="bg-white p-6 rounded-xl border border-black/10">
+          <h3 className="font-serif-display text-lg text-[#111111] font-semibold mb-2">
             Shipping & Mailer Boxes
           </h3>
-          <p className="text-xs text-[#444748] leading-relaxed">
+          <p className="text-xs text-[#615d59] leading-relaxed">
             Mailer boxes and corrugated shipping cartons are crush-tested for courier handling, with brandable interior or exterior print so your unboxing stays on-brand without needing a separate insert. Both run from a 10,000-unit minimum, for brands and warehouses dispatching at volume: printed mailer boxes for branded D2C shipping and 3-ply or 5-ply corrugated cartons for e-commerce and B2B use. Large TV, fan, appliance and master cartons run from 5,000 units.
           </p>
         </div>
 
-        <div className="bg-[#EAE8E4] p-6 rounded-sm border border-black/10">
-          <h3 className="font-serif-display text-lg text-[#1b1c1a] font-semibold mb-2">
+        <div className="bg-white p-6 rounded-xl border border-black/10">
+          <h3 className="font-serif-display text-lg text-[#111111] font-semibold mb-2">
             Courier & Padded Mailers
           </h3>
-          <p className="text-xs text-[#444748] leading-relaxed">
+          <p className="text-xs text-[#615d59] leading-relaxed">
             Courier and return mailers, along with paper and padded mailers, are built with tamper-evident seals and padded options where needed — reducing transit damage on apparel, books, jewellery and small electronics. Both are produced in runs from 10,000 units, priced for high-volume e-commerce dispatch.
           </p>
         </div>
 
-        <div className="bg-[#EAE8E4] p-6 rounded-sm border border-black/10">
-          <h3 className="font-serif-display text-lg text-[#1b1c1a] font-semibold mb-2">
+        <div className="bg-white p-6 rounded-xl border border-black/10">
+          <h3 className="font-serif-display text-lg text-[#111111] font-semibold mb-2">
             Food Delivery & Eco Packaging
           </h3>
-          <p className="text-xs text-[#444748] leading-relaxed">
+          <p className="text-xs text-[#615d59] leading-relaxed">
             Food delivery boxes and bagasse containers use grease- and moisture-resistant materials suited to hot food, curries, and cloud-kitchen dispatch. Paper bowls and food containers extend this to a fully compostable option for curries, biryani, rice, noodles, salads and desserts. Custom printed paper carry bags round out the eco range for bakeries, cafes, retail, and gifting use.
           </p>
         </div>
@@ -119,10 +119,10 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-sm cursor-pointer whitespace-nowrap transition-colors ${
+                className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-xl cursor-pointer whitespace-nowrap transition-colors ${
                   selectedCategory === cat.id
-                    ? 'bg-[#1b1c1a] text-white'
-                    : 'bg-[#EAE8E4] text-[#1b1c1a] hover:bg-black/10'
+                    ? 'bg-[#02093a] text-white'
+                    : 'bg-[#f6f5f4] text-[#111111] hover:bg-black/10'
                 }`}
               >
                 {cat.label}
@@ -131,13 +131,13 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
           </div>
 
           <div className="relative w-full md:w-64">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#616565]" />
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#696969]" />
             <input
               type="text"
               placeholder="Search catalog..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#EAE8E4] border border-black/15 pl-9 pr-3 py-2 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
+              className="w-full bg-[#f6f5f4] border border-black/10 pl-9 pr-3 py-2 text-xs font-body text-[#111111] rounded-lg focus:outline-none focus:border-[#0075de]"
             />
           </div>
         </div>
@@ -147,10 +147,10 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-[#F7F5F1] border border-black/15 rounded-sm overflow-hidden flex flex-col justify-between group hover:border-[#B04724] transition-colors"
+              className="bg-white border border-black/10 rounded-xl overflow-hidden flex flex-col justify-between group hover:border-[#0075de] transition-colors"
             >
               <Link to={`/products/${slugify(product.name)}`} className="block">
-                <div className="h-48 w-full overflow-hidden relative bg-[#EAE8E4]">
+                <div className="h-48 w-full overflow-hidden relative bg-[#f6f5f4]">
                   <img
                     src={product.image}
                     alt={`${product.name}, ${product.material}`}
@@ -160,11 +160,11 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 right-3 bg-[#1b1c1a] text-white text-[10px] font-mono px-2 py-1 rounded-sm uppercase tracking-wider">
+                  <div className="absolute top-3 right-3 bg-[#02093a] text-white text-[10px] tabular-nums px-2 py-1 rounded-full">
                     MOQ: {product.moq.toLocaleString('en-IN')}
                   </div>
                   {product.ecoFriendly && (
-                    <div className="absolute top-3 left-3 bg-[#B04724] text-white text-[10px] font-semibold px-2 py-1 rounded-sm uppercase tracking-wider">
+                    <div className="absolute top-3 left-3 bg-[#0075de] text-white text-[10px] font-semibold px-2 py-1 rounded-full">
                       Eco Option
                     </div>
                   )}
@@ -172,27 +172,27 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
 
                 <div className="p-5 space-y-3">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-serif-display text-lg text-[#1b1c1a] font-semibold leading-snug hover:text-[#B04724] transition-colors">
+                    <h3 className="font-serif-display text-lg text-[#111111] font-semibold leading-snug hover:text-[#0068c9] transition-colors">
                       {product.name}
                     </h3>
                   </div>
 
-                  <p className="font-body text-xs text-[#444748] line-clamp-2">
+                  <p className="font-body text-xs text-[#615d59] line-clamp-2">
                     {product.description}
                   </p>
 
                   <div className="pt-2 border-t border-black/10 space-y-1.5 text-xs">
                     <div className="flex justify-between">
-                      <span className="text-[#616565]">Material Spec:</span>
-                      <span className="font-semibold text-[#1b1c1a] text-right max-w-[180px] truncate">{product.material}</span>
+                      <span className="text-[#696969]">Material Spec:</span>
+                      <span className="font-semibold text-[#111111] text-right max-w-[180px] truncate">{product.material}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#616565]">Lead Time:</span>
-                      <span className="font-semibold text-[#1b1c1a]">{product.leadTime}</span>
+                      <span className="text-[#696969]">Lead Time:</span>
+                      <span className="font-semibold text-[#111111]">{product.leadTime}</span>
                     </div>
-                    <div className="flex justify-between text-[#B04724]">
+                    <div className="flex justify-between text-[#0068c9]">
                       <span>Pricing:</span>
-                      <span className="font-mono font-bold text-sm">{product.startingPrice}</span>
+                      <span className="tabular-nums font-bold text-sm">{product.startingPrice}</span>
                     </div>
                   </div>
                 </div>
@@ -201,7 +201,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
               <div className="p-5 pt-0">
                 <button
                   onClick={() => openContact('palaniappan', product)}
-                  className="w-full bg-[#1b1c1a] text-white py-2.5 px-3 text-xs font-semibold uppercase tracking-widest hover:bg-[#B04724] transition-colors rounded-sm cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full bg-[#e6f3fe] text-[#005bab] py-2.5 px-3 text-sm font-medium hover:bg-[#d3e9fd] transition-colors rounded-lg cursor-pointer flex items-center justify-center gap-2"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Request Product Quote</span>
@@ -213,16 +213,16 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
       </div>
 
       {/* Catalog CTA */}
-      <div className="bg-[#EAE8E4] border border-black/15 p-8 rounded-sm text-center max-w-3xl mx-auto space-y-4">
-        <h3 className="font-serif-display text-2xl text-[#1b1c1a] font-medium">
+      <div className="bg-white border border-black/10 p-8 rounded-xl text-center max-w-3xl mx-auto space-y-4">
+        <h3 className="font-serif-display text-2xl text-[#111111] font-medium">
           Not sure which format fits your product?
         </h3>
-        <p className="font-body text-xs text-[#444748] max-w-md mx-auto">
+        <p className="font-body text-xs text-[#615d59] max-w-md mx-auto">
           Share your item size, order volume (5,000+ large boxes or 10,000+ small boxes) and target start date. We'll recommend the right pack and turn it into a firm quote.
         </p>
         <button
           onClick={() => openContact('general', 'Custom format recommendation request')}
-          className="bg-[#B04724] text-white px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-black transition-colors rounded-sm cursor-pointer inline-flex items-center gap-2"
+          className="bg-[#0075de] text-white px-6 py-3 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer inline-flex items-center gap-2"
         >
           <Send className="w-4 h-4" />
           <span>Ask Our Engineers</span>

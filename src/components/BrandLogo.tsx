@@ -58,7 +58,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       {/* Brand Text Logotype */}
       {showText && (
         <div className="flex flex-col text-left">
-          <span className={`font-serif-display font-bold leading-none tracking-tight text-[#1b1c1a] ${
+          <span className={`font-serif-display font-bold leading-none tracking-tight text-[#111111] ${
             variant === 'large' || variant === 'hero'
               ? 'text-2xl md:text-3xl'
               : variant === 'footer'
@@ -67,7 +67,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           }`}>
             Visalatchi
           </span>
-          <span className={`font-sans uppercase font-semibold tracking-widest text-[#B04724] leading-none mt-0.5 ${
+          <span className={`font-sans uppercase font-semibold tracking-widest text-[#0068c9] leading-none mt-0.5 ${
             variant === 'large' || variant === 'hero'
               ? 'text-[10px] md:text-[11px]'
               : 'text-[8px] md:text-[9px]'

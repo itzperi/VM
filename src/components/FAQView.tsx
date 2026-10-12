@@ -31,14 +31,14 @@ export const FAQView: React.FC = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 md:px-8 py-12 md:py-20 animate-in fade-in duration-300">
-      <div className="border-b border-black/15 pb-8 mb-10 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#B04724] mb-2 block">
+      <div className="border-b border-black/10 pb-8 mb-10 text-center">
+        <span className="text-sm font-medium text-[#0068c9] mb-3 block">
           Knowledge Base
         </span>
-        <h1 className="font-serif-display text-3xl md:text-5xl text-[#1b1c1a] font-medium mb-4">
+        <h1 className="font-serif-display text-3xl md:text-5xl text-[#111111] font-medium mb-4">
           Frequently Asked Questions
         </h1>
-        <p className="speakable font-body text-sm text-[#444748] max-w-xl mx-auto leading-relaxed">
+        <p className="speakable font-body text-sm text-[#615d59] max-w-xl mx-auto leading-relaxed">
           Visalatchi Manufactures is a bulk packaging manufacturer in Thiruvottiyur, Chennai. The minimum order is 5,000 units
           for large boxes such as TV, fan and appliance cartons and 10,000 units for small boxes. Below are answers on MOQs,
           samples, pricing and lead times.
@@ -46,13 +46,13 @@ export const FAQView: React.FC = () => {
 
         {/* Search Input */}
         <div className="mt-6 max-w-md mx-auto relative">
-          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#616565]" />
+          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#696969]" />
           <input
             type="text"
             placeholder="Search questions (e.g. MOQ, food delivery, export, pricing)..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-[#F7F5F1] border border-black/20 pl-10 pr-4 py-2.5 text-xs font-body text-[#1b1c1a] rounded-sm focus:outline-none focus:border-[#B04724]"
+            className="w-full bg-white border border-black/15 pl-10 pr-4 py-2.5 text-xs font-body text-[#111111] rounded-lg focus:outline-none focus:border-[#0075de]"
           />
         </div>
       </div>
@@ -64,18 +64,18 @@ export const FAQView: React.FC = () => {
             <div
               key={idx}
               id={faqAnchor(faq.q)}
-              className="scroll-mt-28 bg-[#F7F5F1] border border-black/15 rounded-sm overflow-hidden transition-all hover:border-black/30"
+              className="scroll-mt-28 bg-white border border-black/10 rounded-xl overflow-hidden transition-all hover:border-black/30"
             >
               {/* Heading wraps the button (a heading inside a button is invalid HTML). */}
               <h2 className="m-0">
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between font-serif-display text-base md:text-lg text-[#1b1c1a] font-medium focus:outline-none cursor-pointer gap-4"
+                  className="w-full p-5 text-left flex items-center justify-between font-serif-display text-base md:text-lg text-[#111111] font-medium focus:outline-none cursor-pointer gap-4"
                   aria-expanded={isOpen}
                   aria-controls={`${faqAnchor(faq.q)}-answer`}
                 >
                   <span>{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-[#B04724] shrink-0 transform transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-5 h-5 text-[#0068c9] shrink-0 transform transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
               </h2>
 
@@ -84,7 +84,7 @@ export const FAQView: React.FC = () => {
               <div
                 id={`${faqAnchor(faq.q)}-answer`}
                 hidden={!isOpen}
-                className="px-5 pb-5 font-body text-xs md:text-sm text-[#444748] leading-relaxed border-t border-black/5 pt-3 animate-in fade-in"
+                className="px-5 pb-5 font-body text-xs md:text-sm text-[#615d59] leading-relaxed border-t border-black/5 pt-3 animate-in fade-in"
               >
                 {faq.a}
               </div>
@@ -93,7 +93,7 @@ export const FAQView: React.FC = () => {
         })}
 
         {filteredFaqs.length === 0 && (
-          <div className="text-center py-12 text-xs text-[#616565]">
+          <div className="text-center py-12 text-xs text-[#696969]">
             No questions matched your search query. Try searching for "MOQ", "sample", or "price".
           </div>
         )}
