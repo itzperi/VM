@@ -1,59 +1,40 @@
-# Implementation Roadmap
+# Implementation roadmap (updated 22 Nov 2026)
 
-Adjusted from the standard 4 phase template to reflect that meaningful Phase 1 work is already done in code, and that a new Phase 0 exists because the domain is not yet live.
+Baseline: `BASELINE-2026-11-22.md`. Strategy docs: `CLUSTERS.md`, `COMPETITOR-GAPS.md`, `BRAND-MENTIONS.md`, `GBP-CHECKLIST.md`, `AI-VISIBILITY-LOG.md`.
 
-## Phase 0: Go live (blocks everything else)
+## A. Owner-only tasks (code cannot do these; they decide the ceiling)
 
-**Status: not started, this is the actual current bottleneck.**
+In order of impact:
 
-- Deploy the built app (Vite + Express, see server.ts) to real hosting
-- Point visalatchimanufacturing.com's DNS at that hosting, currently DNS resolves but no server responds
-- Verify HTTPS works (server.ts already has an HTTPS + canonical host redirect ready for production)
-- Submit sitemap.xml to Google Search Console and Bing Webmaster Tools once live
-- Request indexing for the homepage via GSC's URL Inspection tool
+1. **Deploy the new build.** The live site still shows Palaniappan / 98405 01323. Vercel isn't linked to the GitHub repo, so pushing alone doesn't publish. Deploy from the Vercel dashboard or CLI.
+2. **Fix the www redirect in Vercel.** Make `visalatchimanufacturing.com` the primary domain and redirect `www` to it, so canonicals stop pointing at a redirecting URL.
+3. **Update the phone number everywhere off-site**: Google Business Profile, WhatsApp Business, IndiaMART/JustDial if they exist, visiting cards (see `GBP-CHECKLIST.md` §1).
+4. **Create IndiaMART and TradeIndia profiles.** They own page 1 for every Chennai carton search. Then add the URLs to `SAME_AS` in `src/lib/siteConfig.ts`.
+5. **Real photos**: plant, machines, finished cartons. Replace the 12 Unsplash stock photos in `src/data/products.ts`, and add 20+ to GBP.
+6. **Reviews**: 1-2 genuine Google reviews a week (`GBP-CHECKLIST.md` §4).
+7. **Owner facts** in `src/data/ownerFacts.ts`: email, founding year, capacity, machinery, board range, certifications, lead times. Each one appears on the site and in schema automatically once filled.
+8. **Team bios** in `src/data/team.ts`: background, years in trade, LinkedIn, photo, for Aswin Nagappan and Periyanan.
+9. **Real data** for `src/data/caseStudies.ts` and `src/data/specReference.ts`. `/case-studies` and `/carton-specification-reference` publish themselves once these have one entry.
+10. **Search Console + Bing Webmaster**: verify (paste the token into `googleSiteVerification`), submit the sitemap, run `npm run indexnow` after each deploy.
+11. **GA4**: set `VITE_GA_MEASUREMENT_ID` (and `VITE_GOOGLE_ADS_CONVERSION` if running ads) in Vercel env vars; register `specialist` as an event-scoped custom dimension.
+12. **Brand mentions**: publish the drafts in `BRAND-MENTIONS.md`, one or two a week.
+13. **Monthly**: fill `AI-VISIBILITY-LOG.md` and the geo-grid table.
 
-Nothing in Phase 1 through 4 below can be verified or take effect in real search results until this phase is done.
+## B. Code tasks
 
-## Phase 1: Foundation (weeks 1-4 after go live)
+Done on branch `seo-max-visibility`:
+- [x] Contact change: Aswin Nagappan +91 73050 20110 replaces Palaniappan; 301 from the old team URL
+- [x] `/packaging-glossary` with DefinedTermSet schema (17 terms)
+- [x] Markdown copy of every page (`/<route>.md`), linked with `rel=alternate`, served noindex
+- [x] robots.txt Content-Signal + Apple/Perplexity-User/Vertex crawlers
+- [x] Per-specialist phone/WhatsApp click events, email click event
+- [x] Product LCP: responsive srcset, early preconnect + preload
 
-**Status: mostly already complete in code, ahead of schedule.**
-
-Already done:
-- [x] Core pages (home, about, contact, 3 channel pages, products, process, FAQ)
-- [x] Title, meta description, canonical, OG/Twitter tags per route
-- [x] Organization + LocalBusiness + BreadcrumbList + Product + FAQPage schema
-- [x] Sitemap.xml + robots.txt
-- [x] Build time prerendering for crawler visibility
-- [x] Google Maps embeds using verified GBP coordinates
-- [x] GBP domain, hours, and service area synced with the website
-
-Still to do once live:
-- [ ] Google Search Console + Bing Webmaster Tools property verification
-- [ ] Google Analytics or equivalent traffic tracking
-- [ ] Run Google's Rich Results Test against the live schema to confirm no validation errors post deploy (schema was validated locally against the dev server, but a live-URL pass is the real test)
-- [ ] Confirm GBP listing finishes its pending review (the phone number and website edits were shown as Pending in the profile data shared earlier)
-
-## Phase 2: Expansion (weeks 5-12 after go live)
-
-- [ ] Publish first content calendar batch (6 posts, see CONTENT-CALENDAR.md)
-- [ ] Add author bios for Aswin Nagappan and Periyanan to /about
-- [ ] Replace stock product photography with real product photos as they become available
-- [ ] Monitor GSC for the brand term "Visalatchi Manufactures" reaching position 1
-- [ ] Monitor which Tier 2 keywords start appearing in GSC's Search Analytics at all (position 50-100 is a normal early signal, not a failure)
-
-## Phase 3: Scale (weeks 13-24 after go live)
-
-- [ ] Citation building: register on IndiaMART, JustDial, TradeIndia with NAP exactly matching the site and GBP (see COMPETITOR-ANALYSIS.md). This requires the business owner's own account, cannot be done via code.
-- [ ] Begin soliciting real Google reviews from actual customers
-- [ ] Continue content calendar at sustainable cadence
-- [ ] Re-run a live audit (seo-audit, seo-technical, seo-page skills) now that there is real traffic and indexing data to analyze, this is the point where those skills become useful, they were not usable pre launch
-
-## Phase 4: Authority (months 7-12)
-
-- [ ] Once real reviews exist, add AggregateRating schema (never before this point)
-- [ ] Pursue backlinks from real industry sources: packaging industry associations, D2C brand case studies (with client permission), local business press
-- [ ] Reassess Tier 3 head term rankings; these are the slowest moving metric and 12 months is a realistic point to expect meaningful movement, not rank 1
-
-## What "use all the skills" actually means in practice
-
-The user asked to use every seo-* skill available. Skills that need a live URL to fetch (seo-audit, seo-technical inside it, seo-page, seo-bing, seo-seranking, seo-competitor-pages's live comparison mode) cannot run meaningfully until Phase 0 is complete, they were not skipped out of laziness, they are gated on deployment. seo-plan (this document) and seo-schema/seo-local/seo-maps (already applied directly to the codebase in prior work this session) do not require a live URL and have already been used. Once Phase 0 is done, re-run the live-fetch skills, that is the point they produce real signal instead of connection errors.
+Next, once owner facts arrive (each is small):
+- [ ] Swap product images to real photos; then add an image sitemap and ImageObject captions
+- [ ] Team pages: render background/LinkedIn/photo (fields already wired), add `Person.sameAs`
+- [ ] Area section on `/corrugated-box-manufacturer-chennai` for Ennore, Manali, Ambattur, Sriperumbudur, Oragadam, only with real delivery/lead-time facts
+- [ ] Lead-time numbers into `/process` and HowTo schema
+- [ ] Container-loading guide (needs Periyanan's real examples)
+- [ ] Home page TBT: defer the hero video/marquee JS (home perf 76; the largest remaining speed item)
+- [ ] Re-run `BASELINE` scoring monthly and record the change
