@@ -177,6 +177,13 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
             Packaging Guides & Blog
           </Link>
           <Link
+            to="/packaging-glossary"
+            onClick={scrollTop}
+            className="text-left font-body text-xs text-[#615d59] hover:text-[#0068c9] transition-colors py-1"
+          >
+            Packaging Glossary
+          </Link>
+          <Link
             to="/contact"
             onClick={scrollTop}
             className="text-left font-body text-xs text-[#615d59] hover:text-[#0068c9] transition-colors py-1"

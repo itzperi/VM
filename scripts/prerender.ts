@@ -19,6 +19,7 @@ import App from '../src/App';
 import { ALL_ROUTE_PATHS, computeHeadData, HeadData, NOT_FOUND_HEAD } from '../src/routes';
 import { SITE_URL, MOQ_RULE, PLANT_ADDRESS_FULL } from '../src/lib/siteConfig';
 import { OWNER_FACTS } from '../src/data/ownerFacts';
+import { productImageSrcSet, PRODUCT_IMAGE_SIZES } from '../src/lib/imageSrc';
 
 const DIST_DIR = path.resolve(process.cwd(), 'dist');
 const templatePath = path.join(DIST_DIR, 'index.html');
@@ -41,14 +42,21 @@ function fontPreloadTags(): string[] {
     .map((f) => `<link rel="preload" href="/fonts/${f}.woff2" as="font" type="font/woff2" crossorigin />`);
 }
 
-function buildHtml(template: string, head: HeadData, appHtml: string, preloads: string[]): string {
+function buildHtml(template: string, head: HeadData, appHtml: string, preloads: string[], markdownPath = ''): string {
   const headTags = [
     `<title>${escapeHtml(head.title)}</title>`,
     `<meta name="robots" content="${head.noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'}" />`,
     OWNER_FACTS.googleSiteVerification ? `<meta name="google-site-verification" content="${escapeAttr(OWNER_FACTS.googleSiteVerification)}" />` : '',
     ...preloads,
+    // Product pages: the hero product photo is the LCP element and lives on
+    // another origin, so open the connection and fetch it before the JS runs.
+    head.canonicalUrl.includes('/products/') && /^https?:/.test(head.ogImage)
+      ? `<link rel="preconnect" href="${new URL(head.ogImage).origin}" />
+    <link rel="preload" as="image" href="${escapeAttr(head.ogImage)}"${productImageSrcSet(head.ogImage) ? ` imagesrcset="${escapeAttr(productImageSrcSet(head.ogImage))}" imagesizes="${PRODUCT_IMAGE_SIZES}"` : ''} fetchpriority="high" />`
+      : '',
     head.description ? `<meta name="description" content="${escapeAttr(head.description)}" />` : '',
     head.canonicalUrl ? `<link rel="canonical" href="${head.canonicalUrl}" />` : '',
+    markdownPath ? `<link rel="alternate" type="text/markdown" href="${markdownPath}" />` : '',
     head.canonicalUrl ? `<meta property="og:site_name" content="Visalatchi Manufactures" />` : '',
     head.canonicalUrl ? `<meta property="og:title" content="${escapeAttr(head.title)}" />` : '',
     head.description ? `<meta property="og:description" content="${escapeAttr(head.description)}" />` : '',
@@ -75,6 +83,11 @@ function buildHtml(template: string, head: HeadData, appHtml: string, preloads: 
   html = html.replace('</head>', `${headTags}\n  </head>`);
   html = html.replace(/<div id="root">.*?<\/div>/s, `<div id="root">${appHtml}</div>`);
   return html;
+}
+
+/** Public URL of the plain-markdown copy of a page (for AI agents and llms.txt). */
+function markdownPathFor(routePath: string): string {
+  return routePath === '/' ? '/index.md' : `${routePath}.md`;
 }
 
 function outputPathFor(routePath: string): string {
@@ -121,7 +134,7 @@ function validateHeads(heads: Map<string, HeadData>): string[] {
 // Pages whose plain text goes into llms-full.txt (commercial + reference pages).
 const LLMS_FULL_PREFIXES = ['/', '/appliance-packaging-boxes', '/bulk-packaging-boxes', '/corrugated-box-manufacturer-chennai',
   '/5-ply-7-ply-corrugated-boxes', '/pump-motor-packaging-boxes', '/mixer-grinder-packaging-boxes', '/products',
-  '/export-packaging', '/food-packaging', '/d2c-packaging', '/faq', '/about', '/contact', '/case-studies', '/carton-specification-reference'];
+  '/export-packaging', '/food-packaging', '/d2c-packaging', '/faq', '/about', '/contact', '/case-studies', '/carton-specification-reference', '/packaging-glossary'];
 
 async function main() {
   if (!fs.existsSync(templatePath)) {
@@ -136,10 +149,19 @@ async function main() {
     const head = computeHeadData(routePath);
     heads.set(routePath, head);
     const appHtml = render(routePath);
-    if (LLMS_FULL_PREFIXES.includes(routePath) || routePath.startsWith('/products/')) texts.set(routePath, mainText(appHtml));
+    const text = mainText(appHtml);
+    if (LLMS_FULL_PREFIXES.includes(routePath) || routePath.startsWith('/products/')) texts.set(routePath, text);
     const outPath = outputPathFor(routePath);
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
-    fs.writeFileSync(outPath, buildHtml(template, head, appHtml, preloads), 'utf-8');
+    const mdPath = markdownPathFor(routePath);
+    fs.writeFileSync(outPath, buildHtml(template, head, appHtml, preloads, mdPath), 'utf-8');
+    const mdFile = path.join(DIST_DIR, mdPath.replace(/^\//, ''));
+    fs.mkdirSync(path.dirname(mdFile), { recursive: true });
+    fs.writeFileSync(
+      mdFile,
+      [`# ${head.title}`, '', `> ${head.description}`, '', `Canonical: ${head.canonicalUrl}`, `Updated: ${head.lastmod}`, '', text, ''].join('\n'),
+      'utf-8',
+    );
     console.log(`Prerendered ${routePath} -> ${path.relative(process.cwd(), outPath)}`);
   }
 
@@ -155,7 +177,7 @@ async function main() {
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>\n`,
     'utf-8',
   );
-  console.log(`Wrote dist/sitemap.xml (${ALL_ROUTE_PATHS.length} URLs)`);
+  console.log(`Wrote dist/sitemap.xml (${ALL_ROUTE_PATHS.length} URLs) and ${ALL_ROUTE_PATHS.length} markdown page copies`);
 
   const llmsFull = [
     '# Visalatchi Manufactures: full site content',

@@ -1,3 +1,4 @@
+import { TEAM } from '../data/team';
 // Optional GA4 + Google Ads conversion tracking. Everything here is a no-op
 // unless the matching VITE_* variable is set at build time (see .env.example),
 // so local builds and the prerender script never load third-party scripts.
@@ -50,6 +51,14 @@ export function trackLead(params: { units?: string; requirement: string; source:
   if (ADS_CONVERSION) trackEvent('conversion', { send_to: ADS_CONVERSION });
 }
 
+/** Which specialist a tel:/wa.me link reaches, so lead routing is measurable
+ * per person in GA4 (custom dimension "specialist"). */
+function specialistFor(href: string): string {
+  const digits = href.replace(/\D/g, '');
+  for (const m of TEAM) if (digits.endsWith(m.phoneE164.replace(/\D/g, '').slice(-10))) return m.slug;
+  return 'other';
+}
+
 /** One delegated listener counts every phone and WhatsApp click on the site
  * (tel: and wa.me links), so new links are tracked without extra wiring. */
 export function installClickTracking(): void {
@@ -58,7 +67,12 @@ export function installClickTracking(): void {
     const link = (e.target as HTMLElement | null)?.closest?.('a[href]') as HTMLAnchorElement | null;
     if (!link) return;
     const href = link.getAttribute('href') || '';
-    if (href.startsWith('tel:')) trackEvent('phone_click', { number: href.slice(4), page: location.pathname });
-    else if (href.includes('wa.me/')) trackEvent('whatsapp_click', { page: location.pathname });
+    if (href.startsWith('tel:')) {
+      trackEvent('phone_click', { number: href.slice(4), specialist: specialistFor(href), page: location.pathname });
+    } else if (href.includes('wa.me/')) {
+      trackEvent('whatsapp_click', { specialist: specialistFor(href), page: location.pathname });
+    } else if (href.startsWith('mailto:')) {
+      trackEvent('email_click', { page: location.pathname });
+    }
   });
 }

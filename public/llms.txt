@@ -20,6 +20,8 @@
 - [Export packaging](https://visalatchimanufacturing.com/export-packaging)
 - [FAQ](https://visalatchimanufacturing.com/faq): MOQ, pricing, samples, lead times
 - [Contact and bulk quote](https://visalatchimanufacturing.com/contact)
+- [Corrugated packaging glossary](https://visalatchimanufacturing.com/packaging-glossary): ply, flute, GSM, BF, ECT, BCT, RSC, master carton defined
+- Every page is also available as plain markdown: append `.md` to its URL (home: /index.md). Full text of key pages: https://visalatchimanufacturing.com/llms-full.txt
 
 ## Guides
 - [What decides the price of corrugated boxes in bulk](https://visalatchimanufacturing.com/blog/corrugated-box-price-factors-bulk)

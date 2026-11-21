@@ -14,6 +14,7 @@ import { D2CView } from './components/D2CView';
 import { FoodView } from './components/FoodView';
 import { ExportView } from './components/ExportView';
 import { ProcessView } from './components/ProcessView';
+import { GlossaryView } from './components/GlossaryView';
 import { FAQView } from './components/FAQView';
 import { AboutView } from './components/AboutView';
 import { ContactView } from './components/ContactView';
@@ -206,6 +207,8 @@ export default function App() {
               </div>
             }
           />
+
+          <Route path="/packaging-glossary" element={<GlossaryView openContact={openContact} />} />
 
           {/* Registered only once the owner has supplied real content. */}
           {CASE_STUDIES.length > 0 && (

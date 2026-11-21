@@ -13,10 +13,11 @@ import { CASE_STUDIES } from './data/caseStudies';
 import { SPEC_ROWS } from './data/specReference';
 import { getPageAnswers } from './data/pageAnswers';
 import { PROCESS_STEPS } from './data/processSteps';
+import { GLOSSARY } from './data/glossary';
 
 /** Date of the last substantive content update for non-blog pages. Bump it
  * when page copy changes; it drives sitemap <lastmod>. */
-export const SITE_CONTENT_UPDATED = '2026-10-12';
+export const SITE_CONTENT_UPDATED = '2026-11-22';
 
 export interface RouteMeta {
   path: string;
@@ -92,6 +93,29 @@ const STATIC_ROUTES: RouteMeta[] = [
     title: 'Get a Bulk Packaging Quote | Visalatchi Manufactures Chennai',
     description:
       'Request a volume quote for 5,000+ large or 10,000+ small boxes from our Thiruvottiyur, Chennai plant. Call, WhatsApp or send your box size for a quote today.',
+  },
+  {
+    path: '/packaging-glossary',
+    title: 'Corrugated Box Glossary: Ply, Flute, BF, GSM, ECT & BCT',
+    description:
+      'Plain-English definitions of corrugated packaging terms: ply, flute, GSM, BF, bursting strength, ECT, BCT, RSC and master cartons. Read before you spec a box.',
+    buildJsonLd: (url) => [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'DefinedTermSet',
+        '@id': `${url}#terms`,
+        name: 'Corrugated Packaging Glossary',
+        url,
+        hasDefinedTerm: GLOSSARY.map((t) => ({
+          '@type': 'DefinedTerm',
+          name: t.term,
+          description: t.short,
+          url: `${url}#${t.id}`,
+          inDefinedTermSet: `${url}#terms`,
+        })),
+      },
+      buildSpeakableWebPageSchema(url, 'Corrugated Packaging Glossary'),
+    ],
   },
   {
     path: '/blog',

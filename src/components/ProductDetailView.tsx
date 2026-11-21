@@ -1,3 +1,4 @@
+import { productImageSrcSet, PRODUCT_IMAGE_SIZES } from '../lib/imageSrc';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Send, CheckCircle2 } from 'lucide-react';
@@ -51,6 +52,8 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
         <div className="h-72 md:h-96 w-full overflow-hidden rounded-xl bg-[#f6f5f4] relative">
           <img
             src={product.image}
+            srcSet={productImageSrcSet(product.image) || undefined}
+            sizes={PRODUCT_IMAGE_SIZES}
             alt={`${product.name}, ${product.material}`}
             width={800}
             height={600}
