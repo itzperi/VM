@@ -26,7 +26,7 @@ Done on branch `seo-max-visibility`:
 - [x] Contact change: Aswin Nagappan +91 73050 20110 replaces Palaniappan; 301 from the old team URL
 - [x] `/packaging-glossary` with DefinedTermSet schema (17 terms)
 - [x] Markdown copy of every page (`/<route>.md`), linked with `rel=alternate`, served noindex
-- [x] robots.txt Content-Signal + Apple/Perplexity-User/Vertex crawlers
+- [x] robots.txt: Applebot, Applebot-Extended, Perplexity-User, Google-CloudVertexBot allowed; AI-use policy as a comment (a Content-Signal directive failed the Lighthouse robots audit)
 - [x] Per-specialist phone/WhatsApp click events, email click event
 - [x] Product LCP: responsive srcset, early preconnect + preload
 
