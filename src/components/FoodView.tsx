@@ -4,7 +4,7 @@ import { buildPriceListRows } from '../data/products';
 import { ShieldCheck, UtensilsCrossed, AlertTriangle, Send } from 'lucide-react';
 
 interface FoodViewProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
 }
 
 export const FoodView: React.FC<FoodViewProps> = ({ openContact }) => {

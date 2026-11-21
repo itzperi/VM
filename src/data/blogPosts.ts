@@ -832,7 +832,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: 'heading', text: 'How does Visalatchi Manufactures meet this checklist?' },
       {
         type: 'paragraph',
-        text: 'Visalatchi Manufactures produces packaging at its own plant in Thiruvottiyur, Chennai, from 5,000 units for large boxes and 10,000 units for small boxes. Every bulk order starts with a physical sample, quotations are itemised with no hidden plate or conversion charges, and each account has a named specialist: Palaniappan for D2C and domestic brands, Periyanan for food and export.',
+        text: 'Visalatchi Manufactures produces packaging at its own plant in Thiruvottiyur, Chennai, from 5,000 units for large boxes and 10,000 units for small boxes. Every bulk order starts with a physical sample, quotations are itemised with no hidden plate or conversion charges, and each account has a named specialist: Aswin Nagappan for D2C and domestic brands, Periyanan for food and export.',
       },
     ],
   },

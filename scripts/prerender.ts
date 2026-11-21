@@ -160,7 +160,7 @@ async function main() {
   const llmsFull = [
     '# Visalatchi Manufactures: full site content',
     '',
-    `> Bulk corrugated packaging manufacturer. ${MOQ_RULE} Plant: ${PLANT_ADDRESS_FULL}. Phones: +91 98405 01323 (Palaniappan), +91 94444 20367 (Periyanan).`,
+    `> Bulk corrugated packaging manufacturer. ${MOQ_RULE} Plant: ${PLANT_ADDRESS_FULL}. Phones: +91 73050 20110 (Aswin Nagappan), +91 94444 20367 (Periyanan).`,
     '',
     ...[...texts].flatMap(([p, t]) => [`## ${heads.get(p)!.title}`, `URL: ${SITE_URL}${p === '/' ? '' : p}`, '', t, '']),
   ].join('\n');

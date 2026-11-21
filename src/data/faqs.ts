@@ -73,6 +73,6 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: 'How do I get a firm bulk price quote?',
-    a: 'Share your box size, product weight, order quantity and target start date through the contact form, or call Palaniappan (98405 01323) or Periyanan (94444 20367). A firm quotation follows based on your specifics.',
+    a: 'Share your box size, product weight, order quantity and target start date through the contact form, or call Aswin Nagappan (73050 20110) or Periyanan (94444 20367). A firm quotation follows based on your specifics.',
   },
 ];

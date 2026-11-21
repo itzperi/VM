@@ -4,7 +4,7 @@ import { CASE_STUDIES } from '../data/caseStudies';
 import { ProductItem } from '../types';
 
 interface Props {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
 }
 
 /** Rendered (and routed) only when data/caseStudies.ts has real entries. */
@@ -34,7 +34,7 @@ export const CaseStudiesView: React.FC<Props> = ({ openContact }) => (
       ))}
     </div>
     <button
-      onClick={() => openContact('palaniappan', 'Bulk quote request from /case-studies')}
+      onClick={() => openContact('aswin-nagappan', 'Bulk quote request from /case-studies')}
       className="mt-10 bg-[#0075de] text-white px-8 py-2.5 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg inline-flex items-center gap-2"
     >
       <Send className="w-4 h-4" /> Get a Bulk Quote

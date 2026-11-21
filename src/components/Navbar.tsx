@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan') => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ openContact }) => {

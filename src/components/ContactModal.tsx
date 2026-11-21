@@ -7,7 +7,7 @@ import { BrandLogo } from './BrandLogo';
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
-  initialRecipient?: 'palaniappan' | 'periyanan' | 'general';
+  initialRecipient?: 'aswin-nagappan' | 'periyanan' | 'general';
   initialNote?: string;
   initialProduct?: ProductItem | null;
 }
@@ -19,7 +19,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   initialNote = '',
   initialProduct = null,
 }) => {
-  const [recipient, setRecipient] = useState<'palaniappan' | 'periyanan' | 'general'>(initialRecipient);
+  const [recipient, setRecipient] = useState<'aswin-nagappan' | 'periyanan' | 'general'>(initialRecipient);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -112,14 +112,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div
-                    onClick={() => setRecipient('palaniappan')}
+                    onClick={() => setRecipient('aswin-nagappan')}
                     className={`p-3 border rounded-xl cursor-pointer transition-colors ${
-                      recipient === 'palaniappan'
+                      recipient === 'aswin-nagappan'
                         ? 'bg-[#02093a] text-white border-black'
                         : 'bg-[#f6f5f4] text-[#111111] border-black/10 hover:border-black/30'
                     }`}
                   >
-                    <div className="font-serif-display text-sm font-semibold">Palaniappan</div>
+                    <div className="font-serif-display text-sm font-semibold">Aswin Nagappan</div>
                     <div className="text-[10px] opacity-80">D2C & Domestic Brand Specialist</div>
                   </div>
 
@@ -253,7 +253,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 className="w-full bg-[#0075de] text-white py-2.5 px-4 text-sm font-medium text-center hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
-                <span>Submit Inquiry to {recipient === 'palaniappan' ? 'Palaniappan' : recipient === 'periyanan' ? 'Periyanan' : 'Visalatchi Team'}</span>
+                <span>Submit Inquiry to {recipient === 'aswin-nagappan' ? 'Aswin Nagappan' : recipient === 'periyanan' ? 'Periyanan' : 'Visalatchi Team'}</span>
               </button>
             </form>
           </div>
@@ -264,7 +264,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               Inquiry Submitted Successfully!
             </h3>
             <p className="font-body text-sm text-[#615d59] max-w-md mx-auto leading-relaxed">
-              Thank you, <strong className="text-[#111111]">{name}</strong>. Your request has been assigned directly to <strong className="text-[#0068c9]">{recipient === 'periyanan' ? 'Periyanan' : 'Palaniappan'}</strong>.
+              Thank you, <strong className="text-[#111111]">{name}</strong>. Your request has been assigned directly to <strong className="text-[#0068c9]">{recipient === 'periyanan' ? 'Periyanan' : 'Aswin Nagappan'}</strong>.
             </p>
 
             <div className="bg-white p-4 rounded-xl max-w-md mx-auto text-left text-xs space-y-1.5 border border-black/10">
@@ -275,7 +275,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             </div>
 
             <p className="text-xs text-[#696969]">
-              We have saved your details and opened WhatsApp to connect you directly with {recipient === 'periyanan' ? 'Periyanan (94444 20367)' : 'Palaniappan (98405 01323)'}.
+              We have saved your details and opened WhatsApp to connect you directly with {recipient === 'periyanan' ? 'Periyanan (94444 20367)' : 'Aswin Nagappan (73050 20110)'}.
             </p>
 
             {waUrl && (

@@ -21,7 +21,7 @@ No blog exists yet (deliberately, see SITE-STRUCTURE.md). This is the proposed l
 
 ## E-E-A-T signals to build alongside content
 
-- Add short author bios for Palaniappan and Periyanan (real photos, real specific experience) to /about, this is free E-E-A-T improvement with zero new content required
+- Add short author bios for Aswin Nagappan and Periyanan (real photos, real specific experience) to /about, this is free E-E-A-T improvement with zero new content required
 - Where possible, add real customer photos of received packaging (with permission) rather than continuing to rely on Unsplash stock photography for product images, this was flagged earlier as a trust gap
 - Once real Google reviews exist, do not fabricate AggregateRating schema before that, add it only when real review data exists
 

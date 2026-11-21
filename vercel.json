@@ -3,6 +3,9 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/team/palaniappan", "destination": "/team/aswin-nagappan", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -37,12 +37,12 @@ import { SPEC_ROWS } from './data/specReference';
 export default function App() {
   const isHome = useLocation().pathname === '/';
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
-  const [contactRecipient, setContactRecipient] = useState<'palaniappan' | 'periyanan' | 'general'>('general');
+  const [contactRecipient, setContactRecipient] = useState<'aswin-nagappan' | 'periyanan' | 'general'>('general');
   const [contactNote, setContactNote] = useState<string>('');
   const [contactProduct, setContactProduct] = useState<ProductItem | null>(null);
 
   const openContact = (
-    recipient: 'palaniappan' | 'periyanan' | 'general' = 'general',
+    recipient: 'aswin-nagappan' | 'periyanan' | 'general' = 'general',
     noteOrProduct?: string | ProductItem
   ) => {
     setContactRecipient(recipient);

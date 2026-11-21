@@ -202,7 +202,7 @@ GROUP 4: LOCAL SEO ON-SITE (target local 90+)
     URL, plus 3 quoted reviews with permission. No embedded widgets that load third-party JS on
     page load.
 4.4 Keep NAP byte-identical across site, schema, GBP and every directory: name "Visalatchi
-    Manufactures", address from PLANT_ADDRESS, phones "+91 98405 01323" and "+91 94444 20367".
+    Manufactures", address from PLANT_ADDRESS, phones "+91 73050 20110" and "+91 94444 20367".
 
 GROUP 5: CONTENT FOR AEO/GEO DEPTH (keep AEO at 10, push GEO)
 5.1 Publish the next 4 posts in docs/seo-plan/CONTENT-CALENDAR.md, each 1,500+ words, with a

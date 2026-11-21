@@ -11,7 +11,7 @@ const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 
 interface BlogPostViewProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
 }
 
 export const BlogPostView: React.FC<BlogPostViewProps> = ({ openContact }) => {
@@ -24,7 +24,7 @@ export const BlogPostView: React.FC<BlogPostViewProps> = ({ openContact }) => {
 
   const author = authorForCategory(post.category);
   const relatedProducts = PRODUCTS.filter((p) => post.relatedProductIds.includes(p.id));
-  const recipient = post.category === 'd2c' ? 'palaniappan' : post.category === 'food' || post.category === 'export' ? 'periyanan' : 'general';
+  const recipient = post.category === 'd2c' ? 'aswin-nagappan' : post.category === 'food' || post.category === 'export' ? 'periyanan' : 'general';
 
   return (
     <div className="w-full max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-14 animate-in fade-in duration-300">
@@ -157,7 +157,7 @@ export const BlogPostView: React.FC<BlogPostViewProps> = ({ openContact }) => {
       <div className="mt-12 bg-[#02093a] text-white p-8 rounded-xl text-center space-y-4">
         <h3 className="font-serif-display text-xl font-medium">Have a question about your specific order?</h3>
         <button
-          onClick={() => openContact(recipient === 'general' ? 'palaniappan' : recipient, `Question from blog post: ${post.title}`)}
+          onClick={() => openContact(recipient === 'general' ? 'aswin-nagappan' : recipient, `Question from blog post: ${post.title}`)}
           className="bg-[#0075de] text-white px-8 py-3 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer inline-flex items-center gap-2"
         >
           <Send className="w-4 h-4" />

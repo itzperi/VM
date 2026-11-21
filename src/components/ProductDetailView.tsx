@@ -9,7 +9,7 @@ import { ProductItem } from '../types';
 import { NotFound } from './NotFound';
 
 interface ProductDetailViewProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
 }
 
 const CATEGORY_LABEL: Record<ProductItem['category'], string> = {
@@ -40,7 +40,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
   const at = siblings.findIndex((p) => p.id === product.id);
   const related = [...siblings.slice(at + 1), ...siblings.slice(0, at)].slice(0, 3);
   const moq = product.moq.toLocaleString('en-IN');
-  const recipient = product.category === 'food' || product.category === 'export' ? 'periyanan' : 'palaniappan';
+  const recipient = product.category === 'food' || product.category === 'export' ? 'periyanan' : 'aswin-nagappan';
   const landing = detail ? getLandingPage(detail.landingPath) : undefined;
   const landingLabel = detail ? (landing?.h1 ?? STATIC_LANDING_LABEL[detail.landingPath]) : undefined;
   const guides = detail ? detail.relatedPostSlugs.map((s) => getBlogPostBySlug(s)).filter((p): p is NonNullable<typeof p> => !!p) : [];

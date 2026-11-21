@@ -36,7 +36,7 @@ Still to do once live:
 ## Phase 2: Expansion (weeks 5-12 after go live)
 
 - [ ] Publish first content calendar batch (6 posts, see CONTENT-CALENDAR.md)
-- [ ] Add author bios for Palaniappan and Periyanan to /about
+- [ ] Add author bios for Aswin Nagappan and Periyanan to /about
 - [ ] Replace stock product photography with real product photos as they become available
 - [ ] Monitor GSC for the brand term "Visalatchi Manufactures" reaching position 1
 - [ ] Monitor which Tier 2 keywords start appearing in GSC's Search Analytics at all (position 50-100 is a normal early signal, not a failure)

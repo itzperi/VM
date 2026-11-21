@@ -15,11 +15,11 @@ const WhatsAppIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
 export const FloatingWhatsAppButton: React.FC = () => {
   const [showOptions, setShowOptions] = useState(false);
 
-  const urlPalaniappan = buildWhatsAppLink('palaniappan', {
+  const urlAswinNagappan = buildWhatsAppLink('aswin-nagappan', {
     name: 'Website Visitor',
     phone: '',
     requirement: 'D2C Packaging & Custom Mailer Box Quotation / Sample Request',
-    notes: 'Hi Palaniappan, I visited the Visalatchi website and want to inquire about custom mailer packaging & sample pricing.'
+    notes: 'Hi Aswin Nagappan, I visited the Visalatchi website and want to inquire about custom mailer packaging & sample pricing.'
   });
 
   const urlPeriyanan = buildWhatsAppLink('periyanan', {
@@ -53,13 +53,13 @@ export const FloatingWhatsAppButton: React.FC = () => {
 
           <div className="space-y-2 pt-1">
             <a
-              href={urlPalaniappan}
+              href={urlAswinNagappan}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#15803D] hover:bg-[#166534] text-white p-2.5 rounded-xl flex items-center justify-between font-semibold transition-colors group cursor-pointer"
             >
               <div>
-                <div className="text-xs">Palaniappan</div>
+                <div className="text-xs">Aswin Nagappan</div>
                 <div className="text-[10px] text-white/80 font-normal">D2C & Domestic Brand Specialist</div>
               </div>
               <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

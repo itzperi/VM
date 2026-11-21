@@ -8,7 +8,7 @@ Everything that drives rankings, AI citations and bulk enquiries but is not a co
 
 - Name: Visalatchi Manufactures
 - Address: No 10/4B Village Street, Sadayan Kuppam Pattai, Thiruvottiyur, Chennai 600019, Tamil Nadu, India
-- Phones: +91 98405 01323 (Palaniappan), +91 94444 20367 (Periyanan)
+- Phones: +91 73050 20110 (Aswin Nagappan), +91 94444 20367 (Periyanan)
 - Website: https://visalatchimanufacturing.com
 
 ---
@@ -53,7 +53,7 @@ The live site still shows the old "low MOQ from 50 units" version. Nothing below
 
 **Business description** (742 characters):
 
-> Visalatchi Manufactures is a bulk packaging manufacturer in Thiruvottiyur, North Chennai. We produce TV, fan and appliance cartons, export master cartons, 3-ply, 5-ply and 7-ply corrugated boxes, custom printed mailer boxes, food delivery boxes, bagasse food containers, paper bowls, courier mailers, paper carry bags and export master cartons for brands, FMCG manufacturers, exporters and distributors. Minimum order is 5,000 units for large boxes and 10,000 units for small boxes. Every bulk order starts with a physical pre-production sample, and every quotation is itemised with no hidden plate or conversion charges. We dispatch across Chennai, Tamil Nadu and pan-India. Call Palaniappan (98405 01323) for D2C and domestic orders or Periyanan (94444 20367) for food and export orders to get a volume quote.
+> Visalatchi Manufactures is a bulk packaging manufacturer in Thiruvottiyur, North Chennai. We produce TV, fan and appliance cartons, export master cartons, 3-ply, 5-ply and 7-ply corrugated boxes, custom printed mailer boxes, food delivery boxes, bagasse food containers, paper bowls, courier mailers, paper carry bags and export master cartons for brands, FMCG manufacturers, exporters and distributors. Minimum order is 5,000 units for large boxes and 10,000 units for small boxes. Every bulk order starts with a physical pre-production sample, and every quotation is itemised with no hidden plate or conversion charges. We dispatch across Chennai, Tamil Nadu and pan-India. Call Aswin Nagappan (73050 20110) for D2C and domestic orders or Periyanan (94444 20367) for food and export orders to get a volume quote.
 
 **Products** (add TV & Appliance Packaging Box, Ceiling Fan Packaging Box and Export Master Carton first, then the rest; add each one with a photo, the description "Minimum order 5,000 units" (TV & Appliance Box, Fan Box, Export Master Carton) or "Minimum order 10,000 units" (all small boxes), plus "Volume pricing on quotation.", and a link to its `/products/...` page):
 - Corrugated Shipping Box
@@ -123,7 +123,7 @@ Reuse the IndiaMART profile, plus this export line: "We coordinate with your fre
 
 ### JustDial description (short field)
 
-> Bulk packaging manufacturer in Thiruvottiyur, Chennai: TV, fan and appliance cartons, corrugated boxes (3, 5, 7-ply), printed mailer boxes, food delivery boxes, bagasse containers, paper bags and export cartons. Minimum order 5,000 units for large boxes, 10,000 for small boxes. Physical sample before every bulk run, itemised ex-GST pricing, pan-India dispatch. Call Palaniappan 98405 01323 (D2C/domestic) or Periyanan 94444 20367 (food/export).
+> Bulk packaging manufacturer in Thiruvottiyur, Chennai: TV, fan and appliance cartons, corrugated boxes (3, 5, 7-ply), printed mailer boxes, food delivery boxes, bagasse containers, paper bags and export cartons. Minimum order 5,000 units for large boxes, 10,000 for small boxes. Physical sample before every bulk run, itemised ex-GST pricing, pan-India dispatch. Call Aswin Nagappan 73050 20110 (D2C/domestic) or Periyanan 94444 20367 (food/export).
 
 **Also list on:** Exporters India, Udyam (MSME) directory, and Tamil Nadu packaging or industry associations. Use the same NAP and descriptions.
 
@@ -164,7 +164,7 @@ Reuse the IndiaMART profile, plus this export line: "We coordinate with your fre
 
 **Descriptions** (each 90 characters or fewer):
 - Heavy-duty TV, fan & appliance cartons made in Chennai. From 5,000 units. Itemised quote.
-- Approve a physical sample with your product first, then we run your bulk order. Call 98405 01323.
+- Approve a physical sample with your product first, then we run your bulk order. Call 73050 20110.
 
 **Budget:** start modest, judge on cost per qualified (meets MOQ) lead after 30 days, then shift spend to the ad groups that produce real orders.
 
@@ -178,7 +178,7 @@ Have both specialists link their personal profiles to the page.
 
 **Outreach:** work through `sales-prospecting-tamil-nadu.xlsx` and target procurement, purchase or supply-chain teams at appliance and electronics manufacturers first (see `prospects-appliance-tn.csv`), then FMCG brands, exporters and D2C brands. Message template (personalise the first line every time):
 
-> Hi [Name], I noticed [specific thing about their product or shipping]. We manufacture corrugated and printed packaging in bulk at our Chennai plant (5,000+ units for large cartons like TV and fan boxes, 10,000+ for small boxes) and start every order with a physical sample. If you're reviewing packaging suppliers or costs this quarter, I'd be happy to quote one of your current box sizes for comparison. Palaniappan, Visalatchi Manufactures, 98405 01323.
+> Hi [Name], I noticed [specific thing about their product or shipping]. We manufacture corrugated and printed packaging in bulk at our Chennai plant (5,000+ units for large cartons like TV and fan boxes, 10,000+ for small boxes) and start every order with a physical sample. If you're reviewing packaging suppliers or costs this quarter, I'd be happy to quote one of your current box sizes for comparison. Aswin Nagappan, Visalatchi Manufactures, 73050 20110.
 
 ## 7. Proof content to send for the website (as soon as you have it)
 

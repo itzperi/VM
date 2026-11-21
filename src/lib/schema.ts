@@ -84,7 +84,7 @@ export function buildOrganizationSchema() {
     // City-level only (Google's service-area guidance disallows whole
     // states/countries). See TAMIL_NADU_CITIES in siteConfig for provenance.
     areaServed: TAMIL_NADU_CITIES.map((city) => ({ '@type': 'City', name: city })),
-    telephone: '+91-98405-01323',
+    telephone: '+91-73050-20110',
     knowsAbout: [
       'Bulk corrugated boxes',
       '3-ply, 5-ply and 7-ply corrugated cartons',
