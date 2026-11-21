@@ -1,3 +1,4 @@
+import { getTeamMember } from '../data/team';
 import { productImageSrcSet, PRODUCT_IMAGE_SIZES } from '../lib/imageSrc';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -42,6 +43,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
   const related = [...siblings.slice(at + 1), ...siblings.slice(0, at)].slice(0, 3);
   const moq = product.moq.toLocaleString('en-IN');
   const recipient = product.category === 'food' || product.category === 'export' ? 'periyanan' : 'aswin-nagappan';
+  const specialist = getTeamMember(recipient);
   const landing = detail ? getLandingPage(detail.landingPath) : undefined;
   const landingLabel = detail ? (landing?.h1 ?? STATIC_LANDING_LABEL[detail.landingPath]) : undefined;
   const guides = detail ? detail.relatedPostSlugs.map((s) => getBlogPostBySlug(s)).filter((p): p is NonNullable<typeof p> => !!p) : [];
@@ -213,6 +215,16 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
                   <Link to={`/blog/${g.slug}`} className="text-[#111111] hover:text-[#0068c9]">{g.title} →</Link>
                 </li>
               ))}
+              <li>
+                <Link to="/packaging-glossary" className="text-[#111111] hover:text-[#0068c9]">Packaging glossary: ply, flute, BF, GSM, ECT, BCT →</Link>
+              </li>
+              {specialist && (
+                <li>
+                  <Link to={`/team/${specialist.slug}`} className="text-[#111111] hover:text-[#0068c9]">
+                    Your specialist for this product: {specialist.name}, {specialist.jobTitle} →
+                  </Link>
+                </li>
+              )}
             </ul>
           </section>
         </>

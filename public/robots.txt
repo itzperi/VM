@@ -1,8 +1,9 @@
 User-agent: *
-# Content signals (contentsignals.org): allow search indexing and use as
-# AI answer input/citation. ai-train is left unset (no preference) until
-# the owner decides on model training.
-Content-Signal: search=yes, ai-input=yes
+# AI use policy: search indexing and use in AI answers (with citation) are
+# welcome. Model training: no stated preference yet (owner to decide).
+# A machine-readable "Content-Signal: search=yes, ai-input=yes" line was
+# left out because Lighthouse and some validators reject it as an unknown
+# directive.
 Allow: /
 
 # AI search and answer engines: explicitly allowed so the site can be cited
