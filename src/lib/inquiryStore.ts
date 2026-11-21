@@ -28,7 +28,7 @@ const INITIAL_INQUIRIES: InquiryRecord[] = [
     companyName: 'Aura Loom Apparel',
     userType: 'D2C/E-commerce brand',
     requirement: 'Mailer Box',
-    recipient: 'palaniappan',
+    recipient: 'aswin-nagappan',
     estimatedUnits: '10,000-25,000',
     targetStartDate: '2026-08-20',
     notes: 'Looking for 12x9x3 inch mailer boxes with white inside logo print for ethnic wear dispatch.',
@@ -119,7 +119,7 @@ export function clearAllInquiries(): InquiryRecord[] {
 }
 
 export function buildWhatsAppLink(
-  recipientPhone: 'palaniappan' | 'periyanan' | 'general' | string,
+  recipientPhone: 'aswin-nagappan' | 'periyanan' | 'general' | string,
   data: {
     name: string;
     phone: string;
@@ -130,7 +130,7 @@ export function buildWhatsAppLink(
   }
 ): string {
   // Determine target WhatsApp phone number
-  let targetNumber = '919840501323'; // Palaniappan: 98405 01323
+  let targetNumber = '917305020110'; // Aswin Nagappan: 73050 20110
   if (recipientPhone === 'periyanan') {
     targetNumber = '919444420367'; // Periyanan: 94444 20367
   } else if (recipientPhone.startsWith('91') || recipientPhone.length >= 10) {

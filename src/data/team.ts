@@ -22,11 +22,11 @@ export interface TeamMember {
 
 export const TEAM: TeamMember[] = [
   {
-    slug: 'palaniappan',
-    name: 'Palaniappan',
+    slug: 'aswin-nagappan',
+    name: 'Aswin Nagappan',
     jobTitle: 'D2C & Domestic Brand Specialist',
-    phone: '98405 01323',
-    phoneE164: '+919840501323',
+    phone: '73050 20110',
+    phoneE164: '+917305020110',
     languages: ['English', 'Tamil'],
     focus:
       'Handles D2C mailer boxes, custom printed cartons, courier mailers and domestic brand orders, from first specification and pre-production sample through to bulk production and dispatch.',

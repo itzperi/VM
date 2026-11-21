@@ -3,7 +3,7 @@ import { Package, CheckCircle2, Factory, Truck, Send } from 'lucide-react';
 import { PROCESS_STEPS } from '../data/processSteps';
 
 interface ProcessViewProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', note?: string) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', note?: string) => void;
 }
 
 export const ProcessView: React.FC<ProcessViewProps> = ({ openContact }) => {

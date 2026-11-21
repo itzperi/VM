@@ -5,7 +5,7 @@ import { ProductItem } from '../types';
 import { Search, Send, Filter, CheckCircle2 } from 'lucide-react';
 
 interface CatalogViewProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
 }
 
 export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
@@ -200,7 +200,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({ openContact }) => {
 
               <div className="p-5 pt-0">
                 <button
-                  onClick={() => openContact('palaniappan', product)}
+                  onClick={() => openContact('aswin-nagappan', product)}
                   className="w-full bg-[#e6f3fe] text-[#005bab] py-2.5 px-3 text-sm font-medium hover:bg-[#d3e9fd] transition-colors rounded-lg cursor-pointer flex items-center justify-center gap-2"
                 >
                   <Send className="w-3.5 h-3.5" />

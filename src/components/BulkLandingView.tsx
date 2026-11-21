@@ -15,7 +15,7 @@ const BUYER_GUIDES = [
 
 interface BulkLandingViewProps {
   page: LandingPage;
-  openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
 }
 
 export const BulkLandingView: React.FC<BulkLandingViewProps> = ({ page, openContact }) => {
@@ -40,18 +40,18 @@ export const BulkLandingView: React.FC<BulkLandingViewProps> = ({ page, openCont
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <button
-            onClick={() => openContact('palaniappan', quoteNote)}
+            onClick={() => openContact('aswin-nagappan', quoteNote)}
             className="bg-[#0075de] text-white px-8 py-2.5 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer inline-flex items-center gap-2"
           >
             <Send className="w-4 h-4" />
             <span>Get a Bulk Quote</span>
           </button>
           <a
-            href="tel:+919840501323"
+            href="tel:+917305020110"
             className="bg-white text-[#111111] border border-black/10 px-6 py-2.5 text-sm font-medium hover:border-black/40 transition-colors rounded-lg inline-flex items-center gap-2"
           >
             <Phone className="w-4 h-4" />
-            <span>Call 98405 01323</span>
+            <span>Call 73050 20110</span>
           </a>
           <span className="text-xs text-[#696969] italic">{page.ctaNote}</span>
         </div>
@@ -180,14 +180,14 @@ export const BulkLandingView: React.FC<BulkLandingViewProps> = ({ page, openCont
           Large boxes from 5,000 units, small boxes from 10,000. Send your dimensions, quantity and delivery date for an itemised volume quote and a sample plan.
         </p>
         <button
-          onClick={() => openContact('palaniappan', quoteNote)}
+          onClick={() => openContact('aswin-nagappan', quoteNote)}
           className="bg-[#0075de] text-white px-8 py-2.5 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer inline-flex items-center gap-2"
         >
           <Send className="w-4 h-4" />
           <span>Request a Bulk Quote</span>
         </button>
         <div className="text-xs text-white/60">
-          Palaniappan 98405 01323 · Periyanan 94444 20367 ·{' '}
+          Aswin Nagappan 73050 20110 · Periyanan 94444 20367 ·{' '}
           <Link to="/products" className="underline hover:text-white">See all products</Link>
         </div>
       </div>

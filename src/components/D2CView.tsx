@@ -4,7 +4,7 @@ import { PRODUCTS, buildPriceListRows } from '../data/products';
 import { PackageCheck, ShieldAlert, Send, Sparkles, Truck, CheckCircle2 } from 'lucide-react';
 
 interface D2CViewProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
 }
 
 export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
@@ -63,12 +63,12 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <button
-            onClick={() => openContact('palaniappan', 'D2C Packaging Quote Request')}
+            onClick={() => openContact('aswin-nagappan', 'D2C Packaging Quote Request')}
             className="bg-[#0075de] text-white px-6 py-3 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer"
           >
             Get a D2C Quote
           </button>
-          <span className="text-xs text-[#696969] italic">Direct Specialist: Palaniappan — 98405 01323</span>
+          <span className="text-xs text-[#696969] italic">Direct Specialist: Aswin Nagappan — 73050 20110</span>
         </div>
       </div>
 
@@ -187,7 +187,7 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
           </div>
           <div className="text-right">
             <div className="text-xs text-white/60">Lead Specialist</div>
-            <div className="text-sm font-semibold text-[#0068c9]">Palaniappan · D2C Direct</div>
+            <div className="text-sm font-semibold text-[#0068c9]">Aswin Nagappan · D2C Direct</div>
           </div>
         </div>
 
@@ -248,11 +248,11 @@ export const D2CView: React.FC<D2CViewProps> = ({ openContact }) => {
               Indicative only. Includes E-flute kraft board, standard die-cutting & sample vector proof. Firm volume pricing is confirmed on quotation.
             </p>
             <button
-              onClick={() => openContact('palaniappan', `Quote Request for Mailer Box ${boxLength}x${boxWidth}x${boxHeight} cm, Qty: ${quantity}`)}
+              onClick={() => openContact('aswin-nagappan', `Quote Request for Mailer Box ${boxLength}x${boxWidth}x${boxHeight} cm, Qty: ${quantity}`)}
               className="w-full bg-[#0075de] text-white py-3 px-4 text-sm font-medium hover:bg-[#005bab] transition-colors rounded-lg cursor-pointer flex items-center justify-center gap-2"
             >
               <Send className="w-4 h-4" />
-              <span>Confirm Quote with Palaniappan</span>
+              <span>Confirm Quote with Aswin Nagappan</span>
             </button>
           </div>
         </div>

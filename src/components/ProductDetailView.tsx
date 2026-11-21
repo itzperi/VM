@@ -1,3 +1,5 @@
+import { getTeamMember } from '../data/team';
+import { productImageSrcSet, PRODUCT_IMAGE_SIZES } from '../lib/imageSrc';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Send, CheckCircle2 } from 'lucide-react';
@@ -9,7 +11,7 @@ import { ProductItem } from '../types';
 import { NotFound } from './NotFound';
 
 interface ProductDetailViewProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
 }
 
 const CATEGORY_LABEL: Record<ProductItem['category'], string> = {
@@ -40,7 +42,8 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
   const at = siblings.findIndex((p) => p.id === product.id);
   const related = [...siblings.slice(at + 1), ...siblings.slice(0, at)].slice(0, 3);
   const moq = product.moq.toLocaleString('en-IN');
-  const recipient = product.category === 'food' || product.category === 'export' ? 'periyanan' : 'palaniappan';
+  const recipient = product.category === 'food' || product.category === 'export' ? 'periyanan' : 'aswin-nagappan';
+  const specialist = getTeamMember(recipient);
   const landing = detail ? getLandingPage(detail.landingPath) : undefined;
   const landingLabel = detail ? (landing?.h1 ?? STATIC_LANDING_LABEL[detail.landingPath]) : undefined;
   const guides = detail ? detail.relatedPostSlugs.map((s) => getBlogPostBySlug(s)).filter((p): p is NonNullable<typeof p> => !!p) : [];
@@ -51,6 +54,8 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
         <div className="h-72 md:h-96 w-full overflow-hidden rounded-xl bg-[#f6f5f4] relative">
           <img
             src={product.image}
+            srcSet={productImageSrcSet(product.image) || undefined}
+            sizes={PRODUCT_IMAGE_SIZES}
             alt={`${product.name}, ${product.material}`}
             width={800}
             height={600}
@@ -210,6 +215,16 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ openContac
                   <Link to={`/blog/${g.slug}`} className="text-[#111111] hover:text-[#0068c9]">{g.title} →</Link>
                 </li>
               ))}
+              <li>
+                <Link to="/packaging-glossary" className="text-[#111111] hover:text-[#0068c9]">Packaging glossary: ply, flute, BF, GSM, ECT, BCT →</Link>
+              </li>
+              {specialist && (
+                <li>
+                  <Link to={`/team/${specialist.slug}`} className="text-[#111111] hover:text-[#0068c9]">
+                    Your specialist for this product: {specialist.name}, {specialist.jobTitle} →
+                  </Link>
+                </li>
+              )}
             </ul>
           </section>
         </>

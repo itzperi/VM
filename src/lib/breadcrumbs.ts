@@ -20,6 +20,7 @@ const STATIC_LABELS: Record<string, string> = {
   '/faq': 'FAQ',
   '/contact': 'Contact',
   '/blog': 'Blog',
+  '/packaging-glossary': 'Packaging Glossary',
   '/case-studies': 'Case Studies',
   '/carton-specification-reference': 'Carton Specification Reference',
 };

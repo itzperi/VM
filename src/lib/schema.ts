@@ -84,7 +84,7 @@ export function buildOrganizationSchema() {
     // City-level only (Google's service-area guidance disallows whole
     // states/countries). See TAMIL_NADU_CITIES in siteConfig for provenance.
     areaServed: TAMIL_NADU_CITIES.map((city) => ({ '@type': 'City', name: city })),
-    telephone: '+91-98405-01323',
+    telephone: '+91-73050-20110',
     knowsAbout: [
       'Bulk corrugated boxes',
       '3-ply, 5-ply and 7-ply corrugated cartons',
@@ -130,6 +130,14 @@ export function buildOrganizationSchema() {
 // Pricing is quote-based (volume-dependent), so no fixed price is published.
 // The Offer still declares the product's minimum via eligibleQuantity, which
 // is the fact bulk buyers and AI answer engines actually look for.
+const PRODUCT_CATEGORY_LABEL: Record<string, string> = {
+  d2c: 'E-commerce and D2C packaging',
+  food: 'Food packaging',
+  export: 'Export packaging',
+  appliance: 'Appliance packaging',
+  tapes: 'Packaging tapes',
+};
+
 export function buildProductSchema(product: ProductItem) {
   const url = `${SITE_URL}/products/${slugify(product.name)}`;
   return {
@@ -147,6 +155,13 @@ export function buildProductSchema(product: ProductItem) {
     url,
     brand: { '@type': 'Brand', name: ORG_NAME },
     manufacturer: { '@id': ORG_ID },
+    category: PRODUCT_CATEGORY_LABEL[product.category] ?? 'Packaging',
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Minimum order quantity', value: product.moq, unitText: 'units' },
+      { '@type': 'PropertyValue', name: 'Material', value: product.material },
+      { '@type': 'PropertyValue', name: 'Pricing', value: 'Quoted per order, ex-GST' },
+      { '@type': 'PropertyValue', name: 'Pre-production sample', value: 'Physical sample approved before bulk production' },
+    ],
     offers: {
       '@type': 'Offer',
       url,

@@ -14,6 +14,7 @@ import { D2CView } from './components/D2CView';
 import { FoodView } from './components/FoodView';
 import { ExportView } from './components/ExportView';
 import { ProcessView } from './components/ProcessView';
+import { GlossaryView } from './components/GlossaryView';
 import { FAQView } from './components/FAQView';
 import { AboutView } from './components/AboutView';
 import { ContactView } from './components/ContactView';
@@ -37,12 +38,12 @@ import { SPEC_ROWS } from './data/specReference';
 export default function App() {
   const isHome = useLocation().pathname === '/';
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
-  const [contactRecipient, setContactRecipient] = useState<'palaniappan' | 'periyanan' | 'general'>('general');
+  const [contactRecipient, setContactRecipient] = useState<'aswin-nagappan' | 'periyanan' | 'general'>('general');
   const [contactNote, setContactNote] = useState<string>('');
   const [contactProduct, setContactProduct] = useState<ProductItem | null>(null);
 
   const openContact = (
-    recipient: 'palaniappan' | 'periyanan' | 'general' = 'general',
+    recipient: 'aswin-nagappan' | 'periyanan' | 'general' = 'general',
     noteOrProduct?: string | ProductItem
   ) => {
     setContactRecipient(recipient);
@@ -206,6 +207,8 @@ export default function App() {
               </div>
             }
           />
+
+          <Route path="/packaging-glossary" element={<GlossaryView openContact={openContact} />} />
 
           {/* Registered only once the owner has supplied real content. */}
           {CASE_STUDIES.length > 0 && (

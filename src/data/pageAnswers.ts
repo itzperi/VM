@@ -25,7 +25,7 @@ const STATIC_ANSWERS: Record<string, { heading: string; items: FaqItem[] }> = {
       },
       {
         q: 'How do I get a bulk packaging quote?',
-        a: 'Share your box size, product weight, quantity per size and target start date through the quote form, or call Palaniappan on 98405 01323 or Periyanan on 94444 20367. You receive an itemised ex-GST quotation, then approve a physical sample before bulk production starts.',
+        a: 'Share your box size, product weight, quantity per size and target start date through the quote form, or call Aswin Nagappan on 73050 20110 or Periyanan on 94444 20367. You receive an itemised ex-GST quotation, then approve a physical sample before bulk production starts.',
       },
     ],
   },
@@ -42,7 +42,7 @@ const STATIC_ANSWERS: Record<string, { heading: string; items: FaqItem[] }> = {
       },
       {
         q: 'Who should I speak to about my order?',
-        a: 'Palaniappan (98405 01323) handles D2C mailer boxes, printed cartons and domestic brand orders. Periyanan (94444 20367) handles export master cartons, container loading and food-grade packaging. Both speak English and Tamil and can be reached by phone or WhatsApp.',
+        a: 'Aswin Nagappan (73050 20110) handles D2C mailer boxes, printed cartons and domestic brand orders. Periyanan (94444 20367) handles export master cartons, container loading and food-grade packaging. Both speak English and Tamil and can be reached by phone or WhatsApp.',
       },
     ],
   },
@@ -76,7 +76,7 @@ const STATIC_ANSWERS: Record<string, { heading: string; items: FaqItem[] }> = {
       },
       {
         q: 'Which number should I call?',
-        a: 'Call or WhatsApp Palaniappan on 98405 01323 for D2C, mailer box and domestic brand orders, or Periyanan on 94444 20367 for export master cartons, container loading and food-grade packaging. Both can take a quote request in English or Tamil.',
+        a: 'Call or WhatsApp Aswin Nagappan on 73050 20110 for D2C, mailer box and domestic brand orders, or Periyanan on 94444 20367 for export master cartons, container loading and food-grade packaging. Both can take a quote request in English or Tamil.',
       },
     ],
   },

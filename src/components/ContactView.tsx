@@ -22,7 +22,7 @@ export const ContactView: React.FC = () => {
 
     const recipient = productInterest.toLowerCase().includes('food') || userType.includes('Food') || userType.includes('Exporter')
       ? 'periyanan'
-      : 'palaniappan';
+      : 'aswin-nagappan';
 
     // 1. Save lead to local storage
     saveInquiry({
@@ -230,10 +230,10 @@ export const ContactView: React.FC = () => {
 
             <div className="space-y-4 text-xs">
               <div className="bg-white p-4 rounded-xl border border-black/10 space-y-1">
-                <div className="font-serif-display font-semibold text-sm text-[#111111]"><Link to="/team/palaniappan" className="hover:text-[#0068c9] hover:underline">Palaniappan</Link></div>
+                <div className="font-serif-display font-semibold text-sm text-[#111111]"><Link to="/team/aswin-nagappan" className="hover:text-[#0068c9] hover:underline">Aswin Nagappan</Link></div>
                 <div className="text-xs text-[#696969]">D2C & Domestic Brand Specialist</div>
                 <div className="tabular-nums font-bold text-[#0068c9] pt-1">
-                  <a href="tel:+919840501323" className="hover:underline">98405 01323</a>
+                  <a href="tel:+917305020110" className="hover:underline">73050 20110</a>
                 </div>
               </div>
 

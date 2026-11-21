@@ -3,7 +3,7 @@ import { ProductItem } from '../types';
 import { Globe2, Ship, AlertOctagon, Send, Calculator, ShieldCheck } from 'lucide-react';
 
 interface ExportViewProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', noteOrProduct?: string | ProductItem) => void;
 }
 
 export const ExportView: React.FC<ExportViewProps> = ({ openContact }) => {

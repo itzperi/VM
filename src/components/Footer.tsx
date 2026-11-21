@@ -5,7 +5,7 @@ import { CHENNAI_LOCALITIES, TAMIL_NADU_CITIES, PLANT_MAPS_SHARE_URL } from '../
 import { OWNER_FACTS } from '../data/ownerFacts';
 
 interface FooterProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan') => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan') => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ openContact }) => {
@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
               Get directions →
             </a>
             <div className="pt-2 tabular-nums text-[#0068c9] font-semibold space-y-0.5">
-              <div>Palaniappan, <a href="tel:+919840501323" className="hover:underline">98405 01323</a></div>
+              <div>Aswin Nagappan, <a href="tel:+917305020110" className="hover:underline">73050 20110</a></div>
               <div>Periyanan, <a href="tel:+919444420367" className="hover:underline">94444 20367</a></div>
               {OWNER_FACTS.email && (
                 <div><a href={`mailto:${OWNER_FACTS.email}`} className="hover:underline">{OWNER_FACTS.email}</a></div>
@@ -177,6 +177,13 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
             Packaging Guides & Blog
           </Link>
           <Link
+            to="/packaging-glossary"
+            onClick={scrollTop}
+            className="text-left font-body text-xs text-[#615d59] hover:text-[#0068c9] transition-colors py-1"
+          >
+            Packaging Glossary
+          </Link>
+          <Link
             to="/contact"
             onClick={scrollTop}
             className="text-left font-body text-xs text-[#615d59] hover:text-[#0068c9] transition-colors py-1"
@@ -186,7 +193,7 @@ export const Footer: React.FC<FooterProps> = ({ openContact }) => {
 
           <div className="pt-4 mt-2 border-t border-black/10">
             <button
-              onClick={() => openContact('palaniappan', 'Bulk quote request from footer')}
+              onClick={() => openContact('aswin-nagappan', 'Bulk quote request from footer')}
               className="bg-[#0075de] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#005bab] transition-colors cursor-pointer w-full text-center block"
             >
               Get a Bulk Quote

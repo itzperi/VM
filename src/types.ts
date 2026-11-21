@@ -44,7 +44,7 @@ export interface QuoteRequest {
   phone: string;
   companyName: string;
   userType?: 'D2C/E-commerce brand' | 'Food or FMCG manufacturer' | 'Exporter' | 'Other';
-  recipient: 'palaniappan' | 'periyanan' | 'general';
+  recipient: 'aswin-nagappan' | 'periyanan' | 'general';
   category: 'd2c' | 'food' | 'export' | 'products' | 'general';
   estimatedUnits: string;
   targetStartDate?: string;
@@ -59,7 +59,7 @@ export interface InquiryRecord {
   companyName?: string;
   userType?: string;
   requirement: string;
-  recipient: 'palaniappan' | 'periyanan' | 'general';
+  recipient: 'aswin-nagappan' | 'periyanan' | 'general';
   estimatedUnits?: string;
   targetStartDate?: string;
   notes?: string;

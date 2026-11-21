@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { BrandLogo } from './BrandLogo';
 
 interface HeroSectionProps {
-  openContact: (recipient?: 'palaniappan' | 'periyanan', note?: string) => void;
+  openContact: (recipient?: 'aswin-nagappan' | 'periyanan', note?: string) => void;
 }
 
 const FACTS = [
@@ -53,7 +53,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ openContact }) => (
       {/* One filled primary action; the alternative is a ghost tint. */}
       <div className="flex flex-wrap items-center justify-center gap-3 mb-8 fade-in-up">
         <button
-          onClick={() => openContact('palaniappan', 'Bulk quote request from homepage')}
+          onClick={() => openContact('aswin-nagappan', 'Bulk quote request from homepage')}
           className="bg-[#0075de] text-white px-6 py-2.5 text-[15px] font-medium hover:bg-[#005bab] transition-colors duration-200 rounded-lg cursor-pointer"
         >
           Get a Bulk Quote

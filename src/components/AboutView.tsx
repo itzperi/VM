@@ -5,7 +5,7 @@ import { OWNER_FACTS } from '../data/ownerFacts';
 import { PLANT_ADDRESS_FULL } from '../lib/siteConfig';
 
 interface AboutViewProps {
-  openContact?: (recipient?: 'palaniappan' | 'periyanan', note?: string) => void;
+  openContact?: (recipient?: 'aswin-nagappan' | 'periyanan', note?: string) => void;
 }
 
 export const AboutView: React.FC<AboutViewProps> = ({ openContact }) => {
@@ -13,7 +13,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ openContact }) => {
     ['Plant', PLANT_ADDRESS_FULL],
     ['Minimum order', '5,000 units (large boxes) · 10,000 units (small boxes)'],
     ['Products', 'TV, fan and appliance cartons, export master cartons, corrugated boxes, mailers, food packaging'],
-    ['Specialists', 'Palaniappan (D2C & domestic) · Periyanan (food & export)'],
+    ['Specialists', 'Aswin Nagappan (D2C & domestic) · Periyanan (food & export)'],
     ...(OWNER_FACTS.foundingYear ? [['Founded', OWNER_FACTS.foundingYear] as [string, string]] : []),
     ...(OWNER_FACTS.capacity ? [['Production capacity', OWNER_FACTS.capacity] as [string, string]] : []),
     ...(OWNER_FACTS.boardRange ? [['Board range', OWNER_FACTS.boardRange] as [string, string]] : []),
@@ -70,15 +70,15 @@ export const AboutView: React.FC<AboutViewProps> = ({ openContact }) => {
           <div className="bg-white border border-black/10 p-6 rounded-xl space-y-2">
             <Factory className="w-6 h-6 text-[#0068c9] mb-2" />
             <h3 className="font-serif-display text-lg text-[#111111] font-medium">
-              <Link to="/team/palaniappan" className="hover:text-[#0068c9]">Palaniappan, D2C &amp; Domestic Lead</Link>
+              <Link to="/team/aswin-nagappan" className="hover:text-[#0068c9]">Aswin Nagappan, D2C &amp; Domestic Lead</Link>
             </h3>
             <p className="text-xs text-[#615d59]">
-              Direct Line / WhatsApp: <a href="tel:+919840501323" className="font-semibold text-[#111111] hover:underline">98405 01323</a> · English, Tamil
+              Direct Line / WhatsApp: <a href="tel:+917305020110" className="font-semibold text-[#111111] hover:underline">73050 20110</a> · English, Tamil
             </p>
             <p className="text-xs text-[#615d59] pt-2 border-t border-black/10">
               Handles D2C mailer boxes, custom printed cartons, courier mailers and brand unboxing proofs.
               If you are planning a bulk run for a new box size or need a pre-production sample turned around fast for a launch
-              date, Palaniappan is who you talk to directly, not a general inquiry queue.
+              date, Aswin Nagappan is who you talk to directly, not a general inquiry queue.
             </p>
           </div>
 
